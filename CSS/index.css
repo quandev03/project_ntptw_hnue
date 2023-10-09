@@ -1,0 +1,10 @@
+#nav_tag_1  {
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+}
+#nav_tag_2  {
+  width: 20%;
+  display: flex;
+  justify-content: space-around
+}
