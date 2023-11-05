@@ -28,22 +28,7 @@ body {
  pre {
   color: blue
  }
-.question {
-  color: blue;
-  border: solid 2px black;
-  background-color: bisque;
-  width: 20%;
-  min-width: 350px;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  border-radius: 20px;
-  padding-left: 10%;
-  padding-right: 10%;
-  margin-bottom: 5px;
-  /* align-items: center; */
-  
-}
+
 .answer {
   color:brown;
 }
@@ -79,6 +64,7 @@ button {
   width: 30%;
   min-width: 272px;
   margin-bottom: 10px;
+  flex-direction: column;
 }
 .form_input_login {
   display: flex;
@@ -120,7 +106,5 @@ a {
 }
 
 .home:hover {
-  /* border-bottom: 3px solid #ffffff; */
-  box-shadow: 3px 3px 6px rgb(255, 203, 203);
-  border-radius: 2px;
+  border-bottom: white 3px solid;
 }

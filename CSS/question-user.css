@@ -1,0 +1,35 @@
+#nav_tag_2 {
+  position: absolute;
+  top: 0px;
+}
+#logout {
+  top: 0px;
+  
+}
+
+.question {
+  color: rgb(65, 160, 192) !important;
+  background-color: rgba(242, 242, 242, 0.574);
+  width: 20%;
+  min-width: 350px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-bottom: 10px;
+  box-shadow:  2px 2px 2px rgb(194, 194, 194);
+  /* align-items: center; */
+  
+}
+.answers {
+  list-style-type: none;
+
+}
+pre {
+  color: rgb(65, 160, 192) !important;
+}
+li {
+  color: rgb(65, 160, 192) !important;
+}

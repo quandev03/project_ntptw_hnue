@@ -16,6 +16,8 @@ function handleLoadPage() {
     let nav1 = document.createElement("a")
     let nav2 = document.createElement("a")
     nav1.innerHTML = "Login"
+    nav1.setAttribute("class", "home")
+    nav2.setAttribute("class", "home")
     nav2.innerHTML = "Sign Up"
     nav1.setAttribute("href", "http://127.0.0.1:5500/HTML/Login_HTML/login_user.html")
     nav2.setAttribute("href", "http://127.0.0.1:5500/HTML/SignUP_HTML/sign_up.html")

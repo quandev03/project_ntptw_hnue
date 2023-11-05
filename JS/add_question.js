@@ -16,7 +16,9 @@ function handleLoadPage() {
     nav1.innerHTML = "Login"
     nav2.innerHTML = "Sign Up"
     nav1.setAttribute("href", "http://127.0.0.1:5500/HTML/Login_HTML/login_user.html")
+    nav1.setAttribute("class", "home")
     nav2.setAttribute("href", "")
+    nav2.setAttribute("class", "home")
     nav_tag_2.appendChild(nav1)
     nav_tag_2.appendChild(nav2)
 
@@ -28,14 +30,17 @@ function handleLoadPage() {
     // ! information account
     let fullName = document.createElement('h2')
     fullName.innerHTML = dataUser.fullName
-    fullName.setAttribute('id', 'logout')
+    fullName.setAttribute('id', 'c')
+    fullName.setAttribute('class', 'home')
     nav_tag_2.appendChild(fullName)
     // ! render add questions
     let title = document.createElement('h1')
+    title.setAttribute('id', 'title')
+    title.innerHTML = "Add Question"
 
     // ? question
-    title.innerHTML = "Add Question"
     let labels = document.createElement('label')
+    labels.setAttribute('class', 'label')
     labels.innerHTML = "Your question: "
     let question = document.createElement('input')
     question.setAttribute('placeholder', "enter question in here")
@@ -44,10 +49,12 @@ function handleLoadPage() {
     let from_question = document.createElement('div')
     from_question.appendChild(labels)
     from_question.appendChild(question)
+    from_question.setAttribute("id", 'from_question')
 
     // ? kind of question
     let label_kind_of_question = document.createElement('label')
     label_kind_of_question.setAttribute('for', 'kind_of_question')
+    label_kind_of_question.setAttribute('class', 'label')
     label_kind_of_question.innerHTML= 'Kind of question:  '
 
     let kind_of_question = document.createElement('select')
@@ -77,6 +84,7 @@ function handleLoadPage() {
 
 
     let from_kind_of_question = document.createElement('div')
+    from_kind_of_question.setAttribute('id', 'from_kind_of_question')
     from_kind_of_question.appendChild(label_kind_of_question)
     from_kind_of_question.appendChild(kind_of_question)
     
@@ -88,12 +96,16 @@ function handleLoadPage() {
     button.setAttribute('id', 'button_submit')
     button.setAttribute('type', 'submit')
     button.innerHTML = 'Submit'
+  // ! form input 
+    const form = document.createElement("div")
+    form.setAttribute('id', 'form_input')
+    form.appendChild(title)
+    form.appendChild(from_question)
+    form.appendChild(from_kind_of_question)
+    form.appendChild(answer)
+    form.appendChild(button)
     // ! render website in
-    bodyPage.appendChild(title)
-    bodyPage.appendChild(from_question)
-    bodyPage.appendChild(from_kind_of_question)
-    bodyPage.appendChild(answer)
-    bodyPage.appendChild(button)
+    bodyPage.appendChild(form)
     
   }  
 }
@@ -225,7 +237,9 @@ function handle_submit() {
   console.log(data_sent);
   localStorage.setItem('data_question', JSON.stringify(data_question));
   
-  location.reload();
+  const change = document.createElement("a")
+  change.setAttribute("href", "http://127.0.0.1:5500/HTML/Question_HTML/question_user.html")
+  change.click()
 }
 
 

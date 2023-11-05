@@ -1,27 +1,27 @@
 #title_login {
   font-size: 50px !important;
-  color: rgb(116, 173, 173);
+  color: rgb(65, 160, 192);
   text-shadow: 2px 3px 4px rgb(137, 134, 134);
 } 
 .input{
   width: 95% !important;
   height: 25px !important;
-  border: 1px solid rgb(104, 144, 179);
+  border: 1px solid rgb(65, 160, 192);
   border-radius: 5px;
   padding: 2px 10px 2px 10px;
   font-size: 15px;
-  color: rgb(104, 144, 179);;
+  color: rgb(65, 160, 192);
 }
 .label{
   font-size: 20px;
   margin-right: 5px;
   width: 100px;
-  color: rgb(95, 145, 160);
+  color: rgb(65, 160, 192);
 }
 #button_login {
   width: 25%;
   height: 50px;
-  background-color:  rgb(95, 145, 160) ;
+  background-color:  rgb(65, 160, 192) ;
   font-size: 30px;
   color: antiquewhite;
   position: absolute;
@@ -33,7 +33,7 @@
   background-color:  rgb(80, 175, 204) ;
 }
 #label-hidden{
-  color: rgb(95, 145, 160);
+  color: rgb(65, 160, 192);
   font-size: 15px
 }
 .form_hidden_password {

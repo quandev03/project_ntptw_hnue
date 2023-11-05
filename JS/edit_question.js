@@ -2,7 +2,7 @@
 // ! onload: function handle
 function handleLoadPage() {
   const bodyPage = document.getElementById("main_page")
-  let dataUser = JSON.parse(localStorage.getItem("dataUser"))
+  let dataUser = JSON.parse(sessionStorage.getItem("account"))
   let dataQuestion = JSON.parse(localStorage.getItem("data_question"))
   console.log(dataUser);
   console.log(dataQuestion);
@@ -39,10 +39,12 @@ function handleLoadPage() {
     
     // ! render add questions
     let title = document.createElement('h1')
+    title.innerHTML = "Edit Question"
+    title.setAttribute('id', 'title')
 
     // ? question
-    title.innerHTML = "Edit Question"
     let labels = document.createElement('label')
+    labels.setAttribute("class", "label")
     labels.innerHTML = "Your question: "
     let question = document.createElement('input')
     question.setAttribute('placeholder', "enter question in here")
@@ -50,13 +52,15 @@ function handleLoadPage() {
     question.value = info_question.content
     labels.setAttribute('for', 'question_input')
     let from_question = document.createElement('div')
+    from_question.setAttribute('id', 'from_question')
     from_question.appendChild(labels)
     from_question.appendChild(question)
 
     // ? kind of question
     let label_kind_of_question = document.createElement('label')
     label_kind_of_question.setAttribute('for', 'kind_of_question')
-    label_kind_of_question.innerHTML= 'Kind of question:  '
+    label_kind_of_question.innerHTML = 'Kind of question:  '
+    label_kind_of_question.setAttribute("class", "label")
 
     let kind_of_question = document.createElement('select')
     kind_of_question.setAttribute('id', 'kind_of_question')
@@ -145,12 +149,17 @@ function handleLoadPage() {
     button.setAttribute('id', 'button_submit')
     button.setAttribute('type', 'submit')
     button.innerHTML = 'Submit'
+    // ! frame
+    const frame_editor = document.createElement("div")
+    frame_editor.setAttribute('id', 'frame_editor')
+    frame_editor.appendChild(title)
+    frame_editor.appendChild(from_question)
+    frame_editor.appendChild(from_kind_of_question)
+    frame_editor.appendChild(answers)
+    frame_editor.appendChild(button)
+
     // ! render website in
-    bodyPage.appendChild(title)
-    bodyPage.appendChild(from_question)
-    bodyPage.appendChild(from_kind_of_question)
-    bodyPage.appendChild(answers)
-    bodyPage.appendChild(button)
+    bodyPage.appendChild(frame_editor)
     
   }  
 }

@@ -6,9 +6,11 @@ function handle_load_page() {
 
   // !  code for page loading
   const title = document.createElement("h1")
+  title.setAttribute("id", "title_signup")
   title.innerHTML = "Sign Up"
-  bodyPage.appendChild(title)
+
   
+
   // ! code for enter input information new account
 
   // ? code for enter input information username
@@ -31,7 +33,7 @@ function handle_load_page() {
   const fullName_input = document.createElement("input")
   fullName_input.setAttribute("id", "fullName_input")
 
-  
+
   // ? code for enter input information address
 
   const label_address = document.createElement("label")
@@ -63,7 +65,7 @@ function handle_load_page() {
   const password_input = document.createElement("input")
   password_input.setAttribute("id", "password_input")
   password_input.setAttribute("type", 'password')
-  
+
 
   // ? code for enter input information password confirm
 
@@ -103,22 +105,35 @@ function handle_load_page() {
   form_input_confirm_password.appendChild(label_confirm_password)
   form_input_confirm_password.appendChild(password_confirm_input)
 
+  
+  
   // ! create button handlers for signup buttons
   const button_signup = document.createElement('button')
   button_signup.innerHTML = 'Sign Up'
   button_signup.setAttribute('id', 'button_signup')
+
+
+  // ! Form layers
+  const form_layer = document.createElement("div")
+  form_layer.setAttribute('class', 'form_layer')
+  
+  form_layer.appendChild(title)
+  form_layer.appendChild(form_input_username)
+  form_layer.appendChild(form_input_fullName)
+  form_layer.appendChild(form_input_age)
+  form_layer.appendChild(form_input_address)
+  form_layer.appendChild(form_input_password)
+  form_layer.appendChild(form_input_confirm_password)
+  form_layer.appendChild(button_signup)
+
+
   // ! render in here 
-  bodyPage.appendChild(form_input_username)
-  bodyPage.appendChild(form_input_fullName)
-  bodyPage.appendChild(form_input_age)
-  bodyPage.appendChild(form_input_address)
-  bodyPage.appendChild(form_input_password)
-  bodyPage.appendChild(form_input_confirm_password)
-  bodyPage.appendChild(button_signup)
+  bodyPage.appendChild(form_layer)
+
 }
 
 const create_id = () => {
-  id =''
+  id = ''
   for (let i = 0; i < 8; i++) {
     let element = (Math.random() * 10).toFixed(0)
     element == 10 ? element = 0 : element
@@ -136,7 +151,7 @@ function check_already_accounted(accounts, username) {
     if (account.username == username) {
       check_already = true
     }
-    
+
   })
   if (check_already) {
     return true
@@ -159,8 +174,8 @@ function handle_signup() {
 
   // ! check password
 
-  if (password_input === confirm_password_input ) {
-    const new_account ={
+  if (password_input === confirm_password_input) {
+    const new_account = {
       id: create_id(),
       username: username,
       full_name: full_name,
@@ -172,7 +187,7 @@ function handle_signup() {
 
     if (accounts === null) {
       accounts = [];
-      
+
     }
     console.log(accounts);
     if (check_already_accounted(accounts, username) === false) {
@@ -183,9 +198,9 @@ function handle_signup() {
       change_page.click()
     }
     else {
-      alert( ' account already exists')
+      alert(' account already exists')
     }
-    
+
 
   } else {
     console.log('password is not valid');

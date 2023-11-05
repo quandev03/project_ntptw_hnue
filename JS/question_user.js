@@ -16,7 +16,6 @@ function handleLoadPage() {
       }
     }
   )
-  console.log(data_question);
   const nav_tag_2 = document.getElementById("nav_tag_2")
   if (dataUser == null) {
     let nav1 = document.createElement("a")
@@ -82,6 +81,7 @@ function handleLoadPage() {
               answersInfo.map(element => {
                 console.log(element);
                 const li1 = document.createElement('li')
+                li1.setAttribute('class', 'answers')
                 const checkbox = document.createElement('input')
                 checkbox.setAttribute('type', 'checkbox')
                 checkbox.checked = element.isTrue
@@ -100,6 +100,7 @@ function handleLoadPage() {
               break;
             default:
               const li2 = document.createElement('li')
+              li2.setAttribute('class', 'answers')
               li2.innerHTML = ` Answer: ${element[1][0].answer}`
               answers.appendChild(li2)
               
@@ -119,6 +120,15 @@ function handleLoadPage() {
           bodyPage.appendChild(question)
         }
       )
+    }
+    else {
+      const frame = document.createElement("div")
+      frame.className = "frame_title"
+      const title = document.createElement("h1")
+      title.className= "title-h1"
+      title.innerHTML = "No answer"
+      frame.appendChild(title)
+      bodyPage.appendChild(frame)
     }
     let button_edit = document.createElement('button')
     button_edit.innerHTML = "EDIT"
@@ -207,6 +217,7 @@ function edit_question() {
     location.reload()
   } else {
     localStorage.setItem('edit_question_stt', edit_question_stt)
+    alert("Edit question")
     change.click()
   }
   
