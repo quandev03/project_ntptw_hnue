@@ -4,7 +4,7 @@
   text-shadow: 2px 3px 4px rgb(137, 134, 134);
 } 
 .input{
-  width: 250px !important;
+  width: 95% !important;
   height: 25px !important;
   border: 1px solid rgb(104, 144, 179);
   border-radius: 5px;
@@ -13,18 +13,19 @@
   color: rgb(104, 144, 179);;
 }
 .label{
-  font-size: 25px;
+  font-size: 20px;
   margin-right: 5px;
   width: 100px;
   color: rgb(95, 145, 160);
 }
 #button_login {
+  width: 25%;
   height: 50px;
   background-color:  rgb(95, 145, 160) ;
   font-size: 30px;
   color: antiquewhite;
   position: absolute;
-  top: 50%;
+  top: 60%;
 }
 #button_login:hover {
   box-shadow: 5px 5px 5px rgb(79, 213, 227);
@@ -49,7 +50,7 @@
   align-items: center;
   margin-top: 20px;
   width: 30%;
-  height: 300px;
+  height: 400px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgb(202, 202, 202);
   padding: 10px 50px 70px 50px;
@@ -57,7 +58,10 @@
 }
 #form_username , #form_password {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 #form_hidden_pass{
-  width: 60%;
+  width: 40%;
+  min-width: 130px
 }

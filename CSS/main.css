@@ -111,14 +111,16 @@ button {
 a {
   transition: width 2s;
   width: auto;
-  height: 30px;
+  height: 25px;
   padding: 5px;
+  padding-bottom: 0px !important;
   color: aliceblue;
   text-decoration: none;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 .home:hover {
-  font-size: 20px !important;
-  text-shadow: 2px 2px 2px #fc9292 !important;
+  /* border-bottom: 3px solid #ffffff; */
+  box-shadow: 3px 3px 6px rgb(255, 203, 203);
+  border-radius: 2px;
 }
