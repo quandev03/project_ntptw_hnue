@@ -7,6 +7,7 @@ function handle_load_page() {
   const nav_tag = document.getElementById('nav_tag_1')
   // ! create title
   const title = document.createElement('h1')
+  title.setAttribute('id', 'title')
   title.innerHTML = 'Login Administrator' 
   nav_tag.appendChild(title)
   const admin_account = {
@@ -14,12 +15,21 @@ function handle_load_page() {
     password: 'admin',
   }
   localStorage.setItem('admin_account', JSON.stringify(admin_account))
+  // ! create title 2
+  const title2 = document.createElement('h1')
+  title2.setAttribute('id', 'title2')
+  title2.innerText = "Administrator"
+
+
   // ! create input element
   const label_username = document.createElement('label')
   
   const input_username = document.createElement('input')
+  input_username.placeholder = "Enter username"
   const label_password = document.createElement('label')
   const input_password = document.createElement('input')
+  input_password.type = 'password'
+  input_password.placeholder = 'Enter your Password'
   label_username.innerHTML = 'Username'
   input_username.setAttribute('id', 'input_username')
   label_username.setAttribute('for', 'username_input')
@@ -41,11 +51,16 @@ function handle_load_page() {
   const button_login = document.createElement('button')
   button_login.innerHTML = 'Login'
   button_login.setAttribute('id', 'button_login')
-  
+  // ! create form input
+  const form_input = document.createElement("div")
+  form_input.setAttribute('id', 'form_input')
+  form_input.appendChild(title2)
+  form_input.appendChild(form_username)
+  form_input.appendChild(form_password)
+  form_input.appendChild(button_login)
+
   // ! render in here
-  body_page.appendChild(form_username)
-  body_page.appendChild(form_password)
-  body_page.appendChild(button_login)
+  body_page.appendChild(form_input)
 }
 
 
