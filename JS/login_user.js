@@ -3,9 +3,10 @@
 function handle_load_page() {
 
   // ! get element from page
-  const body_page = document.getElementById('main_page')
+  const body_page = document.getElementById('main_page') // ? lấy đối tượng main_page
 
   // ! create title
+  // ? tạo tiêu đề chính
   const title = document.createElement('h1')
   title.innerHTML = 'Login'
   title.setAttribute('id', 'title_login')
@@ -19,7 +20,8 @@ function handle_load_page() {
   label_password.setAttribute('class', 'label')
   const input_password = document.createElement('input')
   label_username.innerHTML = 'Username'
-  input_username.setAttribute('class', 'input'); input_username.setAttribute('placeholder', 'Username')
+  input_username.setAttribute('class', 'input');
+  input_username.setAttribute('placeholder', 'Username')
   input_username.setAttribute('id', 'input_username')
   label_username.setAttribute('for', 'username_input')
   label_password.innerHTML = 'Password'

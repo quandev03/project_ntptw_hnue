@@ -2,13 +2,10 @@
 // ! onload: function handle
 function handleLoadPage() {
   const bodyPage = document.getElementById("main_page")
-  let dataUser = JSON.parse(sessionStorage.getItem("account"))
-  let dataQuestion = JSON.parse(localStorage.getItem("data_question"))
-  console.log(dataUser);
-  console.log(dataQuestion);
-
+  let dataUser = JSON.parse(sessionStorage.getItem("account")) // lấy dữ liệu đăng nhâpj
+  let dataQuestion = JSON.parse(localStorage.getItem("data_question")) // láy dữ liêuh câu hỏi
   const nav_tag_2 = document.getElementById("nav_tag_2")
-  if (dataUser == null) {
+  if (dataUser == null) { //! kiểm tra trạng thái đăng nhấp
     
     
     let nav1 = document.createElement("a")
@@ -22,13 +19,14 @@ function handleLoadPage() {
     nav_tag_2.appendChild(nav1)
     nav_tag_2.appendChild(nav2)
 
+    // tao thông báo khi chưa đăng nhập
     let notification = document.createElement("h1")
-    notification.innerHTML = " Please login to use services"
+    notification.innerHTML = " Please login to use services" 
     bodyPage.appendChild(notification)
   } else {
 
     // ! information account
-    let fullName = document.createElement('h2')
+    let fullName = document.createElement('h2') // ! hiển thị tên
     fullName.innerHTML = dataUser.fullName
     fullName.setAttribute('id', 'c')
     fullName.setAttribute('class', 'home')
@@ -38,7 +36,8 @@ function handleLoadPage() {
     title.setAttribute('id', 'title')
     title.innerHTML = "Add Question"
 
-    // ? question
+    // ? question 
+    // tạo trường hiển thị câu hỏi
     let labels = document.createElement('label')
     labels.setAttribute('class', 'label')
     labels.innerHTML = "Your question: "
@@ -52,25 +51,27 @@ function handleLoadPage() {
     from_question.setAttribute("id", 'from_question')
 
     // ? kind of question
+    // tạo trường nhập kiểu câu hỏi
     let label_kind_of_question = document.createElement('label')
     label_kind_of_question.setAttribute('for', 'kind_of_question')
     label_kind_of_question.setAttribute('class', 'label')
     label_kind_of_question.innerHTML= 'Kind of question:  '
 
+    // ? các kiểu câu hỏi
     let kind_of_question = document.createElement('select')
     kind_of_question.setAttribute('id', 'kind_of_question')
     
     let only_optional = document.createElement('option')
     only_optional.setAttribute('value', 'only optional')
-    only_optional.innerHTML = 'Only optional'
+    only_optional.innerHTML = 'Only optional' // ? một đáp án
     
     let multi_optional = document.createElement('option')
     multi_optional.setAttribute('value', 'multi optional')
-    multi_optional.innerHTML = 'Multi optional'
+    multi_optional.innerHTML = 'Multi optional' //? nhiều đáp án
     
     let essay = document.createElement('option')
     essay.setAttribute('value', 'essay')
-    essay.innerHTML = 'Essay'
+    essay.innerHTML = 'Essay' // ? tự luận
 
     let select = document.createElement('option')
     select.setAttribute('value', 'select')
@@ -83,6 +84,7 @@ function handleLoadPage() {
     kind_of_question.appendChild(multi_optional)
 
 
+    // ! tạo form cho lựa chọn kiểu câu hỏi
     let from_kind_of_question = document.createElement('div')
     from_kind_of_question.setAttribute('id', 'from_kind_of_question')
     from_kind_of_question.appendChild(label_kind_of_question)
@@ -91,12 +93,13 @@ function handleLoadPage() {
     // ! enter the answer in here
     let answer = document.createElement('div')
     answer.setAttribute('id', 'answer')
-    // ! button 
+    // ! button submit
     let button = document.createElement('button')
     button.setAttribute('id', 'button_submit')
     button.setAttribute('type', 'submit')
     button.innerHTML = 'Submit'
-  // ! form input 
+    // ! form input 
+    //? hiển thi element
     const form = document.createElement("div")
     form.setAttribute('id', 'form_input')
     form.appendChild(title)
@@ -104,7 +107,7 @@ function handleLoadPage() {
     form.appendChild(from_kind_of_question)
     form.appendChild(answer)
     form.appendChild(button)
-    // ! render website in
+    // ! render website in here
     bodyPage.appendChild(form)
     
   }  
@@ -114,18 +117,18 @@ function handle_kind_of_question() {
   const data = document.getElementById('kind_of_question').value
   const answers = document.getElementById('answer')
   
-  if (data != 'select') { 
-    document.getElementById('kind_of_question').setAttribute('disabled', true)
+  if (data != 'select') { // ? kiểm tra lựa chọn nếu lựa chọn khác lựa chọn mặc đinh thì đọng không cho chọn tiếp nếu là mặc định thì vấn cho chọn
+    document.getElementById('kind_of_question').setAttribute('disabled', true) // ? xét trạng thái ẩn
   }
-  console.log(data);
-  switch (data) {
+  // ! tạo form nhập câu trả lời
+  switch (data) { 
     case 'multi optional':
-      const number_of_responses = prompt("Number of responses:  ")
+      const number_of_responses = prompt("Number of responses:  ") // ? nhập số câu trả lời
       sessionStorage.setItem('number_of_responses', number_of_responses)
-      for (let i = 0; i < number_of_responses; i++) { 
-        const form_answer = document.createElement("div")
-        const checkbox = document.createElement("input")
-        checkbox.setAttribute("type", "checkbox")
+      for (let i = 0; i < number_of_responses; i++) {   // ? tạo câu trả lời
+        const form_answer = document.createElement("div") // ? tao form câu trả lời
+        const checkbox = document.createElement("input") //? tạo ô nhập câu hỏi
+        checkbox.setAttribute("type", "checkbox") // ? 
         checkbox.setAttribute('name', 'checkbox')
         checkbox.setAttribute("id", `checkbox_${i}`)
         checkbox.setAttribute("value", `${i}`)
@@ -219,8 +222,8 @@ function handle_submit() {
     data_question = []
   }
   let status = "waiting for approval" //? approved, waiting for approval, not approved
-  let stt = data_question.length + 1
-  let content_answer = document.getElementById("question_input").value
+  let stt = data_question.length + 1 //? tạo số thứ tự
+  let content_answer = document.getElementById("question_input").value // ? lấy giá trị từ in put nhập vào
   const data_sent = [
     {
       stt: stt,
@@ -231,15 +234,13 @@ function handle_submit() {
       kind_of_question: kind_of_question,
     },
     list_answer
-  ]
-  data_question.push(data_sent)
-  console.log(data_question);
-  console.log(data_sent);
-  localStorage.setItem('data_question', JSON.stringify(data_question));
+  ] // ! dữ liệu câu hỏi sẽ được gửi đi
+  data_question.push(data_sent) // ! dữ liệu câu hỏi vào hệ thống dữ liêu câu hỏi
+  localStorage.setItem('data_question', JSON.stringify(data_question)); // ! lại dữ liệu
   
-  const change = document.createElement("a")
+  const change = document.createElement("a") 
   change.setAttribute("href", "http://127.0.0.1:5500/HTML/Question_HTML/question_user.html")
-  change.click()
+  change.click() // load laij trang
 }
 
 

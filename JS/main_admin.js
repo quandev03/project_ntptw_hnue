@@ -1,20 +1,22 @@
 // TODO: function handle listeners event
+// ! hàm được tạo để tạo ra các element và hiển thị ra trang web
 function handleLoadPage() {
-  const body_page = document.getElementById('main_page')
-  const nav_tag = document.getElementById('nav_tag_2')
-  const status_login = JSON.parse(sessionStorage.getItem('status_login'))
-  console.log(status_login);
-  if (status_login != null) {
+  const body_page = document.getElementById('main_page') // lấy ra thành phần main page
+  const nav_tag = document.getElementById('nav_tag_2') //lấy ra thành phần nav bar
+  const status_login = JSON.parse(sessionStorage.getItem('status_login')) // trạng thái đăng nhâpj của admin
+
+  if (status_login != null) { // kiểm tra trạng thái đăng nhấpj của admin
     //! create title 
-    const title = document.createElement('h1')
-    title.innerHTML = 'Admin'
-    title.setAttribute('id', 'title')
-    nav_tag.appendChild(title)
+    const title = document.createElement('h1') //tạo ra title admin
+    title.innerHTML = 'Admin' // thêm text cho thẻ
+    title.setAttribute('id', 'title')//thêm id cho thẻ
+    nav_tag.appendChild(title)//hiển thị thẻ
 
     // ! get data from local storage
-    const data = JSON.parse(localStorage.getItem('data_question'))
+    const data = JSON.parse(localStorage.getItem('data_question')) // ! lấy dữ liệu câu hỏi từ kho lưu chữ
+    //! chuyển dữ liệu từ dạng JSON qua javascript
 
-    data.map(
+    data.map( // hàm lấy ra từng dư liệu của nhỏ
       (element) => {
         let questionInfo = element[0]
         let question = document.createElement('div') // ? create element div with variable name is question
@@ -25,15 +27,15 @@ function handleLoadPage() {
         let status = document.createElement("pre") // ? create element pre with variable name is content to render status question
         // let kind_of_question_render = document.createElement("pre") // ? create element pre
         // kind_of_questionInfo: ${questionInfo.kind_of_question}`
-        content.innerHTML = `Question: ${questionInfo.content}`
-        stt.innerHTML = `Ordinal number: ${questionInfo.stt}`
-        timeSent.innerHTML = `Time sent question: ${questionInfo.time_sent_answer}`
-        status.innerHTML = `Status: ${questionInfo.status}`
-        let answers = document.createElement('ul');
+        content.innerHTML = `Question: ${questionInfo.content}` // ? nhập dữ liêu cho content
+        stt.innerHTML = `Ordinal number: ${questionInfo.stt}` // ? nhập dữ liệu cho ô thứ tự
+        timeSent.innerHTML = `Time sent question: ${questionInfo.time_sent_answer}` // ? nhập dữ liệu thời gian gửi
+        status.innerHTML = `Status: ${questionInfo.status}` // ? nhập dữ liệu về trạng thái của câu hỏi
+        let answers = document.createElement('ul'); // tạo ra trường câu trả lời
         answers.setAttribute("class", "answer")
         let answersInfo = element[1]
-        switch (questionInfo.kind_of_question) {
-          case 'only optional':
+        switch (questionInfo.kind_of_question) { //kiểm tra kiểu câu trả lời
+          case 'only optional': // trắc nhiệm 1 đáp án
             answersInfo.map((element => {
               const li = document.createElement('pre')
               const radio = document.createElement('input')
@@ -52,7 +54,7 @@ function handleLoadPage() {
             }))
 
             break;
-          case 'multi optional':
+          case 'multi optional': // trắc nhiệm nhiều đáp án
             answersInfo.map(element => {
               console.log(element);
               const li1 = document.createElement('pre')
@@ -72,12 +74,13 @@ function handleLoadPage() {
               answers.appendChild(li1)
             })
             break;
-          default:
+          default: // mặc đinhj là câu trả lời tự luận
             const li2 = document.createElement('pre')
             li2.innerHTML = ` Answer: ${element[1][0].answer}`
             answers.appendChild(li2)
 
         }
+        //! hiển thị các thành phần
         question.appendChild(stt);
         question.appendChild(content);
         question.appendChild(timeSent);
@@ -93,7 +96,7 @@ function handleLoadPage() {
 
       }
     )
-    let button_disapprovals = document.createElement('button')
+    let button_disapprovals = document.createElement('button') // ! tạo button 
     button_disapprovals.setAttribute("id", "disapprovals-button")
     button_disapprovals.innerHTML = "DISAPPROVALS";
     let button_approvals = document.createElement('button');
@@ -105,10 +108,10 @@ function handleLoadPage() {
     group_button.setAttribute("class", "group_button");
 
     body_page.appendChild(group_button)
-  } else {
-    const change_page = document.createElement('a')
-    change_page.setAttribute('href', 'http://127.0.0.1:5500/HTML/Login_HTML/login_admin.html')
-    change_page.click();
+  } else { // ! khi chưa đăng nhập thì sẽ được chuyển tới trang đăng nhâp admin
+    const change_page = document.createElement('a') // tạo ra 1 element ảo
+    change_page.setAttribute('href', 'http://127.0.0.1:5500/HTML/Login_HTML/login_admin.html') // taọ router của element ảo
+    change_page.click(); //kích hoạt element ảo
   }
 
 }
@@ -148,15 +151,15 @@ function handleDisapprovalRequest() {
   location.reload()
 }
 // ! logout
-function logout() {
+function logout() { // hàm logout
   const status_login = JSON.parse(sessionStorage.getItem("status_login"))
-  status_login.admin_login = false
-  sessionStorage.setItem("status_login", JSON.stringify(status_login))
-  location.reload()
+  status_login.admin_login = false // chuyển trang thái đắng nhập thành fasle
+  sessionStorage.setItem("status_login", JSON.stringify(status_login)) // câp nhật trạng thái
+  location.reload() // load lại trang
 }
 
 // TODO: add event listeners
-document.addEventListener("load", handleLoadPage())
+document.addEventListener("load", handleLoadPage()) 
 document.getElementById('disapprovals-button').addEventListener('click', handleDisapprovalRequest)
 document.getElementById('approvals-button').addEventListener('click', handleApprovalRequest)
 document.getElementById('title').addEventListener('click', logout)
