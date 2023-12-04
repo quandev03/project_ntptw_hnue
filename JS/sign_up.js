@@ -197,3 +197,4 @@ function handle_signup() {
 // TODO: add listeners event handlers function
 document.addEventListener('load', handle_load_page())
 document.getElementById('button_signup').addEventListener('click', handle_signup)
+
