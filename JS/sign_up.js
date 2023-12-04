@@ -198,3 +198,4 @@ function handle_signup() {
 document.addEventListener('load', handle_load_page())
 document.getElementById('button_signup').addEventListener('click', handle_signup)
 
+// helo
