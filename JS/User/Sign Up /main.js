@@ -1,66 +1,60 @@
 // TODO: create function handling event
 
+import { create_element } from "../../Logic/create-element.js"
+import { event_change_page } from "../../Logic/event-change-page.js"
+import { get_element_id } from "../../Logic/get_element_id.js"
+import { get_item, set_item } from "../../Logic/storage.js"
+
 function handle_load_page() {
-  const bodyPage = document.getElementById("main_page")
+  const bodyPage = get_element_id("main_page")
 
 
   // !  code for page loading
-  const title = document.createElement("h1")
-  title.innerHTML = "Sign Up"
+  const title = create_element("h1", '', '', "Sign Up")
   bodyPage.appendChild(title)
   
-  // ! code for enter input information new account
 
   // ? code for enter input information username
 
-  const label_username = document.createElement("label")
-  label_username.innerHTML = "Username:"
+  const label_username = create_element("label", '', '', "Username:")
   label_username.setAttribute('for', 'username_input')
 
-  const username_input = document.createElement("input")
-  username_input.setAttribute("id", "username_input")
-
+  const username_input = create_element("input", 'username_input')
 
   // ? code for enter input information full name
 
-  const label_fullName = document.createElement("label")
+  const label_fullName = create_element("label", '', '', "Full Name: ")
   label_fullName.innerHTML = "Full Name:"
   label_fullName.setAttribute('for', 'fullName_input')
 
 
-  const fullName_input = document.createElement("input")
+  const fullName_input = create_element("input", 'fullName_input')
   fullName_input.setAttribute("id", "fullName_input")
 
   
   // ? code for enter input information address
 
-  const label_address = document.createElement("label")
-  label_address.innerHTML = "Address:"
+  const label_address = create_element("label", '', '', "Address: ")
   label_address.setAttribute('for', 'address_input')
 
-  const address_input = document.createElement("input")
-  address_input.setAttribute("id", "address_input")
-
+  const address_input = create_element("input", "address_input")
 
   // ? code for enter input information age
-
-  const label_age = document.createElement("label")
+  const label_age = create_element("label")
   label_age.innerHTML = "Age: "
   label_age.setAttribute('for', 'age_input')
 
-  const age_input = document.createElement("input")
-  age_input.setAttribute("id", "age_input")
+  const age_input = create_element("input", 'age_input', '',"")
   age_input.setAttribute("type", "number")
   age_input.setAttribute("min", '0')
 
 
   // ? code for enter input information password
 
-  const label_password = document.createElement("label")
-  label_password.innerHTML = "Password: "
+  const label_password = create_element("label", '', '',"Password: ")
   label_password.setAttribute('for', 'password_input')
 
-  const password_input = document.createElement("input")
+  const password_input = create_element("input")
   password_input.setAttribute("id", "password_input")
   password_input.setAttribute("type", 'password')
   
@@ -118,7 +112,7 @@ function handle_load_page() {
 }
 
 const create_id = () => {
-  id =''
+  let id =''
   for (let i = 0; i < 8; i++) {
     let element = (Math.random() * 10).toFixed(0)
     element == 10 ? element = 0 : element
@@ -148,14 +142,13 @@ function check_already_accounted(accounts, username) {
 
 function handle_signup() {
   // ! get value to sign up from input
-  const username = document.getElementById('username_input').value
-  const full_name = document.getElementById('fullName_input').value
-  const age = document.getElementById('age_input').value
-  const address = document.getElementById('address_input').value
-  const password_input = document.getElementById('password_input').value
-  const confirm_password_input = document.getElementById('password_confirm_input').value
+  const username = get_element_id('username_input').value
+  const full_name = get_element_id('fullName_input').value
+  const age = get_element_id('age_input').value
+  const address = get_element_id('address_input').value
+  const password_input = get_element_id('password_input').value
+  const confirm_password_input = get_element_id('password_confirm_input').value
 
-  // ! Create a new id
 
   // ! check password
 
@@ -168,7 +161,7 @@ function handle_signup() {
       address: address,
       password: password_input
     }
-    let accounts = JSON.parse(localStorage.getItem('accounts'))
+    let accounts = get_item('accounts', 'local')
 
     if (accounts === null) {
       accounts = [];
@@ -177,16 +170,12 @@ function handle_signup() {
     console.log(accounts);
     if (check_already_accounted(accounts, username) === false) {
       accounts.push(new_account)
-      localStorage.setItem('accounts', JSON.stringify(accounts))
-      const change_page = document.createElement('a')
-      change_page.setAttribute('href', 'http://127.0.0.1:5500/HTML/Login_HTML/login_user.html')
-      change_page.click()
+      set_item('accounts', 'local', accounts)
+      event_change_page('http://127.0.0.1:5500/HTML/Login_HTML/login_user.html')
     }
     else {
       alert( ' account already exists')
     }
-    
-
   } else {
     console.log('password is not valid');
   }
@@ -197,5 +186,3 @@ function handle_signup() {
 // TODO: add listeners event handlers function
 document.addEventListener('load', handle_load_page())
 document.getElementById('button_signup').addEventListener('click', handle_signup)
-
-// helo

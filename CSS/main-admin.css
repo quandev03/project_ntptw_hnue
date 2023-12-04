@@ -23,3 +23,10 @@ button:hover {
   animation-duration: 0.5s;
 
 }
+table {
+  width: 100%;
+}
+.status {
+  display: flex;
+  align-items: center;
+}

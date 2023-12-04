@@ -33,3 +33,19 @@ pre {
 li {
   color: rgb(65, 160, 192) !important;
 }
+table {
+  width: 100%;
+}
+.status {
+  display: flex;
+  align-items: center;
+}
+button {
+  width: 150px;
+  height: 50px;
+}
+.group-button {
+  display: flex;
+  width: 600px;
+  justify-content: space-around;
+}
