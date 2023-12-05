@@ -65,3 +65,8 @@
   width: 40%;
   min-width: 130px
 }
+body {
+  background-image: url(./../Image/386887894_1427326864572854_1247485141578846184_n.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}

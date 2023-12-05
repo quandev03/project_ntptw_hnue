@@ -1,9 +1,9 @@
 // TODO: create function to handle listeners events 
 
-import { create_element } from "../../Logic/create-element"
-import { event_change_page } from "../../Logic/event-change-page"
-import { get_element_id } from "../../Logic/get_element_id"
-import { get_item, set_item } from "../../Logic/storage"
+import { create_element } from "../../Logic/create-element.js"
+import { event_change_page } from "../../Logic/event-change-page.js"
+import { get_element_id } from "../../Logic/get_element_id.js"
+import { get_item, set_item } from "../../Logic/storage.js"
 
 function handle_load_page() {
 
@@ -15,6 +15,7 @@ function handle_load_page() {
   const title = create_element('h1', 'title_login', '', "Login")
 
   // ! create input element
+  // ? tạo lable Username
   const label_username = create_element('label', '', 'label', 'Username')
   const input_username = create_element('input', 'input_username', 'input')
   const label_password = create_element('label', '', 'label', 'Password')
