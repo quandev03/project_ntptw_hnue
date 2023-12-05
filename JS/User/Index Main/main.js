@@ -8,7 +8,7 @@ import { get_item } from "../../Logic/storage.js";
 // TODO: function handle listeners event
 function handleLoadPage() {
   const bodyPage = get_element_id("main_page")
-  let dataUser = get_item('account', 'local')
+  let dataUser = get_item('account', 'session')
 
   const nav_tag_2 = get_element_id("nav_tag_2")
   // ! kiểm tra đăng nhập

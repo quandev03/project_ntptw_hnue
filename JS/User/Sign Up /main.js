@@ -1,6 +1,7 @@
 // TODO: create function handling event
 
 import { create_element } from "../../Logic/create-element.js"
+import { create_id } from "../../Logic/create-id.js"
 import { event_change_page } from "../../Logic/event-change-page.js"
 import { get_element_id } from "../../Logic/get_element_id.js"
 import { get_item, set_item } from "../../Logic/storage.js"
@@ -111,15 +112,6 @@ function handle_load_page() {
   bodyPage.appendChild(button_signup)
 }
 
-const create_id = () => {
-  let id =''
-  for (let i = 0; i < 8; i++) {
-    let element = (Math.random() * 10).toFixed(0)
-    element == 10 ? element = 0 : element
-    id += element
-  }
-  return id;
-}
 // ! function check already exists of account
 function check_already_accounted(accounts, username) {
   let check_already = false
