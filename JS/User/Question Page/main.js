@@ -12,6 +12,7 @@ function handleLoadPage() {
   const bodyPage = get_element_id("main_page")
   let dataUser = get_item('account', 'session')
   let dataQuestion = get_item('data_question', 'local')
+  console.log(dataQuestion);
   if (dataQuestion === null) {
     dataQuestion = []
   }

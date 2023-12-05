@@ -19,15 +19,15 @@ function handleLoadPage() {
     let fullName = create_element('h2', 'logout', 'home', dataUser.fullName) // ! hiển thị tên
     nav_tag_2.appendChild(fullName)
     // ! render add questions
-    let title = create_element('h1', 'title', '', "Add Question")
+    let title = create_element('h1', 'title', '', "Add Question")// ! Quan tâm cái này
 
     // ? question 
     // tạo trường hiển thị câu hỏi
-    let labels = create_element('label', '', 'label', "Your question: ")
-    let question = create_element('input', 'question_input', )
+    let labels = create_element('label', '', 'label', "Your question: ") // tạo ra 1 phẩn tử label / không set id/ 
+    let question = create_element('input', 'question_input', ) // ! Quan tâm cái này
     question.setAttribute('placeholder', "enter question in here")
     labels.setAttribute('for', 'question_input')
-    let from_question = create_element('div', 'from_question')
+    let from_question = create_element('div', 'from_question') // ! Quan tâm cái này
     from_question.appendChild(labels)
     from_question.appendChild(question)
 
@@ -64,10 +64,9 @@ function handleLoadPage() {
     from_kind_of_question.appendChild(kind_of_question)
     
     // ! enter the answer in here
-    let answer = create_element('div', 'answer')
+    let answer = create_element('div', 'answers')
     // ! button submit
-    let button = create_element('button', 'button_submit', '','Submit')
-    // button.setAttribute('type', 'submit')
+    let button = create_element('button', 'button_submit', '','Gửi câu hỏi')
     // ! form input 
     //? hiển thi element
     const form = create_element('div', 'form_input')
@@ -91,7 +90,7 @@ function logout() {
 }
 
 
-// TODO: add listeners event handlers
+// TODO: add event listeners  handlers
 document.addEventListener('load', handleLoadPage())
 document.getElementById('kind_of_question').addEventListener('change', event_selection)
 document.getElementById('button_submit').addEventListener('click', handle_submit)

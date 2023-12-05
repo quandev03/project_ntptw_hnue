@@ -3,9 +3,9 @@ import { get_element_id } from "../../Logic/get_element_id.js";
 import { get_item, set_item } from "../../Logic/storage.js";
 
 export const handle_submit = () => {
-  const kind_of_question = get_element_id(kind_of_question).value
+  const kind_of_question = get_element_id('kind_of_question').value
   let list_answer
-  const user = get_item_item('account', 'local')
+  const user = get_item('account', 'session')
   let number_of_response;
   switch (kind_of_question) {
     case 'multi optional':
@@ -67,7 +67,18 @@ export const handle_submit = () => {
     },
     list_answer
   ] // ! dữ liệu câu hỏi sẽ được gửi đi
+
   data_question.push(data_sent) // ! dữ liệu câu hỏi vào hệ thống dữ liêu câu hỏi
-  set_item('data_question', 'local', data_question) // ! lại dữ liệu
+
+  console.log(data_sent.kind_of_question);
+  if (
+    data_sent[0].kind_of_question == "essay" ||
+    data_sent[0].kind_of_question == 'multi optional' ||
+    data_sent[0].kind_of_question == "only optional"
+  ) {
+    set_item('data_question', 'local', data_question)
+  } // ! lại dữ liệu
+    
+  
   event_change_page('http://127.0.0.1:5500/HTML/Question_HTML/question_user.html')
 }

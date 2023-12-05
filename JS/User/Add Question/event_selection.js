@@ -5,6 +5,7 @@ import { set_item } from "../../Logic/storage.js"
 export const event_selection = () => { 
   const data = get_element_id('kind_of_question').value
   const answers = get_element_id('answers')
+  console.log(answers);
   
   if (data != 'select') {
     get_element_id('kind_of_question').setAttribute('disabled', true) // ? xét trạng thái ẩn
