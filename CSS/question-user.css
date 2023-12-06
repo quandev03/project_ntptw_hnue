@@ -54,3 +54,6 @@ body {
   background-size: 100%;
   background-repeat: no-repeat;
 }
+#hidden {
+  background-image: url(./../Image/show_mode.jpg);
+}

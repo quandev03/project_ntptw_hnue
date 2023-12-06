@@ -134,20 +134,22 @@ function handleLoadPage() {
       frame.appendChild(title)
       bodyPage.appendChild(frame)
     }
-    let button_edit = create_element("button", 'edit-button', '', "EDIT")
+    const button_edit = create_element("button", 'edit-button', '', "EDIT")
 
-    let button_delete = create_element('button', "delete-button", '', "DELETE")
+    const button_delete = create_element('button', "delete-button", '', "DELETE")
 
-    let button_add_question = create_element('button', "add-question-button", '', "ADD QUESTION");
+    const button_add_question = create_element('button', "add-question-button", '', "ADD QUESTION");
+
+    const hidden = create_element('div', 'hidden')
 
 
-    let group_button = create_element('div', '', 'group-button');
-    group_button.appendChild(button_add_question);
-    group_button.appendChild(button_edit);
-    group_button.appendChild(button_delete);
+
 
     
-    bodyPage.appendChild(group_button)
+    bodyPage.appendChild(button_add_question)
+    bodyPage.appendChild(button_edit)
+    bodyPage.appendChild(button_delete)
+    bodyPage.appendChild(hidden)
     
     
 
