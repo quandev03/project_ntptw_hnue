@@ -30,3 +30,8 @@ table {
   display: flex;
   align-items: center;
 }
+body {
+  background-image: url(./../Image/bg_1.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}

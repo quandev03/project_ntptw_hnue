@@ -108,3 +108,9 @@ a {
 .home:hover {
   border-bottom: white 3px solid;
 }
+
+body {
+  background-image: url(./../Image/bg_1.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}

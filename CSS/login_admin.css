@@ -48,3 +48,8 @@ input {
   color: rgb(65, 160, 192);
   padding: 5px 5px 5px 5px;
 }
+body {
+  background-image: url(./../Image/bg_1.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}

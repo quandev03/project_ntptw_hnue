@@ -49,3 +49,8 @@ button {
   width: 600px;
   justify-content: space-around;
 }
+body {
+  background-image: url(./../Image/bg_1.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}

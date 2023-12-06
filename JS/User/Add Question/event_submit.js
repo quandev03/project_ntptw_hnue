@@ -68,7 +68,7 @@ export const handle_submit = () => {
     list_answer
   ] // ! dữ liệu câu hỏi sẽ được gửi đi
 
-  data_question.push(data_sent) // ! dữ liệu câu hỏi vào hệ thống dữ liêu câu hỏi
+  data_question.push(data_sent) // ! dữ liệu câu hỏi vào hệ thống dữ liệu câu hỏi
 
   console.log(data_sent.kind_of_question);
   if (
@@ -79,6 +79,5 @@ export const handle_submit = () => {
     set_item('data_question', 'local', data_question)
   } // ! lại dữ liệu
     
-  
   event_change_page('http://127.0.0.1:5500/HTML/Question_HTML/question_user.html')
 }

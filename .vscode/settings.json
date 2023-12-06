@@ -1,4 +1,9 @@
 {
   "liveServer.settings.port": 5500,
-  "liveServer.settings.ChromeDebuggingAttachment": false
+  "liveServer.settings.ChromeDebuggingAttachment": false,
+  "cSpell.words": [
+    "signup",
+    "trống",
+    "xuất"
+  ]
 }

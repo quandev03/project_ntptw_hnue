@@ -8,8 +8,8 @@ import { handle_submit } from "./event_submit.js"
 // ! onload: function handle
 function handleLoadPage() {
   const bodyPage = document.getElementById("main_page")
-  let dataUser = JSON.parse(sessionStorage.getItem("account")) // lấy dữ liệu đăng nhâpj
-  let dataQuestion = JSON.parse(localStorage.getItem("data_question")) // láy dữ liêuh câu hỏi
+  let dataUser = JSON.parse(sessionStorage.getItem("account")) // lấy dữ liệu đăng nhập
+  let dataQuestion = JSON.parse(localStorage.getItem("data_question")) // láy dữ liệu câu hỏi
   const nav_tag_2 = document.getElementById("nav_tag_2")
   if (dataUser == null) { //! kiểm tra trạng thái đăng nhấp
     event_change_page("http://127.0.0.1:5500/HTML/Login_HTML/login_user.html")

@@ -62,7 +62,7 @@ function handle_load_page() {
   // ! create button login
   const button_login = create_element('button', 'button_login', '', 'Login')
   // ! create form input
-  // ? hiện thị các đối tương
+  // ? hiện thị các đối tượng
   const form_input = document.createElement("div")
   form_input.setAttribute('id', 'form_input')
   form_input.appendChild(title2)
@@ -78,5 +78,5 @@ function handle_load_page() {
 
 
 // TODO: create listener event
-document.addEventListener('load', handle_load_page()) // TODO: sự kiêu load trang lần đầù
+document.addEventListener('load', handle_load_page()) // TODO: sự kiện load trang lần đầù
 get_element_id('button_login').addEventListener('click', handle_login) // TODO: sự kiện đằng nhập

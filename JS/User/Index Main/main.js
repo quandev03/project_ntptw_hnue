@@ -62,5 +62,5 @@ function logout() {
 
 
 // TODO: add event listeners
-document.addEventListener("load", handleLoadPage()) // ? sự kiện load trang sẽ chaỵ hàm handleLoadPage
-document.getElementById('logout').addEventListener('click', logout) // ? sự kiên đăng xuất sẽ chạy hàm logout
+document.addEventListener("load", handleLoadPage()) // ? sự kiện load trang sẽ chạy hàm handleLoadPage
+document.getElementById('logout').addEventListener('click', logout) // ? sự kiện đăng xuất sẽ chạy hàm logout

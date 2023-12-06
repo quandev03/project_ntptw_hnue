@@ -16,15 +16,10 @@ function handleLoadPage() {
   if (dataQuestion === null) {
     dataQuestion = []
   }
-  let data_question = []
-  dataQuestion.map(
-    element => {
-      console.log(element[0].id_user);
-      if (dataUser.id === element[0].id_user) {
-        data_question.push(element)
-      }
-    }
-  )
+
+  console.log(dataUser.id, "", dataQuestion);
+  let data_question = dataQuestion.filter( (element) => dataUser.id == element[0].id_user)
+  console.log(data_question);
   const nav_tag_2 = get_element_id("nav_tag_2")
   if (dataUser == null) {
     let nav1 = create_element("a",'', '', "Login")
@@ -46,7 +41,7 @@ function handleLoadPage() {
     // ! render question
     if (data_question[0] != null) {
       //! render a question
-      dataQuestion.map(
+      data_question.map(
         (element) => {
           let questionInfo = element[0]
 

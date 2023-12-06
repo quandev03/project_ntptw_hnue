@@ -12,16 +12,15 @@ import { event_disapproval } from "./event_disapproval.js"
 function handleLoadPage() {
   const body_page = document.getElementById('main_page') // lấy ra thành phần main page
   const nav_tag = document.getElementById('nav_tag_2') //lấy ra thành phần nav bar
-  const status_login = JSON.parse(sessionStorage.getItem('status_login')) // trạng thái đăng nhâpj của admin
+  const status_login = JSON.parse(sessionStorage.getItem('status_login')) // trạng thái đăng nhập của admin
 
-  if (status_login != null) { // kiểm tra trạng thái đăng nhấpj của admin
+  if (status_login != null) { // kiểm tra trạng thái đăng nhập của admin
     //! create title 
     const title = create_element('h1', 'title', '', "Admin") //tạo ra title admin
     nav_tag.appendChild(title)//hiển thị thẻ
 
     // ! get data from local storage
-    const data = get_item('data_question', 'local') // ! lấy dữ liệu câu hỏi từ kho lưu chữ
-    //! chuyển dữ liệu từ dạng JSON qua javascript
+    const data = get_item('data_question', 'local') 
 
     data.map( // hàm lấy ra từng dư liệu của nhỏ
       (element) => {
@@ -90,7 +89,7 @@ function handleLoadPage() {
               answers.appendChild(tr)
             })
             break;
-          default: // mặc đinhj là câu trả lời tự luận
+          default: // mặc định là câu trả lời tự luận
             const li2 = document.createElement('pre')
             li2.innerHTML = ` Answer: ${element[1][0].answer}`
             answers.appendChild(li2)
