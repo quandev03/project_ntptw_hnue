@@ -9,7 +9,7 @@
 
 .question {
   color: rgb(65, 160, 192) !important;
-  background-color: rgba(242, 242, 242, 0.574);
+  background-color: rgba(242, 242, 242, 0.74);
   width: 20%;
   min-width: 350px;
   height: auto;
@@ -21,6 +21,7 @@
   margin-bottom: 10px;
   box-shadow:  2px 2px 2px rgb(194, 194, 194);
   /* align-items: center; */
+  
   
 }
 .answers {
@@ -49,11 +50,88 @@ button {
   width: 600px;
   justify-content: space-around;
 }
-body {
-  background-image: url(./../Image/bg_1.jpg);
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
+
 #hidden {
-  background-image: url(./../Image/show_mode.jpg);
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: fixed;
+  right: 5%;
+  top: 15%;
+  background-color: rgb(48, 114, 184);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+#bg {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+}
+#edit-button {
+  display: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  position: fixed; 
+  right: 10%;
+  top: 24%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 247, 0, 0.455);
+  
+}
+#delete-button{
+  display: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  position: fixed; 
+  right: 4%;
+  top: 28%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 0, 0, 0.537);
+}
+#add-question-button{
+  display: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  position: fixed; 
+  top: 15%;
+  right: 13%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 128, 0, 0.476);
+}
+p {
+  border-radius: 10px;
+  padding-top:3px;
+  padding-bottom:3px;
+  text-align: center;
+  width: 100%;
+  color: #000;
+  font-weight:bolder;
+}
+button {
+  font-weight:bolder;
+}
+#no_question {
+  font-size: 90px;
+  text-align: center;
+}
+#bg {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0px;
 }

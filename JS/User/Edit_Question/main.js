@@ -10,9 +10,10 @@ import { handle_submit } from "./event_submit.js";
 function handleLoadPage() {
   // ! lấy dữ liệu về
   const bodyPage = document.getElementById("main_page")
-  let dataUser = get_item('account', 'local')
+  let dataUser = get_item('account', 'session')
   const nav_tag_2 = get_element_id('nav_tag_2')
-  if (dataUser == null) { //? kiểm tra trạng thái đăng nhập
+  console.log(dataUser);
+  if (!dataUser) { //? kiểm tra trạng thái đăng nhập
     event_change_page('http://127.0.0.1:5500/HTML/Login_HTML/login_user.html')
   } else {
     // ! information account
@@ -32,16 +33,16 @@ function handleLoadPage() {
     
     // ! render add questions
     // ? hiện thị tiêu để trang web
-    let title = create_element('h1', 'title', '', 'Edit Question')
+    const title = create_element('h1', 'title', '', 'Edit Question')
 
     // ! question // ! hiển thị câu hỏi
-    let labels = create_element('label', '', 'label', "Your question: ")
+    const labels = create_element('label', '', 'label', "Your question: ")
 
-    let question = create_element('input', 'question_input') // ? hiển thị nội dung câu hỏi
+    const question = create_element('input', 'question_input') // ? hiển thị nội dung câu hỏi
     question.setAttribute('placeholder', "enter question in here")
     question.value = info_question.content
     labels.setAttribute('for', 'question_input')
-    let from_question = create_element('div', 'from_question')
+    const from_question = create_element('div', 'from_question')
     // ? tạo form nội dung câu hỏi
 
     from_question.appendChild(labels)
@@ -49,18 +50,18 @@ function handleLoadPage() {
 
     // ! kind of question
     // ? hiện thị kiểu câu hỏi
-    let label_kind_of_question = create_element('label', '', 'label', 'Kind of question:  ')
+    const label_kind_of_question = create_element('label', '', 'label', 'Kind of question:  ')
     label_kind_of_question.setAttribute('for', 'kind_of_question')
 
-    let kind_of_question = create_element('select', 'kind_of_question')
+    const kind_of_question = create_element('select', 'kind_of_question')
     
-    let only_optional = create_element('option', '', '', 'Only optional')
+    const only_optional = create_element('option', '', '', 'Only optional')
     only_optional.setAttribute('value', 'only optional')
     
-    let multi_optional = create_element('option', '', '', 'Multi optional')
+    const multi_optional = create_element('option', '', '', 'Multi optional')
     multi_optional.setAttribute('value', 'multi optional')
     
-    let essay = create_element('option', '', '', 'Essay')
+    const essay = create_element('option', '', '', 'Essay')
     essay.setAttribute('value', 'essay')
 
     // ! rendered selection
@@ -73,12 +74,12 @@ function handleLoadPage() {
     
 
     // ! tạo from cho select kiểu cẩu hỏi
-    let from_kind_of_question = create_element('div')
+    const from_kind_of_question = create_element('div')
     from_kind_of_question.appendChild(label_kind_of_question)
     from_kind_of_question.appendChild(kind_of_question)
     
     // ! enter the answer in here
-    let answers = document.createElement('div')
+    const answers = document.createElement('div')
     answers.setAttribute('id', 'answer') 
     switch (info_question.kind_of_question) { // ? kiểm tra kiểu của câu hỏi
       case 'multi optional':
@@ -122,7 +123,7 @@ function handleLoadPage() {
 
 
     // ! button 
-    let button = create_element('button', 'button_submit', '', 'Submit') // ? tạo nút submit
+    const button = create_element('button', 'button_submit', '', 'Submit') // ? tạo nút submit
     // ! frame
     const frame_editor = create_element("div", 'frame_editor') // ? tạo frame hiện thị các element
 
@@ -151,12 +152,12 @@ function logout() { // ? hàm xử lí sự kiệu đăng xuất
   change_page.setAttribute('href', 'http://127.0.0.1:5500/HTML/main.html')
   change_page.setAttribute('hidden', 'true')
   document.getElementById("main_page").appendChild(change_page)
-  change_page.click();
+  change_page.click(document.getElementById('button_submit'));
 }
-
+console.log(document.getElementById('button_submit')? false: true);
 // TODO: add listeners event handlers
 document.addEventListener('load', handleLoadPage())
-document.getElementById('button_submit').addEventListener('click', handle_submit())
+document.getElementById('button_submit').addEventListener('click', handle_submit)
 document.getElementById('logout').addEventListener('click', logout)
 // TODO: save code
 

@@ -73,13 +73,7 @@ button {
   margin-bottom: 10px;
   min-width: 300px;
 }
-#approvals-button {
-  background-color: #66ff99;
-}
 
-#disapprovals-button {
-  background-color: #ee3300;
-}
 #nav_tag_1 {
   position: absolute;
   left: 20px;

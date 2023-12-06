@@ -7,15 +7,31 @@ import { get_element_id } from "../../Logic/get_element_id.js"
 import { get_item } from "../../Logic/storage.js"
 import { delete_question } from "./event-delete-question.js"
 import { edit_question } from "./event-edit-question.js"
-
+let status_sm = false;
+const event_show_mode = () => {
+  status_sm = !status_sm
+  if (status_sm) {
+    document.getElementById('add-question-button').style.display = 'block';
+    document.getElementById('edit-button').style.display = 'block' 
+    document.getElementById('delete-button').style.display = 'block'
+    document.getElementById('hidden').innerHTML= `<i class="material-icons" style="font-size:35px; color: #fff">highlight_off</i>`
+    
+  }
+  else {
+    document.getElementById('delete-button').style.display = 'none';
+    document.getElementById('edit-button').style.display = 'none'
+    document.getElementById('add-question-button').style.display = 'none'
+    document.getElementById('hidden').innerHTML= `<i class="material-icons" style="font-size:35px">arrow_drop_down_circle</i>`
+  }
+}
 function handleLoadPage() {
-  const bodyPage = get_element_id("main_page")
-  let dataUser = get_item('account', 'session')
-  let dataQuestion = get_item('data_question', 'local')
+  const bodyPage = get_element_id("main_page");
+  let dataUser = get_item('account', 'session');
+  let dataQuestion = get_item('data_question', 'local');
   console.log(dataQuestion);
   if (dataQuestion === null) {
     dataQuestion = []
-  }
+  };
 
   console.log(dataUser.id, "", dataQuestion);
   let data_question = dataQuestion.filter( (element) => dataUser.id == element[0].id_user)
@@ -70,37 +86,32 @@ function handleLoadPage() {
           switch (questionInfo.kind_of_question) { //kiểm tra kiểu câu trả lời
             case 'only optional': // trắc nhiệm 1 đáp án
               answersInfo.map((element => {
-                const tr = create_element('tr')
-                const td = create_element('td', '', '', element.answer)
+
+                const p = create_element('p', '', '', element.answer)
   
-                if (element.isTrue) tr.style.backgroundColor = "rgba(47, 158, 80, 0.54)";
-                else tr.style.backgroundColor = 'rgba(255, 0, 0, 0.54)';
-  
-                tr.style.border_radius = '10px'
-  
-                tr.appendChild(td)
+                if (element.isTrue) p.style.backgroundColor = "rgba(47, 158, 80, 0.54)";
+                else p.style.backgroundColor = 'rgba(255, 0, 0, 0.54)';
+
                 
                 // ! element.isTrue
   
-                answers.appendChild(tr)
+                answers.appendChild(p)
               }))
   
               break;
             case 'multi optional': // trắc nhiệm nhiều đáp án
               answersInfo.map(element => {
-                const tr = create_element('tr')
-                const td = create_element('td', '', '', element.answer)
+                const p = create_element('p', '', '', element.answer)
   
-                if (element.isTrue) tr.style.backgroundColor = "rgba(47, 158, 80, 0.54)";
-                else tr.style.backgroundColor = 'rgba(255, 0, 0, 0.54)';
+                if (element.isTrue) p.style.backgroundColor = "rgba(47, 158, 80, 0.54)";
+                else p.style.backgroundColor = 'rgba(255, 0, 0, 0.54)';
   
-                tr.style.border_radius = '10px'
   
-                tr.appendChild(td)
+
                 
                 // ! element.isTrue
   
-                answers.appendChild(tr)
+                answers.appendChild(p)
               })
               break;
             default:
@@ -110,6 +121,9 @@ function handleLoadPage() {
               answers.appendChild(li2)
               
           }
+
+          
+
 
           
 
@@ -129,18 +143,21 @@ function handleLoadPage() {
     else {
       const frame = create_element("div", '', 'frame_title')
 
-      const title = create_element("h1", '', 'title-h1', 'No answer')
+      const title = create_element("h1", 'no_question', 'title-h1', 'No Question')
 
       frame.appendChild(title)
       bodyPage.appendChild(frame)
     }
-    const button_edit = create_element("button", 'edit-button', '', "EDIT")
+    const button_edit = create_element("button", 'edit-button', '')
+    const button_delete = create_element('button', "delete-button", '')
+    const button_add_question = create_element('button', "add-question-button", '');
+    
+    button_delete.innerHTML = '<i class="material-icons" style="font-size:25px">delete</i>'
+    button_edit.innerHTML = '<i class="material-icons" style="font-size:25px">build</i>'
+    button_add_question.innerHTML = '<i class="material-icons" style="font-size:25px">add_circle_outline</i>'
 
-    const button_delete = create_element('button', "delete-button", '', "DELETE")
-
-    const button_add_question = create_element('button', "add-question-button", '', "ADD QUESTION");
-
-    const hidden = create_element('div', 'hidden')
+    const hidden = create_element('button', 'hidden')
+    hidden.innerHTML ='<i class="material-icons" style="font-size:35px">arrow_drop_down_circle</i>'
 
 
 
@@ -154,6 +171,7 @@ function handleLoadPage() {
     
 
   }  
+
 
 
 
@@ -185,3 +203,4 @@ document.getElementById('edit-button').addEventListener("click", edit_question)
 document.getElementById('delete-button').addEventListener("click", delete_question)
 document.getElementById('add-question-button').addEventListener('click', add_question_change_page)
 document.getElementById('logout').addEventListener('click', logout)
+document.getElementById('hidden').addEventListener('click', event_show_mode)

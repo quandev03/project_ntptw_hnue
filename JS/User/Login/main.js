@@ -71,10 +71,12 @@ function handle_load_page() {
 
 // ! function handle login
 function handle_login() {
+  console.log('asf');
   // ! get data input
   const username = get_element_id('input_username').value
   const password = get_element_id('password_input').value
-  const accounts = JSON.parse(localStorage.getItem('accounts'))
+  let accounts = JSON.parse(localStorage.getItem('accounts'))
+  if (!accounts) accounts = new Array()
   const data_user = accounts.filter(account => account.username ==username)[0]
   if (!username) {
       alert("Username không được để trống")

@@ -1,6 +1,6 @@
-import { event_change_page } from "../../Logic/event-change-page"
-import { get_element_id } from "../../Logic/get_element_id"
-import { get_item, set_item } from "../../Logic/storage"
+import { event_change_page } from "../../Logic/event-change-page.js"
+import { get_element_id } from "../../Logic/get_element_id.js"
+import { get_item, set_item } from "../../Logic/storage.js"
 
 export const handle_submit = () => { // ? tạo hàm submit
   // ! fetch data
@@ -47,7 +47,7 @@ export const handle_submit = () => { // ? tạo hàm submit
     case 'essay':
       // ? lấy thông tin câu trả lời
       const answer = [{
-        answer: get_element_id('answer-essay').value,
+        answer: get_element_id('list_answer').value,
         isTrue: true
       }]
       list_answer = answer
