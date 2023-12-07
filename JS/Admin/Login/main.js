@@ -1,6 +1,7 @@
 // TODO: create function to handle listeners events 
 
 import { create_element } from "../../Logic/create-element.js"
+import { event_change_page } from "../../Logic/event-change-page.js"
 import { get_element_id } from "../../Logic/get_element_id.js"
 import { set_item } from "../../Logic/storage.js"
 import { handle_login } from "./handle_login.js"
@@ -61,6 +62,10 @@ function handle_load_page() {
 
   // ! create button login
   const button_login = create_element('button', 'button_login', '', 'Login')
+
+  // ! create button login with user
+  const login_user = create_element('p', 'login_user', '', "Đăng nhập người dùng")
+
   // ! create form input
   // ? hiện thị các đối tượng
   const form_input = document.createElement("div")
@@ -69,14 +74,21 @@ function handle_load_page() {
   form_input.appendChild(form_username)
   form_input.appendChild(form_password)
   form_input.appendChild(button_login)
+  form_input.appendChild(login_user)
+
+  
+
 
   // ! render in here
   body_page.appendChild(form_input)
 }
 
-
+const change_page_user = () => {
+  event_change_page('http://127.0.0.1:5500/HTML/Login_HTML/login_user.html')
+}
 
 
 // TODO: create listener event
 document.addEventListener('load', handle_load_page()) // TODO: sự kiện load trang lần đầù
 get_element_id('button_login').addEventListener('click', handle_login) // TODO: sự kiện đằng nhập
+document.getElementById('login_user').addEventListener('click', change_page_user)
