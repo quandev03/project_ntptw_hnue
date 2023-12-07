@@ -16,18 +16,25 @@ export const edit_question = () => {
 
   const data_edit_question = parseInt(prompt("Enter ordinal number wanted to edit"))
 
-  let edit_question_stt;
-  data_question.map((element, index) => {
-    if (data_edit_question === element[0].stt) {
-      edit_question_stt = index
-    }
-  })
-  if (edit_question_stt === null) {
+  let edit_question_stt = null;
+  console.log(data_edit_question);
+  if (data_edit_question != NaN) {
+    data_question.map((element, index) => {
+      if (data_edit_question === element[0].stt) {
+        edit_question_stt = index
+      }
+    })
+  }
+  console.log(edit_question_stt);
+  if (!edit_question_stt) {
+    console.log('saf');
+    
     alert("Can't find question")
-    event_change_page('http://127.0.0.1:5500/HTML/Question_HTML/question_user.html')
+    location.reload()
   } else {
+    console.log('s');
+    
     set_item('edit_question_stt', 'local', edit_question_stt)
-    alert("Edit question")
     event_change_page('http://127.0.0.1:5500/HTML/Question_HTML/edit_question.html')
   }
   

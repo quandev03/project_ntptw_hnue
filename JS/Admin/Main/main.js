@@ -7,6 +7,23 @@ import { get_date } from "../../Logic/get-date.js"
 import { get_item, set_item } from "../../Logic/storage.js"
 import { event_approval } from "./event_approval.js"
 import { event_disapproval } from "./event_disapproval.js"
+import { selection_data } from "./selection_data.js"
+let data;
+let status_sm = false;
+const event_show_more = () => {
+  status_sm = !status_sm
+  if (status_sm) {
+    document.getElementById('disapprovals-button').style.display = 'block';
+    document.getElementById('approvals-button').style.display = 'block'
+    document.getElementById('show_more').innerHTML = `<i class="material-icons" style="font-size:35px; color: #fff">highlight_off</i>`
+
+  }
+  else {
+    document.getElementById('disapprovals-button').style.display = 'none';
+    document.getElementById('approvals-button').style.display = 'none'
+    document.getElementById('show_more').innerHTML = `<i class="material-icons" style="font-size:35px">arrow_drop_down_circle</i>`
+  }
+}
 
 // ! hàm được tạo để tạo ra các element và hiển thị ra trang web
 function handleLoadPage() {
@@ -20,7 +37,7 @@ function handleLoadPage() {
     nav_tag.appendChild(title)//hiển thị thẻ
 
     // ! get data from local storage
-    const data = get_item('data_question', 'local') 
+    data = get_item('data_question', 'local')
 
     data.map( // hàm lấy ra từng dư liệu của nhỏ
       (element) => {
@@ -41,10 +58,9 @@ function handleLoadPage() {
         let status = create_element('pre', '', 'status', `Status:`)
         // !  approved, waiting for approval, not approved
         let icon;
-        console.log(questionInfo.status);
         if (questionInfo.status == 'approvals') icon = create_icon('material-icons', 'check', 20, 'green')
         else if (questionInfo.status == 'waiting for approval') icon = create_icon('material-icons', 'access_time', 20, 'orange');
-        else  icon = create_icon('material-icons', 'cancel', 20, 'red');
+        else icon = create_icon('material-icons', 'cancel', 20, 'red');
         status.appendChild(icon)
         // ? create element pre with variable name is content to render status question
 
@@ -65,7 +81,7 @@ function handleLoadPage() {
               tr.style.border_radius = '10px'
 
               tr.appendChild(td)
-              
+
               // ! element.isTrue
 
               answers.appendChild(tr)
@@ -83,7 +99,7 @@ function handleLoadPage() {
               tr.style.border_radius = '10px'
 
               tr.appendChild(td)
-              
+
               // ! element.isTrue
 
               answers.appendChild(tr)
@@ -95,6 +111,9 @@ function handleLoadPage() {
             answers.appendChild(li2)
 
         }
+
+
+
         //! hiển thị các thành phần
         question.appendChild(stt);
         question.appendChild(content);
@@ -105,14 +124,45 @@ function handleLoadPage() {
         body_page.appendChild(question);
       }
     )
-    let button_disapprovals = create_element('button', 'disapprovals-button', '', 'DISAPPROVALS')
+    let button_disapprovals = create_element('button', 'disapprovals-button')
+    button_disapprovals.innerHTML = '<i class="material-icons" style="font-size:36px">done</i>'
     // ! tạo button
     let button_approvals = create_element('button', 'approvals-button', '', "APPROVALS")
-    let group_button = create_element('div', '', 'group_button')
-    group_button.appendChild(button_approvals);
-    group_button.appendChild(button_disapprovals);
+    button_approvals.innerHTML = '<i class="material-icons" style="font-size:36px">done</i>'
 
-    body_page.appendChild(group_button)
+    let show_more = create_element('button', 'show_more', '', "APPROVALS")
+    show_more.innerHTML = `<i class="material-icons" style="font-size:35px">arrow_drop_down_circle</i>`
+    // ! nút chọn data
+
+    const selection_approvals = create_element('button', 'set_data_approvals', 'set_data_button')
+    const icon_check = create_icon('material-icons', 'check', 20, 'green')
+    selection_approvals.appendChild(icon_check)
+
+    const selection_disapprovals = create_element('button', 'set_data_disapprovals', 'set_data_button')
+    const icon_cancel = create_icon('material-icons', 'cancel', 20, 'red')
+    selection_disapprovals.appendChild(icon_cancel)
+
+
+    const selection_await = create_element('button', 'set_data_await', 'set_data_button')
+    const icon_access_time = create_icon('material-icons', 'access_time', 20, 'orange')
+    selection_await.appendChild(icon_access_time)
+
+
+    const selection_all = create_element('button', 'set_data_all', 'set_data_button')
+    const icon_archive = create_icon('material-icons', 'archive', 20, 'rgba(50, 164, 230)')
+    selection_all.appendChild(icon_archive)
+
+    const form_button_select = create_element('div', 'select_form_button')
+    form_button_select.appendChild(selection_all)
+    form_button_select.appendChild(selection_approvals)
+    form_button_select.appendChild(selection_disapprovals)
+    form_button_select.appendChild(selection_await)
+    body_page.appendChild(form_button_select)
+
+    body_page.appendChild(button_disapprovals)
+    body_page.appendChild(button_approvals)
+
+    body_page.appendChild(show_more)
   } else {
     // ! khi chưa đăng nhập thì sẽ được chuyển tới trang đăng nhâp admin
     event_change_page('http://127.0.0.1:5500/HTML/Login_HTML/login_admin.html')
@@ -130,8 +180,20 @@ function logout() { // hàm logout
   location.reload()
 }
 
+// ! handle change selection
+function handle_change_selection() {
+
+  console.log('here');
+  const selection = document.getElementById('select_element').value;
+  console.log(selection);
+  data = selection_data(selection)
+  console.log(data);
+  set_item('data_question_render', 'session', data)
+}
+
 // TODO: add event listeners
-document.addEventListener("load", handleLoadPage()) 
+document.addEventListener("load", handleLoadPage())
 document.getElementById('disapprovals-button').addEventListener('click', event_disapproval)
 document.getElementById('approvals-button').addEventListener('click', event_approval)
 document.getElementById('title').addEventListener('click', logout)
+document.getElementById('show_more').addEventListener('click', event_show_more)
