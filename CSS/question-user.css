@@ -1,7 +1,4 @@
-#nav_tag_2 {
-  position: absolute;
-  top: 0px;
-}
+
 #logout {
   top: 0px;
   
@@ -134,4 +131,27 @@ button {
   width: 100%;
   height: 100%;
   top: 0px;
+}
+
+#essay {
+  width: 80%;
+  background-color: rgba(47, 158, 80, 0.54);
+  font-weight:bolder;
+  padding: 20px;
+  color: #000 !important;
+  border-radius: 20px;
+}
+#change_top {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(230, 230, 230, 0.693);
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: rgb(99, 0, 0);
 }

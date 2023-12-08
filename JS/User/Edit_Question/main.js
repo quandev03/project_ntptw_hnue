@@ -33,13 +33,13 @@ function handleLoadPage() {
     
     // ! render add questions
     // ? hiện thị tiêu để trang web
-    const title = create_element('h1', 'title', '', 'Edit Question')
+    const title = create_element('h1', 'title', '', 'Sửa câu hỏi')
 
     // ! question // ! hiển thị câu hỏi
-    const labels = create_element('label', '', 'label', "Your question: ")
+    const labels = create_element('label', '', 'label', "Câu hỏi ")
 
     const question = create_element('input', 'question_input') // ? hiển thị nội dung câu hỏi
-    question.setAttribute('placeholder', "enter question in here")
+    question.setAttribute('placeholder', "Nhập câu hỏi ở đây")
     question.value = info_question.content
     labels.setAttribute('for', 'question_input')
     const from_question = create_element('div', 'from_question')
@@ -50,18 +50,18 @@ function handleLoadPage() {
 
     // ! kind of question
     // ? hiện thị kiểu câu hỏi
-    const label_kind_of_question = create_element('label', '', 'label', 'Kind of question:  ')
+    const label_kind_of_question = create_element('label', '', 'label', 'Kiểu câu hỏi  ')
     label_kind_of_question.setAttribute('for', 'kind_of_question')
 
     const kind_of_question = create_element('select', 'kind_of_question')
     
-    const only_optional = create_element('option', '', '', 'Only optional')
+    const only_optional = create_element('option', '', '', 'Một đáp án')
     only_optional.setAttribute('value', 'only optional')
     
-    const multi_optional = create_element('option', '', '', 'Multi optional')
+    const multi_optional = create_element('option', '', '', 'Nhiều đáp án')
     multi_optional.setAttribute('value', 'multi optional')
     
-    const essay = create_element('option', '', '', 'Essay')
+    const essay = create_element('option', '', '', 'Tự điền')
     essay.setAttribute('value', 'essay')
 
     // ! rendered selection

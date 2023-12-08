@@ -19,11 +19,11 @@ function handleLoadPage() {
     let fullName = create_element('h2', 'logout', 'home', dataUser.fullName) // ! hiển thị tên
     nav_tag_2.appendChild(fullName)
     // ! render add questions
-    let title = create_element('h1', 'title', '', "Add Question")// ! Quan tâm cái này
+    let title = create_element('h1', 'title', '', "Thêm câu hỏi")// ! Quan tâm cái này
 
     // ? question 
     // tạo trường hiển thị câu hỏi
-    let labels = create_element('label', '', 'label', "Your question: ") // tạo ra 1 phẩn tử label / không set id/ 
+    let labels = create_element('label', '', 'label', "Câu hỏi của bạn: ") // tạo ra 1 phẩn tử label / không set id/ 
     let question = create_element('input', 'question_input', ) // ! Quan tâm cái này
     question.setAttribute('placeholder', "enter question in here")
     labels.setAttribute('for', 'question_input')
@@ -39,16 +39,16 @@ function handleLoadPage() {
     // ? các kiểu câu hỏi
     let kind_of_question = create_element('select', 'kind_of_question')
     
-    let only_optional = create_element('option', '', '', 'Only optional')
+    let only_optional = create_element('option', '', '', 'Một đáp án')
     only_optional.setAttribute('value', 'only optional')
     
-    let multi_optional = create_element('option', '', '', 'Multi optional')
+    let multi_optional = create_element('option', '', '', 'Nhiều đáp án')
     multi_optional.setAttribute('value', 'multi optional')
     
-    let essay = create_element('option', '', '', 'Essay');
+    let essay = create_element('option', '', '', 'Tự điền');
     essay.setAttribute('value', 'essay');
 
-    let select = create_element('option', '', '','select')
+    let select = create_element('option', '', '','Lựa chọn')
     select.setAttribute('value', 'select')
 
     // ! rendered selection
@@ -86,12 +86,12 @@ function handleLoadPage() {
 // ! logout
 function logout() {
   sessionStorage.removeItem('account')
-  event_change_page('http://127.0.0.1:5500/HTML/main.html')
+  event_change_page('http://127.0.0.1:5500/index.html')
 }
 
 
 // TODO: add event listeners  handlers
-document.addEventListener('load', handleLoadPage())
-document.getElementById('kind_of_question').addEventListener('change', event_selection)
-document.getElementById('button_submit').addEventListener('click', handle_submit)
-document.getElementById('logout').addEventListener('click', logout)
+document.addEventListener('load', handleLoadPage());
+document.getElementById('kind_of_question').addEventListener('change', event_selection);
+document.getElementById('button_submit').addEventListener('click', handle_submit);
+document.getElementById('logout').addEventListener('click', logout);

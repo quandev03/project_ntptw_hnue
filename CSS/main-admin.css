@@ -96,3 +96,44 @@ table {
 .set_data_button:hover {
   background-color: white;
 }
+p {
+  border-radius: 10px;
+  padding-top:3px;
+  padding-bottom:3px;
+  text-align: center;
+  width: 100%;
+  color: #000;
+  font-weight:bolder;
+}
+
+#title {
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  right: 20%;
+  top: 0%;
+  margin: 0px;
+}
+#essay {
+  width: 80%;
+  background-color: rgba(47, 158, 80, 0.54);
+  font-weight:bolder;
+  padding: 20px;
+  color: #000 !important;
+  border-radius: 20px;
+}
+#change_top {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(230, 230, 230, 0.693);
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: rgb(99, 0, 0);
+}

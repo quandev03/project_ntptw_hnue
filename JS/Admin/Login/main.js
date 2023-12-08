@@ -15,8 +15,6 @@ function handle_load_page() {
   // ! create title
   // ? tạo ra tiêu đề trang đang nhập của administrative
 
-  const title = create_element('h1','title','','Login Administrator')
-
   // ! tạo ra tài khoản admin mặc định
   const admin_account = {
     username: 'admin',
@@ -26,25 +24,25 @@ function handle_load_page() {
   set_item('admin_account', 'local', admin_account);
   // ! create title 2
   // ? tạo tiêu đề cho phần đăng nhập với administrative
-  const title2 = create_element('h1', 'title2', '', 'Administrator')
+  const title2 = create_element('h1', 'title2', '', 'Quản trị viên')
 
 
   // ! create input element
 
   // ? tạo phần nhập admin name account
-  const label_username = create_element('label', '', '', 'Username')
+  const label_username = create_element('label', '', '', 'Tên đăng nhập')
   
   
   const input_username = create_element('input', 'input_username')
   label_username.setAttribute('for', 'username_input')
-  input_username.placeholder = "Enter username"
+  input_username.placeholder = "Nhập tên đăng nhập"
 
   // ? tao phần nhâp mất khẩu
 
-  const label_password = create_element('label','', '', 'Password' )
+  const label_password = create_element('label','', '', 'Mật khẩu' )
   const input_password = create_element('input', 'password_input')
   input_password.type = 'password'
-  input_password.placeholder = 'Enter your Password'
+  input_password.placeholder = 'Nhập mật khẩu'
   label_password.setAttribute('for', 'password_input')
   // ! create form input element
   // ? tạo form cho phần nhập thông tin
@@ -61,7 +59,7 @@ function handle_load_page() {
   form_password.appendChild(input_password)
 
   // ! create button login
-  const button_login = create_element('button', 'button_login', '', 'Login')
+  const button_login = create_element('button', 'button_login', '', 'Đăng nhập')
 
   // ! create button login with user
   const login_user = create_element('p', 'login_user', '', "Đăng nhập người dùng")
@@ -92,3 +90,8 @@ const change_page_user = () => {
 document.addEventListener('load', handle_load_page()) // TODO: sự kiện load trang lần đầù
 get_element_id('button_login').addEventListener('click', handle_login) // TODO: sự kiện đằng nhập
 document.getElementById('login_user').addEventListener('click', change_page_user)
+document.addEventListener("keydown", (event) => { 
+  if (event.key === "Enter") {
+    handle_login();
+  }
+})

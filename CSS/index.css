@@ -1,23 +1,61 @@
-#nav_tag_1  {
+#nav_tag_1 {
   width: 30%;
   display: flex;
   justify-content: space-around;
 }
-#nav_tag_2  {
-  width: 20%;
-  display: flex;
-  justify-content: space-around
-}
-#logout {
-  position: absolute;
-  top: -9px;
-}
-#nav_tag_2 {
-  position: absolute;
-  top: 0px;
-}
+
 body {
   background-image: url(./../Image/bg_1.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
+}
+
+#frame_info {
+  display: flex;
+  justify-items: start;
+  flex-direction: column;
+}
+
+table {
+  width: 120%;
+  border: 1px solid #ccc;
+  border-spacing: 2px;
+  height: 200px;
+  background-color: rgba(248, 248, 248, 0.704);
+  padding: 10px 0px 10px 50px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px rgba(87, 202, 240, 0.5);
+}
+
+th {
+  color: rgb(0, 139, 185);
+  text-align: start;
+  width: 30%;
+}
+
+tr {
+  margin-bottom: 3px;
+
+}
+
+tr:last-child {
+  margin-bottom: 0px;
+}
+
+td {
+  width: 70%;
+  color: rgb(0, 139, 185);
+}
+
+#frame_info {
+  position: fixed;
+  top: 20%;
+  right: 15%
+}
+
+#notification {
+  font-size: 70px;
+  font-family: 'Brush Script MT';
+  color: rgb(0, 139, 185);
+  text-shadow: 3px 3px 5px rgb(0, 139, 185, 0.2);
 }

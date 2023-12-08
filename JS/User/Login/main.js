@@ -16,28 +16,26 @@ function handle_load_page() {
     'h1',
     'title_login',
     '',
-    "Login"
+    "Đăng nhập"
   )
 
   // ! create input element
   // ? tạo label Username
-  const label_username = create_element('label', '', 'label', 'Username')
+  const label_username = create_element('label', '', 'label', 'Tên đăng nhập')
   const input_username = create_element('input', 'input_username', 'input')
-  const label_password = create_element('label', '', 'label', 'Password')
+  const label_password = create_element('label', '', 'label', 'Mật khẩu')
   const input_password = create_element('input','password_input', 'input')
 
-  input_username.setAttribute('placeholder', 'Username')
+  input_username.setAttribute('placeholder', 'Nhập tên đăng nhâp')
   label_username.setAttribute('for', 'username_input')
   label_password.setAttribute('for', 'password_input')
   input_password.setAttribute('type', 'password')
-  input_password.setAttribute('placeholder', 'Enter your password')
+  input_password.setAttribute('placeholder', 'Nhập mật khẩu')
 
 
   // ! create form input element
   const form_username = create_element('div', 'form_username', 'form_input_login')
-  const user_name_form= create_element('div')
   const form_password = create_element('div', 'form_password', 'form_input_login')
-  const form_hidden_pass = create_element('div', 'form_hidden_pass', 'form_hidden_password')
  
   form_username.appendChild(label_username)
   form_username.appendChild(input_username)
@@ -49,7 +47,7 @@ function handle_load_page() {
   icon_eye.setAttribute('id', 'icon_eye')
 
   // ! create button login
-  const button_login = create_element('button', 'button_login', '', 'Login')
+  const button_login = create_element('button', 'button_login', '', 'Đăng nhập')
   //! create frame 
   const frame_form = create_element('div', 'frame_form')
 
@@ -91,7 +89,7 @@ function handle_login() {
         id: data_user.id
       }
       set_item('account', 'session', info_user);
-      event_change_page('http://127.0.0.1:5500/HTML/main.html');
+      event_change_page('http://127.0.0.1:5500/index.html');
     }
     else {
       alert("Mật khẩu không chính xác, vui lòng nhập lại mật khẩu!");

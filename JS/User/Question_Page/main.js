@@ -2,6 +2,7 @@
 
 import { create_element } from "../../Logic/create-element.js"
 import { create_icon } from "../../Logic/create-icon.js"
+import { event_change_page } from "../../Logic/event-change-page.js"
 import { get_date } from "../../Logic/get-date.js"
 import { get_element_id } from "../../Logic/get_element_id.js"
 import { get_item } from "../../Logic/storage.js"
@@ -27,15 +28,13 @@ const event_show_mode = () => {
 function handleLoadPage() {
   const bodyPage = get_element_id("main_page");
   let dataUser = get_item('account', 'session');
+  if (!dataUser) event_change_page('http://127.0.0.1:5500/index.html')
   let dataQuestion = get_item('data_question', 'local');
-  console.log(dataQuestion);
   if (dataQuestion === null) {
     dataQuestion = []
   };
 
-  console.log(dataUser.id, "", dataQuestion);
   let data_question = dataQuestion.filter( (element) => dataUser.id == element[0].id_user)
-  console.log(data_question);
   const nav_tag_2 = get_element_id("nav_tag_2")
   if (dataUser == null) {
     let nav1 = create_element("a",'', '', "Login")
@@ -64,17 +63,16 @@ function handleLoadPage() {
         let question = create_element('div', '', 'question')
         // ? create element div with variable name is question
 
-        let content = create_element('pre', '', '', `Question: ${questionInfo.content}`)
+        let content = create_element('pre', '', '', `Câu hỏi: ${questionInfo.content}`)
         // ? create element pre with variable name is content to render content question
 
-        let stt = create_element('pre', '', '', `Ordinal number: ${questionInfo.stt}`)
+        let stt = create_element('pre', '', '', `ID: ${questionInfo.stt}`)
         // ? create element pre with variable name is content to render stt question
 
-        let timeSent = create_element('pre', '', '', `Time sent question: ${get_date(questionInfo.time_sent_answer)}`)
+        let timeSent = create_element('pre', '', '', `Thời gian gửi: ${get_date(questionInfo.time_sent_answer)}`)
           let status = create_element('pre', '', 'status', `Status:`)
         // !  approved, waiting for approval, not approved
           let icon;
-          console.log(questionInfo.status);
           if (questionInfo.status == 'approvals') icon = create_icon('material-icons', 'check', 20, 'green')
           else if (questionInfo.status == 'waiting for approval') icon = create_icon('material-icons', 'access_time', 20, 'orange');
           else icon = create_icon('material-icons', 'cancel', 20, 'red');
@@ -116,7 +114,7 @@ function handleLoadPage() {
               break;
             default:
             // mặc định là câu trả lời tự luận
-              const li2 = create_element('pre', '', '', ` Answer: ${element[1][0].answer}`)
+              const li2 = create_element('pre', 'essay', '', ` Đáp án: ${element[1][0].answer}`)
 
               answers.appendChild(li2)
               
@@ -191,10 +189,7 @@ function add_question_change_page() {
 // ! logout
 function logout() { 
   sessionStorage.removeItem('account')
-  const change_page = document.createElement('a')
-    change_page.setAttribute('href', 'http://127.0.0.1:5500/HTML/main.html')
-    change_page.setAttribute('hidden', 'true')
-    change_page.click()
+  event_change_page('http://127.0.0.1:5500/index.html')
 }
 
 // TODO: add event listeners
@@ -204,3 +199,25 @@ document.getElementById('delete-button').addEventListener("click", delete_questi
 document.getElementById('add-question-button').addEventListener('click', add_question_change_page)
 document.getElementById('logout').addEventListener('click', logout)
 document.getElementById('hidden').addEventListener('click', event_show_mode)
+document.addEventListener("scroll", function () {
+  const body_page = document.getElementById('main_page');
+  const changeTopButton = document.getElementById('change_top');
+  if (window.scrollY >= 800) {
+    if (!changeTopButton) {
+      const change_top = create_element('button', 'change_top');
+      const icon = create_icon('material-icons', 'expand_less', 20)
+      change_top.appendChild(icon)
+      body_page.appendChild(change_top);
+      change_top.addEventListener('click', function () {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth' 
+        });
+      });
+    }
+  } else {
+    if (changeTopButton) {
+      changeTopButton.remove();
+    }
+  }
+});

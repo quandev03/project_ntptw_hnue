@@ -4,6 +4,7 @@ import { create_element } from "../../Logic/create-element.js"
 import { create_icon } from "../../Logic/create-icon.js"
 import { event_change_page } from "../../Logic/event-change-page.js"
 import { get_date } from "../../Logic/get-date.js"
+import { get_element_id } from "../../Logic/get_element_id.js"
 import { get_item, set_item } from "../../Logic/storage.js"
 import { event_approval } from "./event_approval.js"
 import { event_disapproval } from "./event_disapproval.js"
@@ -41,90 +42,86 @@ function handleLoadPage() {
       data = []
     }
     data.map( // hàm lấy ra từng dư liệu của nhỏ
-        (element) => {
-          let questionInfo = element[0]
+      (element) => {
+        let questionInfo = element[0]
 
-          let question = create_element('div', '', 'question')
-          // ? create element div with variable name is question
+        let question = create_element('div', '', 'question')
+        // ? create element div with variable name is question
 
-          let content = create_element('pre', '', '', `Question: ${questionInfo.content}`)
-          // ? create element pre with variable name is content to render content question
+        let content = create_element('pre', '', '', `Câu hỏi: ${questionInfo.content}`)
+        // ? create element pre with variable name is content to render content question
 
-          let stt = create_element('pre', '', '', `Ordinal number: ${questionInfo.stt}`)
-          // ? create element pre with variable name is content to render stt question
+        let stt = create_element('pre', '', '', `ID: ${questionInfo.stt}`)
+        // ? create element pre with variable name is content to render stt question
 
-          let timeSent = create_element('pre', '', '', `Time sent question: ${get_date(questionInfo.time_sent_answer)}`)
-          // ? create element pre with variable name is content to render timeSent question
+        let timeSent = create_element('pre', '', '', `Thời gian gửi: ${get_date(questionInfo.time_sent_answer)}`)
+        // ? create element pre with variable name is content to render timeSent question
 
-          let status = create_element('pre', '', 'status', `Status:`)
-          // !  approved, waiting for approval, not approved
-          let icon;
-          if (questionInfo.status == 'approvals') icon = create_icon('material-icons', 'check', 20, 'green')
-          else if (questionInfo.status == 'waiting for approval') icon = create_icon('material-icons', 'access_time', 20, 'orange');
-          else icon = create_icon('material-icons', 'cancel', 20, 'red');
-          status.appendChild(icon)
-          // ? create element pre with variable name is content to render status question
+        let status = create_element('pre', '', 'status', `Trạng thái:`)
+        // !  approved, waiting for approval, not approved
+        let icon;
+        if (questionInfo.status == 'approvals') icon = create_icon('material-icons', 'check', 20, 'green')
+        else if (questionInfo.status == 'waiting for approval') icon = create_icon('material-icons', 'access_time', 20, 'orange');
+        else icon = create_icon('material-icons', 'cancel', 20, 'red');
+        status.appendChild(icon)
+        // ? create element pre with variable name is content to render status question
 
-          let answers = create_element('table', '', 'answer')
-          // ? tạo ra trường câu trả lời
+        let answers = create_element('table', '', 'answer')
+        // ? tạo ra trường câu trả lời
 
-          let answersInfo = element[1]
+        let answersInfo = element[1]
 
-          switch (questionInfo.kind_of_question) { //kiểm tra kiểu câu trả lời
-            case 'only optional': // trắc nhiệm 1 đáp án
-              answersInfo.map((element => {
-                const tr = create_element('tr')
-                const td = create_element('td', '', '', element.answer)
+        switch (questionInfo.kind_of_question) { //kiểm tra kiểu câu trả lời
+          case 'only optional': // trắc nhiệm 1 đáp án
+            answersInfo.map((element => {
 
-                if (element.isTrue) tr.style.backgroundColor = "rgba(47, 158, 80, 0.54)";
-                else tr.style.backgroundColor = 'rgba(255, 0, 0, 0.54)';
+              const p = create_element('p', '', '', element.answer)
 
-                tr.style.border_radius = '10px'
+              if (element.isTrue) p.style.backgroundColor = "rgba(47, 158, 80, 0.54)";
+              else p.style.backgroundColor = 'rgba(255, 0, 0, 0.54)';
 
-                tr.appendChild(td)
 
-                // ! element.isTrue
+              // ! element.isTrue
 
-                answers.appendChild(tr)
-              }))
+              answers.appendChild(p)
+            }))
 
-              break;
-            case 'multi optional': // trắc nhiệm nhiều đáp án
-              answersInfo.map(element => {
-                const tr = create_element('tr')
-                const td = create_element('td', '', '', element.answer)
+            break;
+          case 'multi optional': // trắc nhiệm nhiều đáp án
+            answersInfo.map(element => {
+              const p = create_element('p', '', '', element.answer)
 
-                if (element.isTrue) tr.style.backgroundColor = "rgba(47, 158, 80, 0.54)";
-                else tr.style.backgroundColor = 'rgba(255, 0, 0, 0.54)';
-
-                tr.style.border_radius = '10px'
-
-                tr.appendChild(td)
-
-                // ! element.isTrue
-
-                answers.appendChild(tr)
-              })
-              break;
-            default: // mặc định là câu trả lời tự luận
-              const li2 = document.createElement('pre')
-              li2.innerHTML = ` Answer: ${element[1][0].answer}`
-              answers.appendChild(li2)
-
-          }
+              if (element.isTrue) p.style.backgroundColor = "rgba(47, 158, 80, 0.54)";
+              else p.style.backgroundColor = 'rgba(255, 0, 0, 0.54)';
 
 
 
-          //! hiển thị các thành phần
-          question.appendChild(stt);
-          question.appendChild(content);
-          question.appendChild(timeSent);
-          question.appendChild(status);
-          question.appendChild(answers);
-          // ! appear in body
-          body_page.appendChild(question);
+
+              // ! element.isTrue
+
+              answers.appendChild(p)
+            })
+            break;
+          default:
+            // mặc định là câu trả lời tự luận
+            const li2 = create_element('pre', 'essay', '', `${element[1][0].answer}`)
+
+            answers.appendChild(li2)
+
         }
-      )
+
+
+
+        //! hiển thị các thành phần
+        question.appendChild(stt);
+        question.appendChild(content);
+        question.appendChild(timeSent);
+        question.appendChild(status);
+        question.appendChild(answers);
+        // ! appear in body
+        body_page.appendChild(question);
+      }
+    )
 
     let button_disapprovals = create_element('button', 'disapprovals-button')
     button_disapprovals.innerHTML = '<i class="material-icons" style="font-size:36px;">cancel</i>'
@@ -188,3 +185,26 @@ document.getElementById('set_data_approvals').addEventListener('click', selectio
 document.getElementById('set_data_disapprovals').addEventListener('click', selection_data_disapprovals)
 document.getElementById('set_data_await').addEventListener('click', selection_data_await);
 document.getElementById('set_data_all').addEventListener('click', selection_data_all)
+document.addEventListener("scroll", function () {
+  const body_page = document.getElementById('main_page');
+  const changeTopButton = document.getElementById('change_top');
+
+  if (window.scrollY >= 800) {
+    if (!changeTopButton) {
+      const change_top = create_element('button', 'change_top');
+      const icon = create_icon('material-icons', 'expand_less', 20)
+      change_top.appendChild(icon)
+      body_page.appendChild(change_top);
+      change_top.addEventListener('click', function () {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth' 
+        });
+      });
+    }
+  } else {
+    if (changeTopButton) {
+      changeTopButton.remove();
+    }
+  }
+});
