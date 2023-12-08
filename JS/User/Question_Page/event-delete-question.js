@@ -6,19 +6,19 @@ export const delete_question = () => {
 
   const data_delete_question = parseInt(prompt("Enter ordinal number wanted to delete"))
 
-  let delete_question_stt;
-  data_question.map((element, index) => {
-    if (data_delete_question === element[0].stt) {
-      delete_question_stt = index
+
+  const data = data_question.filter(element => element[0].stt !== data_delete_question)
+  console.log(data);
+  if (data_delete_question !== '') { 
+    if (data_question.length !== data.length) {
+      set_item('data_question', 'local', data)
+      location.reload()
     }
-  })
-  if (delete_question_stt === null) {
-    alert("Can't find question")
-  } else {
-
-    data_question.splice(delete_question_stt, data_delete_question + 1)
-
-    set_item('data_question', 'local', data_question)
+    else {
+      alert("Không tìm thấy câu hỏi")
+    }
   }
-  location.reload()
+  else {
+    alert("Lỗi")
+  }
 }

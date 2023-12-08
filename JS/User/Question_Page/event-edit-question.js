@@ -24,9 +24,11 @@ export const edit_question = () => {
         edit_question_stt = index
       }
     })
+      console.log('session');
   }
+
   console.log(edit_question_stt);
-  if (!edit_question_stt) {
+  if (edit_question_stt == null) {
     console.log('saf');
     
     alert("Can't find question")

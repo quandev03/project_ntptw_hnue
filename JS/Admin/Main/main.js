@@ -30,7 +30,6 @@ function handleLoadPage() {
   const body_page = document.getElementById('main_page') // lấy ra thành phần main page
   const nav_tag = document.getElementById('nav_tag_2') //lấy ra thành phần nav bar
   const status_login = JSON.parse(sessionStorage.getItem('status_login')) // trạng thái đăng nhập của admin
-
   if (status_login != null) { // kiểm tra trạng thái đăng nhập của admin
     //! create title 
     const title = create_element('h1', 'title', '', "Admin") //tạo ra title admin
@@ -44,6 +43,7 @@ function handleLoadPage() {
     data.map( // hàm lấy ra từng dư liệu của nhỏ
       (element) => {
         let questionInfo = element[0]
+        console.log(questionInfo.status);
 
         let question = create_element('div', '', 'question')
         // ? create element div with variable name is question

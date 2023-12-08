@@ -1,3 +1,4 @@
+import { create_id } from "../../Logic/create-id.js";
 import { event_change_page } from "../../Logic/event-change-page.js";
 import { get_element_id } from "../../Logic/get_element_id.js";
 import { get_item, set_item } from "../../Logic/storage.js";
@@ -54,7 +55,7 @@ export const handle_submit = () => {
     data_question = [];
   }
   let status = "waiting for approval"; //? approved, waiting for approval, not approved
-  let stt = data_question.length + 1; //? tạo số thứ tự
+  let stt = create_id(); //? tạo số thứ tự
   let content_answer = document.getElementById("question_input").value; // ? lấy giá trị từ in put nhập vào
   const data_sent = [
     {

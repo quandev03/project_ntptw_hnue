@@ -113,9 +113,9 @@ function handleLoadPage() {
         })
         break;
       default:
-        const form_answer = create_element('div', 'list_answer')
+        const form_answer = create_element('div')
 
-        const answer = create_element('input')
+        const answer = create_element('input', 'list_answer')
         answer.value = info_answer[0].answer
         form_answer.appendChild(answer)
         answers.appendChild(form_answer)
@@ -154,7 +154,6 @@ function logout() { // ? hàm xử lí sự kiệu đăng xuất
   document.getElementById("main_page").appendChild(change_page)
   change_page.click(document.getElementById('button_submit'));
 }
-console.log(document.getElementById('button_submit')? false: true);
 // TODO: add listeners event handlers
 document.addEventListener('load', handleLoadPage())
 document.getElementById('button_submit').addEventListener('click', handle_submit)

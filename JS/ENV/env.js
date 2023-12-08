@@ -1,1 +1,0 @@
-export const host = 'https://quandev03.github.io/project_ntptw_hnue'

@@ -6,3 +6,4 @@ const change_main = () => {
 }
 
 document.getElementById('back_main').addEventListener('click', change_main)
+document.getElementById('github').addEventListener('click', ()=>{event_change_page('https://github.com/quandev03/project_ntptw_hnue.git')})

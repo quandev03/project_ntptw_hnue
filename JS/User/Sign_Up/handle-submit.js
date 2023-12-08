@@ -16,7 +16,8 @@ export const handle_signup = () => {
 
   console.log(username, full_name, age, address, password, confirm_password);
   // ! check password
-  const accounts = get_item('accounts', 'local')
+  let accounts = get_item('accounts', 'local')
+  if (!accounts) accounts = new Array();
   if (check_already_accounted(accounts, username) === false) {
 
     if (username.length >= 3) {
@@ -25,43 +26,40 @@ export const handle_signup = () => {
           if (address) {
             if (password === confirm_password && password != '') {
               if (password.length >= 8) {
+                console.log('success');
                 const new_account = {
                   id: create_id(),
                   username: username,
                   full_name: full_name,
                   age: age,
                   address: address,
-                  password: password_input
+                  password: password
                 }
-                let accounts = get_item('accounts', 'local')
+                console.log(accounts);
                 if (!accounts) accounts = new Array();
                 accounts.push(new_account)
+                console.log(accounts);
                 set_item('accounts', 'local', accounts)
-                event_change_page('http://127.0.0.1:5500/HTML/Login_HTML/login_user.html')
+                // event_change_page('http://127.0.0.1:5500/HTML/Login_HTML/login_user.html')
               }
               else {
                 alert('Mật khẩu phải lớn hơn 8 kí tự!');
-                reset_info();
               }
             }
             else {
               alert('Hai mật khẩu không giống nhau');
-              reset_info();
             }
           }
           else {
             alert('Địa chỉ không được đễ trống');
-            reset_info();
           }
         }
         else {
           alert('Bạn chắc chưa :)))')
-          reset_info()
         }
       }
       else {
         alert("Họ và tên không được bỏ trống");
-        reset_info();
       }
     }
     else {

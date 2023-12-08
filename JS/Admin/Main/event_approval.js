@@ -1,4 +1,5 @@
 import { get_item, set_item } from "../../Logic/storage.js";
+import { selection_data_all } from "./selection_data.js";
 
 export const event_approval = () => {
   const data = get_item('data_question', 'local');
@@ -15,5 +16,5 @@ export const event_approval = () => {
   data_question[0].status = 'approvals'
   data[approvals_question_stt] = data_question
   set_item('data_question', 'local', data) 
-  location.reload()
+  selection_data_all()
 }
