@@ -1,10 +1,10 @@
 // TODO: function handle listeners event
 
-import { create_element } from "../../Logic/create-element.js";
-import { event_change_page } from "../../Logic/event-change-page.js";
-import { get_element_id } from "../../Logic/get_element_id.js";
-import { get_item } from "../../Logic/storage.js"
-import { handle_submit } from "./event_submit.js";
+import { create_element } from "http://127.0.0.1:5500/JS/Logic/create-element.js";
+import { event_change_page } from "http://127.0.0.1:5500/JS/Logic/event-change-page.js";
+import { get_element_id } from "http://127.0.0.1:5500/JS/Logic/get_element_id.js";
+import { get_item } from "http://127.0.0.1:5500/JS/Logic/storage.js"
+import { handle_submit } from "http://127.0.0.1:5500/JS/User/Edit_Question/event_submit.js";
 
 // ! onload: function handle
 function handleLoadPage() {
@@ -149,7 +149,7 @@ function handleLoadPage() {
 function logout() { // ? hàm xử lí sự kiệu đăng xuất
   sessionStorage.removeItem('account')
   const change_page = document.createElement('a')
-  change_page.setAttribute('href', 'http://127.0.0.1:5500/HTML/main.html')
+  change_page.setAttribute('href', 'http://127.0.0.1:5500/HTML')
   change_page.setAttribute('hidden', 'true')
   document.getElementById("main_page").appendChild(change_page)
   change_page.click(document.getElementById('button_submit'));

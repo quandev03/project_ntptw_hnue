@@ -28,7 +28,7 @@ const event_show_mode = () => {
 function handleLoadPage() {
   const bodyPage = get_element_id("main_page");
   let dataUser = get_item('account', 'session');
-  if (!dataUser) event_change_page('http://127.0.0.1:5500/index.html')
+  if (!dataUser) event_change_page('http://127.0.0.1:5500')
   let dataQuestion = get_item('data_question', 'local');
   if (dataQuestion === null) {
     dataQuestion = []
@@ -189,7 +189,7 @@ function add_question_change_page() {
 // ! logout
 function logout() { 
   sessionStorage.removeItem('account')
-  event_change_page('http://127.0.0.1:5500/index.html')
+  event_change_page('http://127.0.0.1:5500')
 }
 
 // TODO: add event listeners

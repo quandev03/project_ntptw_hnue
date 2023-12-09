@@ -1,4 +1,4 @@
-import { get_item, set_item } from "../../Logic/storage.js"
+import { get_item, set_item } from "http://127.0.0.1:5500/JS/Logic/storage.js"
 
 export const selection_data_approvals = (select) => {
   const data = get_item('data_question', 'local') 

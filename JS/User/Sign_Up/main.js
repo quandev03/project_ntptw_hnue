@@ -1,12 +1,12 @@
 // TODO: create function handling event
 
-import { create_element } from "../../Logic/create-element.js"
-import { create_id } from "../../Logic/create-id.js"
-import { event_change_page } from "../../Logic/event-change-page.js"
-import { get_element_id } from "../../Logic/get_element_id.js"
-import { get_item, set_item } from "../../Logic/storage.js"
-import { create_icon} from "../../Logic/create-icon.js"
-import { handle_signup } from "./handle-submit.js"
+import { create_element } from "http://127.0.0.1:5500/JS/Logic/create-element.js"
+import { create_id } from "http://127.0.0.1:5500/JS/Logic/create-id.js"
+import { event_change_page } from "http://127.0.0.1:5500/JS/Logic/event-change-page.js"
+import { get_element_id } from "http://127.0.0.1:5500/JS/Logic/get_element_id.js"
+import { get_item, set_item } from "http://127.0.0.1:5500/JS/Logic/storage.js"
+import { create_icon} from "http://127.0.0.1:5500/JS/Logic/create-icon.js"
+import { handle_signup } from "http://127.0.0.1:5500/JS/User/Sign_Up/handle-submit.js"
 
 function handle_load_page() {
   const bodyPage = get_element_id("main_page")

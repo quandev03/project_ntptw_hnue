@@ -1,10 +1,10 @@
 
 // TODO: set fake data 
 
-import { create_element } from "../../Logic/create-element.js";
-import { create_table } from "../../Logic/create-row.js";
-import { get_element_id } from "../../Logic/get_element_id.js";
-import { get_item } from "../../Logic/storage.js";
+import { create_element } from "http://127.0.0.1:5500/JS/Logic/create-element.js";
+import { create_table } from "http://127.0.0.1:5500/JS/Logic/create-row.js";
+import { get_element_id } from "http://127.0.0.1:5500/JS/Logic/get_element_id.js";
+import { get_item } from "http://127.0.0.1:5500/JS/Logic/storage.js";
 
 // TODO: function handle listeners event
 function handleLoadPage() {

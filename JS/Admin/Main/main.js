@@ -1,13 +1,13 @@
 // TODO: function handle listeners event
 
-import { create_element } from "../../Logic/create-element.js"
-import { create_icon } from "../../Logic/create-icon.js"
-import { event_change_page } from "../../Logic/event-change-page.js"
-import { get_date } from "../../Logic/get-date.js"
-import { get_element_id } from "../../Logic/get_element_id.js"
-import { get_item, set_item } from "../../Logic/storage.js"
-import { event_approval } from "./event_approval.js"
-import { event_disapproval } from "./event_disapproval.js"
+import { create_element } from "http://127.0.0.1:5500/JS/Logic/create-element.js"
+import { create_icon } from "http://127.0.0.1:5500/JS/Logic/create-icon.js"
+import { event_change_page } from "http://127.0.0.1:5500/JS/Logic/event-change-page.js"
+import { get_date } from "http://127.0.0.1:5500/JS/Logic/get-date.js"
+import { get_element_id } from "http://127.0.0.1:5500/JS/Logic/get_element_id.js"
+import { get_item, set_item } from "http://127.0.0.1:5500/JS/Logic/storage.js"
+import { event_approval } from "http://127.0.0.1:5500/JS/Admin/Main/event_approval.js"
+import { event_disapproval } from "http://127.0.0.1:5500/JS/Admin/Main/event_disapproval.js"
 import { selection_data_all, selection_data_approvals, selection_data_await, selection_data_disapprovals } from "./selection_data.js"
 let status_sm = false;
 const event_show_more = () => {

@@ -1,6 +1,6 @@
-import { create_element } from "../../Logic/create-element.js"
-import { event_change_page } from "../../Logic/event-change-page.js"
-import { get_item, set_item } from "../../Logic/storage.js"
+import { create_element } from "http://127.0.0.1:5500/JS/Logic/create-element.js"
+import { event_change_page } from "http://127.0.0.1:5500/JS/Logic/event-change-page.js"
+import { get_item, set_item } from "http://127.0.0.1:5500/JS/Logic/storage.js"
 
 export const edit_question = () => {
 

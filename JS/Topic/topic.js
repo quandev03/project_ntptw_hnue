@@ -1,5 +1,5 @@
-import { event_change_page } from "../Logic/event-change-page.js"
-import { get_item } from "../Logic/storage.js";
+import { event_change_page } from "http://127.0.0.1:5500/JS/Logic/event-change-page.js"
+import { get_item } from "http://127.0.0.1:5500/JS/Logic/storage.js";
 
 document
   .getElementById('html')
@@ -21,6 +21,6 @@ function handle_load_page ()  {
   console.log('af');
   let dataUser = get_item('account', 'session');
   console.log(dataUser);
-  if (!dataUser) event_change_page('http://127.0.0.1:5500/index.html')
+  if (!dataUser) event_change_page('http://127.0.0.1:5500')
 }
 document.addEventListener('load', handle_load_page())

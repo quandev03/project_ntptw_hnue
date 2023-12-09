@@ -40,7 +40,7 @@ export const handle_signup = () => {
                 accounts.push(new_account)
                 console.log(accounts);
                 set_item('accounts', 'local', accounts)
-                // event_change_page('http://127.0.0.1:5500/HTML/Login_HTML/login_user.html')
+                event_change_page('http://127.0.0.1:5500/HTML/Login_HTML/login_user.html')
               }
               else {
                 alert('Mật khẩu phải lớn hơn 8 kí tự!');

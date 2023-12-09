@@ -1,4 +1,4 @@
-import { event_change_page } from "../Logic/event-change-page.js"
+import { event_change_page } from "http://127.0.0.1:5500/JS/Logic/event-change-page.js"
 
 
 const change_main = () => {

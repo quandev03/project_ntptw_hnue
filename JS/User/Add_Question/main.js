@@ -1,9 +1,9 @@
 // TODO: function handle listeners event
 
-import { create_element } from "../../Logic/create-element.js"
-import { event_change_page } from "../../Logic/event-change-page.js"
-import { event_selection } from "./event_selection.js"
-import { handle_submit } from "./event_submit.js"
+import { create_element } from "http://127.0.0.1:5500/JS/http://127.0.0.1:5500/JS/Logic/create-element.js"
+import { event_change_page } from "http://127.0.0.1:5500/JS/http://127.0.0.1:5500/JS/Logic/event-change-page.js"
+import { event_selection } from "http://127.0.0.1:5500/JS/User/Add_Question/event_selection.js"
+import { handle_submit } from "http://127.0.0.1:5500/JS/User/Add_Question/event_submit.js"
 
 // ! onload: function handle
 function handleLoadPage() {
@@ -86,7 +86,7 @@ function handleLoadPage() {
 // ! logout
 function logout() {
   sessionStorage.removeItem('account')
-  event_change_page('http://127.0.0.1:5500/index.html')
+  event_change_page('http://127.0.0.1:5500/')
 }
 
 

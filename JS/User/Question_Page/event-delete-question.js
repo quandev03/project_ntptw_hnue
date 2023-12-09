@@ -1,4 +1,4 @@
-import { get_item, set_item } from "../../Logic/storage.js";
+import { get_item, set_item } from "http://127.0.0.1:5500/JS/Logic/storage.js";
 
 export const delete_question = () => {
   const data_question = get_item('data_question', 'local')

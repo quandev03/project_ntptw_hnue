@@ -1,6 +1,6 @@
-import { create_element } from "../../Logic/create-element.js"
-import { get_element_id } from "../../Logic/get_element_id.js"
-import { set_item } from "../../Logic/storage.js"
+import { create_element } from "http://127.0.0.1:5500/JS/http://127.0.0.1:5500/JS/Logic/create-element.js"
+import { get_element_id } from "http://127.0.0.1:5500/JS/http://127.0.0.1:5500/JS/Logic/get_element_id.js"
+import { set_item } from "http://127.0.0.1:5500/JS/http://127.0.0.1:5500/JS/Logic/storage.js"
 
 export const event_selection = () => {
   const data = get_element_id('kind_of_question').value;
