@@ -20,11 +20,11 @@ export const edit_question = () => {
   console.log(data_edit_question);
   if (data_edit_question != NaN) {
     data_question.map((element, index) => {
-      if (data_edit_question === element[0].stt) {
+      console.log(element);
+      if (data_edit_question == element[0].stt) {
         edit_question_stt = index
       }
     })
-      console.log('session');
   }
 
   console.log(edit_question_stt);

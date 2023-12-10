@@ -5,11 +5,12 @@ import { create_element } from "http://127.0.0.1:5500/JS/Logic/create-element.js
 import { create_table } from "http://127.0.0.1:5500/JS/Logic/create-row.js";
 import { get_element_id } from "http://127.0.0.1:5500/JS/Logic/get_element_id.js";
 import { get_item } from "http://127.0.0.1:5500/JS/Logic/storage.js";
+import { event_change_page } from "../../Logic/event-change-page.js";
 
 // TODO: function handle listeners event
 function handleLoadPage() {
   const bodyPage = get_element_id("main_page")
-  let dataUser = get_item('account', 'session')
+  const dataUser = get_item('account', 'session')
 
   const nav_tag_2 = get_element_id("nav_tag_2")
   // ! kiểm tra đăng nhập
@@ -52,8 +53,16 @@ function logout() {
   location.reload() // ? load lại trang web
 }
 
+// ! change page topic
+function change_topic() {
+  const dataUser = get_item('account', 'session')
+
+  if (dataUser != null) event_change_page('http://127.0.0.1:5500/HTML/topic-page.html')
+  else alert("Bạn phải đăng nhập để sử dụng dịch vụ")
 
 
+}
 // TODO: add event listeners
 document.addEventListener("load", handleLoadPage()) // ? sự kiện load trang sẽ chạy hàm handleLoadPage
 document.getElementById('logout').addEventListener('click', logout) // ? sự kiện đăng xuất sẽ chạy hàm logout
+document.getElementById('question_topic').addEventListener('click', change_topic) // ?

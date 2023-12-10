@@ -7,7 +7,7 @@ export const delete_question = () => {
   const data_delete_question = parseInt(prompt("Enter ordinal number wanted to delete"))
 
 
-  const data = data_question.filter(element => element[0].stt !== data_delete_question)
+  const data = data_question.filter(element => element[0].stt != data_delete_question)
   console.log(data);
   if (data_delete_question !== '') { 
     if (data_question.length !== data.length) {

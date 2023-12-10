@@ -6,7 +6,7 @@ export const event_disapproval = () =>{
   const data = get_item('data_question', 'local')
   const stt_question = parseInt(prompt("Enter ordinal number disapprovals request:"))
   data.map((element, index) => {
-    if (stt_question === element[0].stt) {
+    if (stt_question == element[0].stt) {
       approvals_question_stt = index
     }
   })

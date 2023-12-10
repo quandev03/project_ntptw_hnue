@@ -1,9 +1,9 @@
 // TODO: create function to handle listeners events 
 
-import { create_element } from "http://127.0.0.1:5500/Logic/create-element.js"
-import { event_change_page } from "http://127.0.0.1:5500/Logic/event-change-page.js"
-import { get_element_id } from "http://127.0.0.1:5500/Logic/get_element_id.js"
-import { set_item } from "http://127.0.0.1:5500/Logic/storage.js"
+import { create_element } from "http://127.0.0.1:5500/JS/Logic/create-element.js"
+import { event_change_page } from "http://127.0.0.1:5500/JS/Logic/event-change-page.js"
+import { get_element_id } from "http://127.0.0.1:5500/JS/Logic/get_element_id.js"
+import { set_item } from "http://127.0.0.1:5500/JS/Logic/storage.js"
 import { handle_login } from "http://127.0.0.1:5500/JS/Admin/Login/handle_login.js"
 
 function handle_load_page() {

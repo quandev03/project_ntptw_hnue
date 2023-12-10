@@ -18,7 +18,7 @@ export const handle_login = () => {
     event_change_page('http://127.0.0.1:5500/HTML/admin_main.html')
   }else { // nếu sau sẽ đặt trạng thái là false
     set_item('admin_login', 'session', { admin_login: false })
-    alert("Login Failed");
+    alert("Đăng nhập thất bại");
   }
 
   

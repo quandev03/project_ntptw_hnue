@@ -59,11 +59,6 @@ select {
   color: rgb(65, 160, 192);
   text-shadow: 2px 3px 4px rgb(137, 134, 134);
 }
-body {
-  background-image: url(./../Image/bg_1.jpg);
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
 .form_answer {
   display: flex;
   justify-content: start;

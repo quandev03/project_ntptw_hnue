@@ -7,7 +7,7 @@ export const event_approval = () => {
 
   let approvals_question_stt;
   data.map((element, index) => {
-    if (stt_question === element[0].stt) {
+    if (stt_question == element[0].stt) {
       approvals_question_stt = index
     }
   })
