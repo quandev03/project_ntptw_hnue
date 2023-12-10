@@ -162,3 +162,9 @@ button {
   font-weight: 300;
   text-align: start;
 }
+.answer_choose {
+  width: 90%;
+  padding: 3px 5%;
+  text-align: center;
+  
+}

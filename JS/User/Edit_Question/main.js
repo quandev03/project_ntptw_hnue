@@ -141,16 +141,16 @@ function handleLoadPage() {
 
 //! logout
 function logout() { // ? hàm xử lí sự kiệu đăng xuất
-  sessionStorage.removeItem('account')
-  const change_page = document.createElement('a')
-  change_page.setAttribute('href', 'http://127.0.0.1:5500')
-  change_page.setAttribute('hidden', 'true')
-  document.getElementById("main_page").appendChild(change_page)
-  change_page.click(document.getElementById('button_submit'));
+  sessionStorage.removeItem('account');
+  const change_page = document.createElement('a');
+  change_page.setAttribute('href', 'http://127.0.0.1:5500');
+  change_page.setAttribute('hidden', 'true');
+  document.getElementById("main_page").appendChild(change_page);
+  change_page.click(document.getElementById('button_submit'));;
 }
 // TODO: add listeners event handlers
-document.addEventListener('load', handleLoadPage())
-document.getElementById('button_submit').addEventListener('click', handle_submit)
-document.getElementById('logout').addEventListener('click', logout)
+document.addEventListener('load', handleLoadPage());
+document.getElementById('button_submit').addEventListener('click', handle_submit);
+document.getElementById('logout').addEventListener('click', logout);
 // TODO: save code
 

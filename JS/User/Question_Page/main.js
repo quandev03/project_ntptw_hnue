@@ -91,7 +91,7 @@ function handleLoadPage() {
           switch (questionInfo.kind_of_question) { //kiểm tra kiểu câu trả lời
             case 'only optional': // trắc nhiệm 1 đáp án
               answersInfo.map((element => {
-                const p = create_element('p', '', '', element.answer)  
+                const p = create_element('p', '', 'answer_choose', element.answer)  
                 if (element.isTrue) p.style.backgroundColor = "rgba(47, 158, 80, 0.54)";
                 else p.style.backgroundColor = 'rgba(255, 0, 0, 0.54)';
                 answers.appendChild(p)
@@ -99,7 +99,7 @@ function handleLoadPage() {
               break;
             case 'multi optional': // trắc nhiệm nhiều đáp án
               answersInfo.map(element => {
-                const p = create_element('p', '', '', element.answer)
+                const p = create_element('p', '', 'answer_choose', element.answer)
                 if (element.isTrue) p.style.backgroundColor = "rgba(47, 158, 80, 0.54)";
                 else p.style.backgroundColor = 'rgba(255, 0, 0, 0.54)';
                 answers.appendChild(p)

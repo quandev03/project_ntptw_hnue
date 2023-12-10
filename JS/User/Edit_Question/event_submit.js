@@ -26,13 +26,13 @@ export const handle_submit = () => { // ? tạo hàm submit
         };
         responses_checkbox.push(response);
       }
-      list_answer = responses_checkbox
+      list_answer = responses_checkbox;
       break;
     case 'only optional':
       // ? lấy thông tin câu trả lời
-      let responses_radio = []
+      let responses_radio = [];
       for (let i = 0; i < number_of_response; i++) {
-        let answer = get_element_id(`answer_${i}`).value
+        let answer = get_element_id(`answer_${i}`).value;
         let isTrue = get_element_id(`radio_${i}`).checked
         let response = {
           answer: answer,
@@ -40,7 +40,7 @@ export const handle_submit = () => { // ? tạo hàm submit
         }
         responses_radio.push(response);
       }
-      list_answer = responses_radio
+      list_answer = responses_radio;
       break;
     
     case 'essay':
@@ -49,20 +49,20 @@ export const handle_submit = () => { // ? tạo hàm submit
         answer: get_element_id('list_answer').value,
         isTrue: true
       }]
-      list_answer = answer
+      list_answer = answer;
       break;
     default:
-      alert("Error: Unknown")
+      alert("Error: Unknown");
   }
-  const content = get_element_id('question_input').value
+  const content = get_element_id('question_input').value;
   
-  info_question.content = content
-  info_answer = list_answer
+  info_question.content = content;
+  info_answer = list_answer;
   const data_upload = [
     info_question,
     info_answer
   ]
-  data_question[edit_question_stt] = data_upload
-set_item('data_question', 'local', data_question)
-  event_change_page('http://127.0.0.1:5500/HTML/Question_HTML/question_user.html')
+  data_question[edit_question_stt] = data_upload;
+  set_item('data_question', 'local', data_question);
+  event_change_page('http://127.0.0.1:5500/HTML/Question_HTML/question_user.html');
 }
