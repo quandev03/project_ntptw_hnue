@@ -129,4 +129,6 @@ a {
   position: absolute;
   top: 0% !important;
   margin-top: 0px !important;
+  width: 300px;
+  height: 60px;
 }

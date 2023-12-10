@@ -28,7 +28,7 @@ const event_show_mode = () => {
 function handleLoadPage() {
   const bodyPage = get_element_id("main_page");
   let dataUser = get_item('account', 'session');
-  if (!dataUser) event_change_page('http://127.0.0.1:5500')
+  if (!dataUser) event_change_page('qlhnue.surge.sh')
   let dataQuestion = get_item('data_question', 'local');
   if (dataQuestion === null) {
     dataQuestion = []
@@ -40,7 +40,7 @@ function handleLoadPage() {
     let nav1 = create_element("a",'', '', "Login")
     let nav2 = create_element("a", '', '', "Sign Up")
 
-    nav1.setAttribute("href", "http://127.0.0.1:5500/HTML/Login_HTML/login_user.html")
+    nav1.setAttribute("href", "qlhnue.surge.sh/HTML/Login_HTML/login_user.html")
     nav2.setAttribute("href", "")
     nav_tag_2.appendChild(nav1)
     nav_tag_2.appendChild(nav2)
@@ -63,7 +63,7 @@ function handleLoadPage() {
         let question = create_element('div', '', 'question')
         // ? create element div with variable name is question
 
-        let content = create_element('pre', '', '', `Câu hỏi: ${questionInfo.content}`)
+        let content = create_element('p', '', 'content', `Câu hỏi: ${questionInfo.content}`)
         // ? create element pre with variable name is content to render content question
 
         let stt = create_element('pre', '', '', `ID: ${questionInfo.stt}`)
@@ -179,17 +179,17 @@ function handleLoadPage() {
 //? change page to add a question 
 function add_question_change_page() {
   let change = document.createElement('a')  // ?create an element with card 'a'
-  change.setAttribute('href', 'http://127.0.0.1:5500/HTML/Question_HTML/add_question.html') // ? set attribute href for element 
+  change.setAttribute('href', 'qlhnue.surge.sh/HTML/Question_HTML/add_question.html') // ? set attribute href for element 
   change.setAttribute('hidden', true) // ? enable attribute hidden for element
   change.appendChild(document.getElementById('main_page')) // ? append element in main_page
-  change.click() // ? create event click to navigate to http://127.0.0.1:5500/HTML/Question_HTML/add_question.html
+  change.click() // ? create event click to navigate to qlhnue.surge.sh/HTML/Question_HTML/add_question.html
 
 }
 
 // ! logout
 function logout() { 
   sessionStorage.removeItem('account')
-  event_change_page('http://127.0.0.1:5500')
+  event_change_page('qlhnue.surge.sh')
 }
 
 // TODO: add event listeners
