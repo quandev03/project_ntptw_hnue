@@ -48,7 +48,7 @@ function handleLoadPage() {
         let question = create_element('div', '', 'question')
         // ? create element div with variable name is question
 
-        let content = create_element('pre', '', '', `Câu hỏi: ${questionInfo.content}`)
+        let content = create_element('p', '', 'content', `Câu hỏi: ${questionInfo.content}`)
         // ? create element pre with variable name is content to render content question
 
         let stt = create_element('pre', '', '', `ID: ${questionInfo.stt}`)

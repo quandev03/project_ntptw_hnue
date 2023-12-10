@@ -137,3 +137,10 @@ p {
   border: none;
   color: rgb(99, 0, 0);
 }
+.content {
+  width: 100%;
+  height: auto;
+  color: rgb(65, 160, 192) !important;
+  font-weight: 300;
+  text-align: start;
+}
