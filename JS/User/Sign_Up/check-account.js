@@ -7,7 +7,6 @@ export function check_already_accounted(accounts, username) {
     if (account.username == username) {
       check_already = true
     }
-    
   })
   if (check_already) {
     return true

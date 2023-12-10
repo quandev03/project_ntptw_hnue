@@ -17,25 +17,18 @@ export const edit_question = () => {
   const data_edit_question = parseInt(prompt("Enter ordinal number wanted to edit"))
 
   let edit_question_stt = null;
-  console.log(data_edit_question);
   if (data_edit_question != NaN) {
     data_question.map((element, index) => {
-      console.log(element);
       if (data_edit_question == element[0].stt) {
         edit_question_stt = index
       }
     })
   }
 
-  console.log(edit_question_stt);
-  if (edit_question_stt == null) {
-    console.log('saf');
-    
+  if (edit_question_stt == null) {  
     alert("Can't find question")
     location.reload()
   } else {
-    console.log('s');
-    
     set_item('edit_question_stt', 'local', edit_question_stt)
     event_change_page('http://127.0.0.1:5500/HTML/Question_HTML/edit_question.html')
   }

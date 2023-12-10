@@ -58,6 +58,8 @@ export const handle_submit = () => {
   let status = "waiting for approval"; //? approved, waiting for approval, not approved
   let stt = create_id(); //? tạo số thứ tự
   let content_answer = document.getElementById("question_input").value; // ? lấy giá trị từ in put nhập vào
+  let data_image = null;
+  if (document.getElementById('get_image').value) data_image = get_image()
   const data_sent = [
     {
       stt: stt,
@@ -66,7 +68,7 @@ export const handle_submit = () => {
       time_sent_answer: time_sent_answer,
       status: status,
       kind_of_question: kind_of_question,
-      image: get_image()
+      image: data_image
     },
     list_answer
   ]; // ! dữ liệu câu hỏi sẽ được gửi đi

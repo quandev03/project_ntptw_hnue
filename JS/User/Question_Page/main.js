@@ -71,7 +71,6 @@ function handleLoadPage() {
         if (questionInfo.image) {
           image = create_element('img', '', 'images')
           image.src = questionInfo.image;
-          console.log(questionInfo.image);
         }  
           
         let stt = create_element('pre', '', '', `ID: ${questionInfo.stt}`)
@@ -92,31 +91,17 @@ function handleLoadPage() {
           switch (questionInfo.kind_of_question) { //kiểm tra kiểu câu trả lời
             case 'only optional': // trắc nhiệm 1 đáp án
               answersInfo.map((element => {
-
-                const p = create_element('p', '', '', element.answer)
-  
+                const p = create_element('p', '', '', element.answer)  
                 if (element.isTrue) p.style.backgroundColor = "rgba(47, 158, 80, 0.54)";
                 else p.style.backgroundColor = 'rgba(255, 0, 0, 0.54)';
-
-                
-                // ! element.isTrue
-  
                 answers.appendChild(p)
-              }))
-  
+              })) 
               break;
             case 'multi optional': // trắc nhiệm nhiều đáp án
               answersInfo.map(element => {
                 const p = create_element('p', '', '', element.answer)
-  
                 if (element.isTrue) p.style.backgroundColor = "rgba(47, 158, 80, 0.54)";
                 else p.style.backgroundColor = 'rgba(255, 0, 0, 0.54)';
-  
-  
-
-                
-                // ! element.isTrue
-  
                 answers.appendChild(p)
               })
               break;
@@ -124,14 +109,8 @@ function handleLoadPage() {
             // mặc định là câu trả lời tự luận
               const li2 = create_element('pre', 'essay', '', ` Đáp án: ${element[1][0].answer}`)
 
-              answers.appendChild(li2)
-              
-          }
-
-          
-
-
-          
+              answers.appendChild(li2)             
+          }      
 
           // ! appear in div card
           question.appendChild(stt)
@@ -142,8 +121,6 @@ function handleLoadPage() {
           question.appendChild(timeSent)
           question.appendChild(status)
           question.appendChild(answers);
-          
-
           // ! appear in body
           bodyPage.appendChild(question)
         }
@@ -168,22 +145,11 @@ function handleLoadPage() {
     const hidden = create_element('button', 'hidden')
     hidden.innerHTML ='<i class="material-icons" style="font-size:35px">arrow_drop_down_circle</i>'
 
-
-
-
-    
     bodyPage.appendChild(button_add_question)
     bodyPage.appendChild(button_edit)
     bodyPage.appendChild(button_delete)
     bodyPage.appendChild(hidden)
-    
-    
-
   }  
-
-
-
-
 }
 
 

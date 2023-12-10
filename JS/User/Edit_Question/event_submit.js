@@ -9,7 +9,6 @@ export const handle_submit = () => { // ? tạo hàm submit
   const question_edit = data_question[edit_question_stt];
   let info_question = question_edit[0]; // ? lấy thông tin câu hỏi
   let info_answer = question_edit[1]; // ? lấy thông tin câu trả lời
-  console.log(info_answer);
 
   let number_of_response = info_answer.length;
   const kind_of_question = get_element_id('kind_of_question').value;
@@ -35,7 +34,6 @@ export const handle_submit = () => { // ? tạo hàm submit
       for (let i = 0; i < number_of_response; i++) {
         let answer = get_element_id(`answer_${i}`).value
         let isTrue = get_element_id(`radio_${i}`).checked
-        console.log( answer);
         let response = {
           answer: answer,
           isTrue: isTrue
@@ -52,12 +50,10 @@ export const handle_submit = () => { // ? tạo hàm submit
         isTrue: true
       }]
       list_answer = answer
-      console.log('a');
       break;
     default:
       alert("Error: Unknown")
   }
-  console.log(list_answer);
   const content = get_element_id('question_input').value
   
   info_question.content = content
