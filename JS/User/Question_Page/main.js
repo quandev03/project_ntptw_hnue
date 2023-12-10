@@ -6,6 +6,7 @@ import { event_change_page } from "../../Logic/event-change-page.js"
 import { get_date } from "../../Logic/get-date.js"
 import { get_element_id } from "../../Logic/get_element_id.js"
 import { get_item } from "../../Logic/storage.js"
+import { event_add_question } from "./event-add-question.js"
 import { delete_question } from "./event-delete-question.js"
 import { edit_question } from "./event-edit-question.js"
 let status_sm = false;
@@ -28,7 +29,7 @@ const event_show_mode = () => {
 function handleLoadPage() {
   const bodyPage = get_element_id("main_page");
   let dataUser = get_item('account', 'session');
-  if (!dataUser) event_change_page('qlhnue.surge.sh')
+  if (!dataUser) event_change_page('http://127.0.0.1:5500/')
   let dataQuestion = get_item('data_question', 'local');
   if (dataQuestion === null) {
     dataQuestion = []
@@ -40,7 +41,7 @@ function handleLoadPage() {
     let nav1 = create_element("a",'', '', "Login")
     let nav2 = create_element("a", '', '', "Sign Up")
 
-    nav1.setAttribute("href", "qlhnue.surge.sh/HTML/Login_HTML/login_user.html")
+    nav1.setAttribute("href", "http://127.0.0.1:5500/HTML/Login_HTML/login_user.html")
     nav2.setAttribute("href", "")
     nav_tag_2.appendChild(nav1)
     nav_tag_2.appendChild(nav2)
@@ -61,11 +62,18 @@ function handleLoadPage() {
           let questionInfo = element[0]
 
         let question = create_element('div', '', 'question')
-        // ? create element div with variable name is question
-
+          // ? create element div with variable name is question
+          
         let content = create_element('p', '', 'content', `Câu hỏi: ${questionInfo.content}`)
         // ? create element pre with variable name is content to render content question
 
+        let image;
+        if (questionInfo.image) {
+          image = create_element('img', '', 'images')
+          image.src = questionInfo.image;
+          console.log(questionInfo.image);
+        }  
+          
         let stt = create_element('pre', '', '', `ID: ${questionInfo.stt}`)
         // ? create element pre with variable name is content to render stt question
 
@@ -128,6 +136,9 @@ function handleLoadPage() {
           // ! appear in div card
           question.appendChild(stt)
           question.appendChild(content)
+          if (questionInfo.image) {
+            question.appendChild(image)
+          }
           question.appendChild(timeSent)
           question.appendChild(status)
           question.appendChild(answers);
@@ -177,26 +188,18 @@ function handleLoadPage() {
 
 
 //? change page to add a question 
-function add_question_change_page() {
-  let change = document.createElement('a')  // ?create an element with card 'a'
-  change.setAttribute('href', 'qlhnue.surge.sh/HTML/Question_HTML/add_question.html') // ? set attribute href for element 
-  change.setAttribute('hidden', true) // ? enable attribute hidden for element
-  change.appendChild(document.getElementById('main_page')) // ? append element in main_page
-  change.click() // ? create event click to navigate to qlhnue.surge.sh/HTML/Question_HTML/add_question.html
-
-}
 
 // ! logout
 function logout() { 
   sessionStorage.removeItem('account')
-  event_change_page('qlhnue.surge.sh')
+  event_change_page('http://127.0.0.1:5500/')
 }
 
 // TODO: add event listeners
 document.addEventListener("load", handleLoadPage())
 document.getElementById('edit-button').addEventListener("click", edit_question)
 document.getElementById('delete-button').addEventListener("click", delete_question)
-document.getElementById('add-question-button').addEventListener('click', add_question_change_page)
+document.getElementById('add-question-button').addEventListener('click', event_add_question)
 document.getElementById('logout').addEventListener('click', logout)
 document.getElementById('hidden').addEventListener('click', event_show_mode)
 document.addEventListener("scroll", function () {

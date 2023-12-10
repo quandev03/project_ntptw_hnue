@@ -4,6 +4,7 @@ import { create_element } from "http://127.0.0.1:5500/JS/Logic/create-element.js
 import { event_change_page } from "http://127.0.0.1:5500/JS/Logic/event-change-page.js"
 import { event_selection } from "http://127.0.0.1:5500/JS/User/Add_Question/event_selection.js"
 import { handle_submit } from "http://127.0.0.1:5500/JS/User/Add_Question/event_submit.js"
+import { get_image } from "../../Logic/get-image.js"
 
 // ! onload: function handle
 function handleLoadPage() {
@@ -63,6 +64,16 @@ function handleLoadPage() {
     from_kind_of_question.appendChild(label_kind_of_question)
     from_kind_of_question.appendChild(kind_of_question)
     
+    // ! rendered image
+    
+
+    //! add image
+    const get_image = create_element('input', 'get_image')
+    get_image.setAttribute('type', 'file')
+    get_image.setAttribute('accept', "image/jpeg image/png image/jpg")
+
+
+
     // ! enter the answer in here
     let answer = create_element('div', 'answers')
     // ! button submit
@@ -72,6 +83,7 @@ function handleLoadPage() {
     const form = create_element('div', 'form_input')
     form.appendChild(title)
     form.appendChild(from_question)
+    form.appendChild(get_image)
     form.appendChild(from_kind_of_question)
     form.appendChild(answer)
     form.appendChild(button)
@@ -95,3 +107,4 @@ document.addEventListener('load', handleLoadPage());
 document.getElementById('kind_of_question').addEventListener('change', event_selection);
 document.getElementById('button_submit').addEventListener('click', handle_submit);
 document.getElementById('logout').addEventListener('click', logout);
+document.getElementById('get_image').addEventListener('change', get_image)

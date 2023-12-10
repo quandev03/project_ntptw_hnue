@@ -2,6 +2,7 @@ import { create_id } from "http://127.0.0.1:5500/JS/Logic/create-id.js";
 import { event_change_page } from "http://127.0.0.1:5500/JS/Logic/event-change-page.js";
 import { get_element_id } from "http://127.0.0.1:5500/JS/Logic/get_element_id.js";
 import { get_item, set_item } from "http://127.0.0.1:5500/JS/Logic/storage.js";
+import { get_image } from "../../Logic/get-image.js";
 
 export const handle_submit = () => {
   const kind_of_question = get_element_id('kind_of_question').value;
@@ -65,6 +66,7 @@ export const handle_submit = () => {
       time_sent_answer: time_sent_answer,
       status: status,
       kind_of_question: kind_of_question,
+      image: get_image()
     },
     list_answer
   ]; // ! dữ liệu câu hỏi sẽ được gửi đi

@@ -51,6 +51,12 @@ function handleLoadPage() {
         let content = create_element('p', '', 'content', `Câu hỏi: ${questionInfo.content}`)
         // ? create element pre with variable name is content to render content question
 
+        let image;
+        if (questionInfo.image) {
+          image = create_element('img', '', 'images')
+          image.src = questionInfo.image;
+        }  
+
         let stt = create_element('pre', '', '', `ID: ${questionInfo.stt}`)
         // ? create element pre with variable name is content to render stt question
 
@@ -115,6 +121,9 @@ function handleLoadPage() {
         //! hiển thị các thành phần
         question.appendChild(stt);
         question.appendChild(content);
+        if (questionInfo.image) {
+          question.appendChild(image)
+        }
         question.appendChild(timeSent);
         question.appendChild(status);
         question.appendChild(answers);
