@@ -1,16 +1,21 @@
-#html, #css, #js{
+#html,
+#css,
+#js {
   width: 200px;
   height: 300px;
 }
+
 #html {
   background-color: orangered;
   position: absolute;
   top: 0px;
   left: 40%;
 }
+
 #css {
   background-color: blue;
 }
+
 #js {
   background-color: yellow;
   position: absolute;

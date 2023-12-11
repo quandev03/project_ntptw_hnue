@@ -1,6 +1,6 @@
 import { get_item, set_item } from "http://127.0.0.1:5500/JS/Logic/storage.js"
 
-export const selection_data_approvals = (select) => {
+const selection_data_approvals = (select) => {
   const data = get_item('data_question', 'local') 
   const select_data = data.filter(element => element[0].status === 'approvals')
   if (select_data.length == 0) { 
@@ -10,7 +10,8 @@ export const selection_data_approvals = (select) => {
   else set_item('data_selection', 'session', select_data);
   location.reload();
 }
-export const selection_data_disapprovals = () => {
+
+const selection_data_disapprovals = () => {
   const data = get_item('data_question', 'local') 
   const data_select = data.filter(element => element[0].status === 'disapprovals')
   if (data_select.length == 0) { 
@@ -20,7 +21,7 @@ export const selection_data_disapprovals = () => {
   else set_item('data_selection', 'session', data_select);
   location.reload();
 }
-export const selection_data_await = () => {
+const selection_data_await = () => {
   const data = get_item('data_question', 'local');
   const selection_data = data.filter(element => element[0].status === 'waiting for approval');
   console.log(selection_data);
@@ -31,8 +32,10 @@ export const selection_data_await = () => {
   else set_item('data_selection', 'session', selection_data);
   location.reload();
 }
-export const selection_data_all = () => {
+const selection_data_all = () => {
   const data = get_item('data_question', 'local');
   set_item('data_selection', 'session', data);
   location.reload();
- }
+}
+
+export {selection_data_approvals, selection_data_all, selection_data_disapprovals, selection_data_await}

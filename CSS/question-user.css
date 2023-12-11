@@ -1,7 +1,6 @@
-
 #logout {
   top: 0px;
-  
+
 }
 
 .question {
@@ -16,32 +15,39 @@
   padding-left: 10%;
   padding-right: 10%;
   margin-bottom: 10px;
-  box-shadow:  2px 2px 2px rgb(194, 194, 194);
+  box-shadow: 2px 2px 2px rgb(194, 194, 194);
   /* align-items: center; */
-  
-  
+
+
 }
+
 .answers {
   list-style-type: none;
 
 }
+
 pre {
   color: rgb(65, 160, 192) !important;
 }
+
 li {
   color: rgb(65, 160, 192) !important;
 }
+
 table {
   width: 100%;
 }
+
 .status {
   display: flex;
   align-items: center;
 }
+
 button {
   width: 150px;
   height: 50px;
 }
+
 .group-button {
   display: flex;
   width: 600px;
@@ -62,6 +68,7 @@ button {
   align-items: center;
   color: #fff;
 }
+
 #bg {
   position: fixed;
   z-index: -1;
@@ -69,62 +76,69 @@ button {
   height: 100%;
   top: 0px;
 }
+
 #edit-button {
   display: none;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   border: 2px solid #fff;
-  position: fixed; 
+  position: fixed;
   right: 10%;
   top: 24%;
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 247, 0, 0.455);
-  
+
 }
-#delete-button{
+
+#delete-button {
   display: none;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   border: 2px solid #fff;
-  position: fixed; 
+  position: fixed;
   right: 4%;
   top: 28%;
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 0, 0, 0.537);
 }
-#add-question-button{
+
+#add-question-button {
   display: none;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   border: 2px solid #fff;
-  position: fixed; 
+  position: fixed;
   top: 15%;
   right: 13%;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 128, 0, 0.476);
 }
+
 p {
   border-radius: 10px;
-  padding-top:3px;
-  padding-bottom:3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
   text-align: center;
   width: 100%;
   color: #000;
-  font-weight:bolder;
+  font-weight: bolder;
 }
+
 button {
-  font-weight:bolder;
+  font-weight: bolder;
 }
+
 #no_question {
   font-size: 90px;
   text-align: center;
 }
+
 #bg {
   position: fixed;
   z-index: -1;
@@ -136,11 +150,12 @@ button {
 #essay {
   width: 80%;
   background-color: rgba(47, 158, 80, 0.54);
-  font-weight:bolder;
+  font-weight: bolder;
   padding: 20px;
   color: #000 !important;
   border-radius: 20px;
 }
+
 #change_top {
   width: 30px;
   height: 30px;
@@ -155,6 +170,7 @@ button {
   border: none;
   color: rgb(99, 0, 0);
 }
+
 .content {
   width: 100%;
   height: auto;
@@ -162,9 +178,10 @@ button {
   font-weight: 300;
   text-align: start;
 }
+
 .answer_choose {
   width: 90%;
   padding: 3px 5%;
   text-align: center;
-  
+
 }

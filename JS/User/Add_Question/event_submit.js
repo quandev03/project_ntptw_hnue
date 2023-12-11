@@ -10,6 +10,7 @@ export const handle_submit = () => {
   const user = get_item('account', 'session');
   let number_of_response;
   switch (kind_of_question) {
+
     case 'multi optional':
       number_of_response = get_item('number_of_responses', 'session');
       let responses_checkbox = [];
@@ -24,6 +25,7 @@ export const handle_submit = () => {
       }
       list_answer = responses_checkbox;
       break;
+    
     case 'only optional':
       number_of_response = get_item('number_of_responses', 'session');
       let responses_radio = [];
@@ -46,6 +48,7 @@ export const handle_submit = () => {
       }];
       list_answer = answer;
       break;
+    
     default:
       alert("Error: Unknown");
   }
@@ -55,11 +58,11 @@ export const handle_submit = () => {
   if (data_question === null) {
     data_question = [];
   }
-  let status = "waiting for approval"; //? approved, waiting for approval, not approved
-  let stt = create_id(); //? tạo số thứ tự
-  let content_answer = document.getElementById("question_input").value; // ? lấy giá trị từ in put nhập vào
+  let status = "waiting for approval";
+  let stt = create_id();
+  let content_answer = get_element_id("question_input").value;
   let data_image = null;
-  if (document.getElementById('get_image').value) data_image = get_image()
+  if (get_element_id('get_image').value) data_image = get_image()
   const data_sent = [
     {
       stt: stt,
@@ -71,15 +74,14 @@ export const handle_submit = () => {
       image: data_image
     },
     list_answer
-  ]; // ! dữ liệu câu hỏi sẽ được gửi đi
-  data_question.push(data_sent); // ! dữ liệu câu hỏi vào hệ thống dữ liệu câu hỏi
+  ];
+  data_question.push(data_sent);
   if (
     data_sent[0].kind_of_question == "essay" ||
     data_sent[0].kind_of_question == 'multi optional' ||
     data_sent[0].kind_of_question == "only optional"
   ) {
     set_item('data_question', 'local', data_question);
-  } // ! lại dữ liệu
-    
+  }
   event_change_page('http://127.0.0.1:5500/HTML/Question_HTML/question_user.html');
 }

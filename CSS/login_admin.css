@@ -9,11 +9,11 @@
   flex-direction: column;
   color: rgb(65, 160, 192);
   font-size: 20px;
-  
+
 }
 
 #form_input {
-  position:fixed;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,20 +47,23 @@ input {
   width: 95%;
   height: 30px;
   border: 2px solid rgb(65, 160, 192);
-  border-radius:  5px;
+  border-radius: 5px;
   font-size: 18px;
   color: rgb(65, 160, 192);
   padding: 5px 5px 5px 5px;
 }
+
 body {
   background-image: url(http://127.0.0.1:5500/Image/bg_1.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
 }
+
 #login_user {
   color: rgb(65, 160, 192);
   font-size: 13px;
 }
+
 #login_user:hover {
   border-bottom: 1px solid rgb(65, 160, 192);
 }

@@ -6,31 +6,34 @@
 }
 
 input {
-  color:rgb(65, 160, 192);
+  color: rgb(65, 160, 192);
   border: 1px solid rgb(65, 160, 192);
   border-radius: 5px;
   width: 300px;
   height: 30px;
   padding: 0px 0px 0px 10px;
 }
+
 .label {
   color: rgb(65, 160, 192);
   font-size: 20px;
 }
+
 select {
-  color: rgb(65, 160, 192) ;
+  color: rgb(65, 160, 192);
   border: 2px solid rgb(65, 160, 192);
   border-radius: 5px;
   width: 100%;
 }
-button 
-  {
-    width: 70%;
-    height: 50px;
-    background-color:  rgb(65, 160, 192) ;
-    font-size: 30px;
-    color: antiquewhite;
-  }
+
+button {
+  width: 70%;
+  height: 50px;
+  background-color: rgb(65, 160, 192);
+  font-size: 30px;
+  color: antiquewhite;
+}
+
 #frame_editor {
   width: 300px;
   height: 550px;
@@ -40,26 +43,30 @@ button
   justify-content: space-around;
   box-shadow: 5px 5px 10px rgb(202, 202, 202);
   background-color: rgba(248, 248, 248, 0.704);
-  padding: 10px 40px 30px 40px; 
+  padding: 10px 40px 30px 40px;
   border-radius: 20px;
 
 }
+
 #kind_of_question {
   display: flex;
   flex-direction: column;
   width: 310px;
 }
+
 #from_question {
   width: 300px;
   display: flex;
   flex-direction: column;
 }
-#title{
+
+#title {
   font-size: 50px !important;
   color: rgb(65, 160, 192);
   text-shadow: 2px 3px 4px rgb(137, 134, 134);
   margin: 0px;
 }
+
 body {
   background-image: url(qlhnue.surge.sh/Image/bg_1.jpg);
   background-size: 100%;

@@ -22,21 +22,21 @@ export const create_table = (
   const address_C = create_element('td', '', '', `${address}`);
   const age_C = create_element('td', '', '', `${age}`);
 
-  id_R.appendChild(id_T)
-  id_R.appendChild(id_C)
+  id_R.appendChild(id_T);
+  id_R.appendChild(id_C);
 
-  full_name_R.appendChild(full_name_T)
-  full_name_R.appendChild(full_name_C)
+  full_name_R.appendChild(full_name_T);
+  full_name_R.appendChild(full_name_C);
 
-  address_R.appendChild(address_T)
-  address_R.appendChild(address_C)
+  address_R.appendChild(address_T);
+  address_R.appendChild(address_C);
 
-  age_R.appendChild(age_T)
-  age_R.appendChild(age_C)
+  age_R.appendChild(age_T);
+  age_R.appendChild(age_C);
 
-  table.appendChild(id_R)
-  table.appendChild(full_name_R)
-  table.appendChild(age_R)
+  table.appendChild(id_R);
+  table.appendChild(full_name_R);
+  table.appendChild(age_R);
   table.appendChild(address_R);
 
   return table;

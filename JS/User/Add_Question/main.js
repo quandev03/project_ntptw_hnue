@@ -5,106 +5,88 @@ import { event_change_page } from "http://127.0.0.1:5500/JS/Logic/event-change-p
 import { event_selection } from "http://127.0.0.1:5500/JS/User/Add_Question/event_selection.js"
 import { handle_submit } from "http://127.0.0.1:5500/JS/User/Add_Question/event_submit.js"
 import { get_image } from "../../Logic/get-image.js"
+import { get_element_id } from "../../Logic/get_element_id.js"
 
 // ! onload: function handle
 function handleLoadPage() {
-  const bodyPage = document.getElementById("main_page")
-  let dataUser = JSON.parse(sessionStorage.getItem("account")) // lấy dữ liệu đăng nhập
-  let dataQuestion = JSON.parse(localStorage.getItem("data_question")) // láy dữ liệu câu hỏi
-  const nav_tag_2 = document.getElementById("nav_tag_2")
-  if (dataUser == null) { //! kiểm tra trạng thái đăng nhấp
-    event_change_page("http://127.0.0.1:5500/HTML/Login_HTML/login_user.html")
+  const bodyPage = get_element_id("main_page");
+  let dataUser = JSON.parse(sessionStorage.getItem("account"));
+  const nav_tag_2 = get_element_id("nav_tag_2");
+  if (dataUser == null) {
+    event_change_page("http://127.0.0.1:5500/HTML/Login_HTML/login_user.html");
   } else {
 
     // ! information account
-    let fullName = create_element('h2', 'logout', 'home', dataUser.fullName) // ! hiển thị tên
+    let fullName = create_element('h2', 'logout', 'home', dataUser.fullName);
     nav_tag_2.appendChild(fullName)
-    // ! render add questions
-    let title = create_element('h1', 'title', '', "Thêm câu hỏi")// ! Quan tâm cái này
 
-    // ? question 
-    // tạo trường hiển thị câu hỏi
-    let labels = create_element('label', '', 'label', "Câu hỏi của bạn: ") // tạo ra 1 phẩn tử label / không set id/ 
-    let question = create_element('input', 'question_input', ) // ! Quan tâm cái này
-    question.setAttribute('placeholder', "enter question in here")
+    // ! render add questions
+    let title = create_element('h1', 'title', '', "Thêm câu hỏi");
+    let labels = create_element('label', '', 'label', "Câu hỏi của bạn: ");
+    let question = create_element('input', 'question_input');
+    question.setAttribute('placeholder', "Nhập câu hỏi của bạn");
     labels.setAttribute('for', 'question_input')
     let from_question = create_element('div', 'from_question') // ! Quan tâm cái này
     from_question.appendChild(labels)
     from_question.appendChild(question)
 
-    // ? kind of question
-    // tạo trường nhập kiểu câu hỏi
-    let label_kind_of_question = create_element('label', '', 'label', 'Kind of question:  ')
-    label_kind_of_question.setAttribute('for', 'kind_of_question')
+    let label_kind_of_question = create_element('label', '', 'label', 'Kiểu câu hỏi:  ');
+    label_kind_of_question.setAttribute('for', 'kind_of_question');
 
-    // ? các kiểu câu hỏi
-    let kind_of_question = create_element('select', 'kind_of_question')
-    
-    let only_optional = create_element('option', '', '', 'Một đáp án')
-    only_optional.setAttribute('value', 'only optional')
-    
-    let multi_optional = create_element('option', '', '', 'Nhiều đáp án')
-    multi_optional.setAttribute('value', 'multi optional')
-    
+    let kind_of_question = create_element('select', 'kind_of_question');
+    let only_optional = create_element('option', '', '', 'Một đáp án');
+    only_optional.setAttribute('value', 'only optional');
+    let multi_optional = create_element('option', '', '', 'Nhiều đáp án');
+    multi_optional.setAttribute('value', 'multi optional');
     let essay = create_element('option', '', '', 'Tự điền');
     essay.setAttribute('value', 'essay');
-
-    let select = create_element('option', '', '','Lựa chọn')
-    select.setAttribute('value', 'select')
+    let select = create_element('option', '', '', 'Lựa chọn');
+    select.setAttribute('value', 'select');
 
     // ! rendered selection
-    kind_of_question.appendChild(select)
-    kind_of_question.appendChild(essay)
-    kind_of_question.appendChild(only_optional)
-    kind_of_question.appendChild(multi_optional)
+    kind_of_question.appendChild(select);
+    kind_of_question.appendChild(essay);
+    kind_of_question.appendChild(only_optional);
+    kind_of_question.appendChild(multi_optional);
 
-
-    // ! tạo form cho lựa chọn kiểu câu hỏi
-    let from_kind_of_question = create_element('div', 'from_kind_of_question')
-    from_kind_of_question.appendChild(label_kind_of_question)
-    from_kind_of_question.appendChild(kind_of_question)
-    
-    // ! rendered image
-    
-
+    let from_kind_of_question = create_element('div', 'from_kind_of_question');
+    from_kind_of_question.appendChild(label_kind_of_question);
+    from_kind_of_question.appendChild(kind_of_question);
+  
     //! add image
-    const get_image = create_element('input', 'get_image')
-    get_image.setAttribute('type', 'file')
-    get_image.setAttribute('accept', "image/jpeg image/png image/jpg")
-
-
+    const get_image = create_element('input', 'get_image');
+    get_image.setAttribute('type', 'file');
+    get_image.setAttribute('accept', "image/jpeg image/png image/jpg");
 
     // ! enter the answer in here
-    let answer = create_element('div', 'answers')
+    let answer = create_element('div', 'answers');
+
     // ! button submit
-    let button = create_element('button', 'button_submit', '','Gửi câu hỏi')
-    // ! form input 
-    //? hiển thi element
-    const form = create_element('div', 'form_input')
-    form.appendChild(title)
-    form.appendChild(from_question)
-    form.appendChild(get_image)
-    form.appendChild(from_kind_of_question)
-    form.appendChild(answer)
-    form.appendChild(button)
-    // ! render website in here
-    bodyPage.appendChild(form)
+    let button = create_element('button', 'button_submit', '', 'Gửi câu hỏi');
     
+    // ! form input 
+    const form = create_element('div', 'form_input');
+    form.appendChild(title);
+    form.appendChild(from_question);
+    form.appendChild(get_image);
+    form.appendChild(from_kind_of_question);
+    form.appendChild(answer);
+    form.appendChild(button);
+
+    // ! render website in here
+    bodyPage.appendChild(form);    
   }  
 }
 
-
-
 // ! logout
 function logout() {
-  sessionStorage.removeItem('account')
-  event_change_page('http://127.0.0.1:5500/')
+  sessionStorage.removeItem('account');
+  event_change_page('http://127.0.0.1:5500/');
 }
-
 
 // TODO: add event listeners  handlers
 document.addEventListener('load', handleLoadPage());
-document.getElementById('kind_of_question').addEventListener('change', event_selection);
-document.getElementById('button_submit').addEventListener('click', handle_submit);
-document.getElementById('logout').addEventListener('click', logout);
-document.getElementById('get_image').addEventListener('change', get_image)
+get_element_id('kind_of_question').addEventListener('change', event_selection);
+get_element_id('button_submit').addEventListener('click', handle_submit);
+get_element_id('logout').addEventListener('click', logout);
+get_element_id('get_image').addEventListener('change', get_image);

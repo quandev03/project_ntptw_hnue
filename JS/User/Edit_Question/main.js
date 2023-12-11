@@ -21,14 +21,11 @@ function handleLoadPage() {
     nav_tag_2.appendChild(fullName);
 
     // ! fetch data from local storage
-    const data_question = get_item('data_question', 'local'); // lấy dữ liệu câu hỏi
-    const edit_question_stt = get_item('edit_question_stt', 'local'); // lấy id câu hỏi cần chỉnh sửa
+    const data_question = get_item('data_question', 'local');
+    const edit_question_stt = get_item('edit_question_stt', 'local');
     const question_edit = data_question.splice(edit_question_stt, edit_question_stt + 1);
-    // ? lấy câu hỏi cần trỉnh sửa
     const info_question = question_edit[0][0];
-    // ? lấy thông tin câu hỏi
     const info_answer = question_edit[0][1];
-    // ? lấy thông tin của các câu trả lời
     
     // ! render add questions
     // ? hiện thị tiêu để trang web
@@ -37,12 +34,11 @@ function handleLoadPage() {
     // ! question // ! hiển thị câu hỏi
     const labels = create_element('label', '', 'label', "Câu hỏi ");
 
-    const question = create_element('input', 'question_input'); // ? hiển thị nội dung câu hỏi
+    const question = create_element('input', 'question_input');
     question.setAttribute('placeholder', "Nhập câu hỏi ở đây");
     question.value = info_question.content;
     labels.setAttribute('for', 'question_input');
     const from_question = create_element('div', 'from_question');
-    // ? tạo form nội dung câu hỏi
 
     from_question.appendChild(labels);
     from_question.appendChild(question);
@@ -76,7 +72,8 @@ function handleLoadPage() {
     // ! enter the answer in here
     const answers = document.createElement('div');
     answers.setAttribute('id', 'answer');
-    switch (info_question.kind_of_question) { // ? kiểm tra kiểu của câu hỏi
+    switch (info_question.kind_of_question) {
+
       case 'multi optional':
         info_answer.map((element, index) => {
           
@@ -93,6 +90,7 @@ function handleLoadPage() {
         }
         );
         break;
+      
       case 'only optional':
         info_answer.map((element, index) => {
           const form_answer = create_element('div', 'list_answer');
@@ -107,6 +105,7 @@ function handleLoadPage() {
           answers.appendChild(form_answer);
         })
         break;
+      
       default:
         const form_answer = create_element('div');
         const answer = create_element('input', 'list_answer');
@@ -117,9 +116,9 @@ function handleLoadPage() {
 
 
     // ! button 
-    const button = create_element('button', 'button_submit', '', 'Submit'); // ? tạo nút submit
+    const button = create_element('button', 'button_submit', '', 'Submit');
     // ! frame
-    const frame_editor = create_element("div", 'frame_editor') // ? tạo frame hiện thị các element
+    const frame_editor = create_element("div", 'frame_editor');
 
     frame_editor.appendChild(title);
     frame_editor.appendChild(from_question);
@@ -128,7 +127,7 @@ function handleLoadPage() {
     frame_editor.appendChild(button);
 
     // ! render website in
-    bodyPage.appendChild(frame_editor); // ? hiện thị element
+    bodyPage.appendChild(frame_editor);
     
   }  
 }
@@ -140,13 +139,9 @@ function handleLoadPage() {
 
 
 //! logout
-function logout() { // ? hàm xử lí sự kiệu đăng xuất
+function logout() {
   sessionStorage.removeItem('account');
-  const change_page = document.createElement('a');
-  change_page.setAttribute('href', 'http://127.0.0.1:5500');
-  change_page.setAttribute('hidden', 'true');
-  document.getElementById("main_page").appendChild(change_page);
-  change_page.click(document.getElementById('button_submit'));;
+  event_change_page('http://127.0.0.1:5500')
 }
 // TODO: add listeners event handlers
 document.addEventListener('load', handleLoadPage());

@@ -4,7 +4,7 @@ import { selection_data_all } from "http://127.0.0.1:5500/JS/Admin/Main/selectio
 export const event_disapproval = () =>{
   let approvals_question_stt;
   const data = get_item('data_question', 'local')
-  const stt_question = parseInt(prompt("Enter ordinal number disapprovals request:"))
+  const stt_question = parseInt(prompt("Nhập ID câu hỏi để từ chối duyệt"))
   data.map((element, index) => {
     if (stt_question == element[0].stt) {
       approvals_question_stt = index

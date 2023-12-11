@@ -14,19 +14,21 @@ button {
   transition: transform 0.5s;
 }
 
-
 button:hover {
   animation-name: disapprovals;
   animation-duration: 0.5s;
 
 }
+
 table {
   width: 100%;
 }
+
 .status {
   display: flex;
   align-items: center;
 }
+
 #approvals-button {
   background-color: #4e7f00;
   width: 50px;
@@ -50,6 +52,7 @@ table {
   display: none;
   color: white;
 }
+
 #show_more {
   z-index: 1;
   width: 60px;
@@ -64,6 +67,7 @@ table {
   align-items: center;
   color: white;
 }
+
 #bg {
   position: fixed;
   z-index: -1;
@@ -71,16 +75,18 @@ table {
   height: 100%;
   top: 0px;
 }
+
 #select_form_button {
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(179, 179, 179,0.2)ay;
+  border: 1px solid rgba(179, 179, 179, 0.2)ay;
   border-radius: 20px;
-  background-color: rgba(179, 179, 179,0.2);
+  background-color: rgba(179, 179, 179, 0.2);
   position: fixed;
   top: 20%;
   left: 5%;
 }
+
 .set_data_button {
   width: 30px;
   height: 30px;
@@ -90,20 +96,23 @@ table {
   border: none;
   background-color: rgba(179, 179, 179, 0);
 }
+
 #set_data_button {
   background-color: rgba(50, 164, 230, 0.677);
 }
+
 .set_data_button:hover {
   background-color: white;
 }
+
 p {
   border-radius: 10px;
-  padding-top:3px;
-  padding-bottom:3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
   text-align: center;
   width: 100%;
   color: #000;
-  font-weight:bolder;
+  font-weight: bolder;
 }
 
 #title {
@@ -115,14 +124,16 @@ p {
   top: 0%;
   margin: 0px;
 }
+
 #essay {
   width: 80%;
   background-color: rgba(47, 158, 80, 0.54);
-  font-weight:bolder;
+  font-weight: bolder;
   padding: 20px;
   color: #000 !important;
   border-radius: 20px;
 }
+
 #change_top {
   width: 30px;
   height: 30px;
@@ -137,6 +148,7 @@ p {
   border: none;
   color: rgb(99, 0, 0);
 }
+
 .content {
   width: 100%;
   height: auto;
@@ -144,6 +156,7 @@ p {
   font-weight: 300;
   text-align: start;
 }
+
 img {
   width: 100%;
 }

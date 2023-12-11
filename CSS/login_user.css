@@ -1,10 +1,10 @@
-
 #title_login {
   font-size: 50px !important;
   color: rgb(65, 160, 192);
   text-shadow: 2px 3px 4px rgb(137, 134, 134);
-} 
-.input{
+}
+
+.input {
   width: 95% !important;
   height: 25px !important;
   border: 1px solid rgb(65, 160, 192);
@@ -13,41 +13,46 @@
   font-size: 15px;
   color: rgb(65, 160, 192);
 }
-.label{
+
+.label {
   font-size: 20px;
   margin-right: 5px;
   width: 200px;
   color: rgb(65, 160, 192);
   margin-left: 5px;
 }
+
 #button_login {
   width: 77%;
   height: 40px;
-  background-color:  rgb(65, 160, 192) ;
+  background-color: rgb(65, 160, 192);
   font-size: 25px;
   color: antiquewhite;
   position: absolute;
   top: 60%;
 }
+
 #button_login:hover {
   box-shadow: 5px 5px 5px rgb(79, 213, 227);
   text-shadow: 5px 5px 5px rgb(79, 213, 227);
-  background-color:  rgb(80, 175, 204) ;
+  background-color: rgb(80, 175, 204);
 }
-#label-hidden{
+
+#label-hidden {
   color: rgb(65, 160, 192);
   font-size: 15px
 }
+
 .form_hidden_password {
   display: flex;
   width: 20%;
   justify-content: space-between;
 }
-@keyframes identifier {
-  
-}
+
+@keyframes identifier {}
+
 #frame_form {
-  position:fixed;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,15 +68,19 @@
   left: 10%;
   opacity: 1;
 }
-#form_username , #form_password {
+
+#form_username,
+#form_password {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-#form_hidden_pass{
+
+#form_hidden_pass {
   width: 40%;
   min-width: 130px
 }
+
 .body_page {
   position: relative;
 }
@@ -82,6 +91,7 @@
   font-size: 13px;
   color: rgb(80, 175, 204);
 }
+
 #button_change_admin:hover {
   border-bottom: 1px solid rgb(80, 175, 204);
 }
@@ -89,8 +99,9 @@
 #icon_eye {
   position: absolute;
   top: 47.5%;
-  right:13%;
+  right: 13%;
 }
+
 #input_username {
   width: 100%;
 }

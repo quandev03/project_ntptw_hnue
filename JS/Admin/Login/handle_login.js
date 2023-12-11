@@ -11,13 +11,24 @@ export const handle_login = () => {
   const password = get_element_id('password_input').value
 
 
-  if (username == data_account.username && password == data_account.password) { // check tải khoản và mật khẩu admin
-    set_item('status_login', 'session', { admin_login: true })
-    // sessionStorage.setItem(, JSON.stringify({ admin_login: true })); // nêu đúng sẽ đặt trạng thái đăng nhâp kaf true
+  if (username == data_account.username && password == data_account.password) {
+    set_item(
+      'status_login',
+      'session',
+      {
+        admin_login: true
+      }
+    )
     selection_data_all()
     event_change_page('http://127.0.0.1:5500/HTML/admin_main.html')
-  }else { // nếu sau sẽ đặt trạng thái là false
-    set_item('admin_login', 'session', { admin_login: false })
+  }else { 
+    set_item(
+      'admin_login',
+      'session',
+      {
+        admin_login: false
+      }
+    )
     alert("Đăng nhập thất bại");
   }
 

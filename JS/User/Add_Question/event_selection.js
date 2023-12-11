@@ -6,17 +6,17 @@ export const event_selection = () => {
   const data = get_element_id('kind_of_question').value;
   const answers = get_element_id('answers');
   if (data != 'select') {
-    get_element_id('kind_of_question').setAttribute('disabled', true); // ? xét trạng thái ẩn
+    get_element_id('kind_of_question').setAttribute('disabled', true);
   }
   // ! tạo form nhập câu trả lời
   switch (data) {
     case 'multi optional':
-      const number_of_responses = prompt("Number of responses:  "); // ? nhập số câu trả lời
+      const number_of_responses = prompt("Number of responses:  ");
       set_item('number_of_responses', 'session', number_of_responses);
-      for (let i = 0; i < number_of_responses; i++) {   // ? tạo câu trả lời
-        const form_answer = create_element('div', '', 'form_answer'); // ? tao form câu trả lời
-        const checkbox = create_element('input', `checkbox_${i}`); //? tạo ô nhập câu hỏi
-        checkbox.setAttribute("type", "checkbox"); // ? 
+      for (let i = 0; i < number_of_responses; i++) {
+        const form_answer = create_element('div', '', 'form_answer'); 
+        const checkbox = create_element('input', `checkbox_${i}`);
+        checkbox.setAttribute("type", "checkbox");
         checkbox.setAttribute('name', 'checkbox');
         checkbox.setAttribute("value", `${i}`, 'input_true');
         const answer = create_element('input', `answer_${i}`, 'input_answer');

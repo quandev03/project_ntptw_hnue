@@ -7,52 +7,37 @@ import { set_item } from "http://127.0.0.1:5500/JS/Logic/storage.js"
 import { handle_login } from "http://127.0.0.1:5500/JS/Admin/Login/handle_login.js"
 
 function handle_load_page() {
-
   // ! get element from page
   // ? lấy sự các element chính
   const body_page = get_element_id('main_page')
-  const nav_tag = get_element_id('nav_tag_1')
-  // ! create title
-  // ? tạo ra tiêu đề trang đang nhập của administrative
 
   // ! tạo ra tài khoản admin mặc định
   const admin_account = {
     username: 'admin',
     password: 'admin',
   }
-  // localStorage.setItem('admin_account', JSON.stringify(admin_account)) // ? lưu tài khoản admin mặc định
   set_item('admin_account', 'local', admin_account);
+
   // ! create title 2
-  // ? tạo tiêu đề cho phần đăng nhập với administrative
   const title2 = create_element('h1', 'title2', '', 'Quản trị viên')
-
-
   // ! create input element
-
-  // ? tạo phần nhập admin name account
   const label_username = create_element('label', '', '', 'Tên đăng nhập')
-  
-  
   const input_username = create_element('input', 'input_username')
   label_username.setAttribute('for', 'username_input')
   input_username.placeholder = "Nhập tên đăng nhập"
-
-  // ? tao phần nhâp mất khẩu
 
   const label_password = create_element('label','', '', 'Mật khẩu' )
   const input_password = create_element('input', 'password_input')
   input_password.type = 'password'
   input_password.placeholder = 'Nhập mật khẩu'
   label_password.setAttribute('for', 'password_input')
+
   // ! create form input element
   // ? tạo form cho phần nhập thông tin
-  const form_username = document.createElement('div')
-  const form_password = document.createElement('div')
+  const form_username = create_element('div', '', 'form_input_login')
+  const form_password = create_element('div', '', 'form_input_login')
 
-  form_username.setAttribute('class', 'form_input_login')
-  form_password.setAttribute('class', 'form_input_login')
-
-  // ! hiển thị đối tượng
+  // ! render element
   form_username.appendChild(label_username)
   form_username.appendChild(input_username)
   form_password.appendChild(label_password)
@@ -66,8 +51,7 @@ function handle_load_page() {
 
   // ! create form input
   // ? hiện thị các đối tượng
-  const form_input = document.createElement("div")
-  form_input.setAttribute('id', 'form_input')
+  const form_input = create_element("div", 'form_input')
   form_input.appendChild(title2)
   form_input.appendChild(form_username)
   form_input.appendChild(form_password)
