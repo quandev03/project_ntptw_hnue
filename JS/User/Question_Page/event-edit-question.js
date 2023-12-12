@@ -4,17 +4,9 @@ import { get_item, set_item } from "http://127.0.0.1:5500/JS/Logic/storage.js"
 
 export const edit_question = () => {
 
-  // ! create element and set attribute
-  let change = create_element('a')
-  change.setAttribute('href', 'http://127.0.0.1:5500/HTML/Question_HTML/edit_question.html')
-  change.setAttribute('hidden', true)
-  change.appendChild(document.getElementById('main_page'))
-
-  // ! create event click to navigate to http://127.0.
-
   const data_question = get_item('data_question', 'local')
 
-  const data_edit_question = parseInt(prompt("Enter ordinal number wanted to edit"))
+  const data_edit_question = parseInt(prompt("Nhập ID câu hỏi cẩn chỉnh sửa"))
 
   let edit_question_stt = null;
   if (data_edit_question != NaN) {
@@ -24,9 +16,8 @@ export const edit_question = () => {
       }
     })
   }
-
   if (edit_question_stt == null) {  
-    alert("Can't find question")
+    alert("Không tìm thấy câu hỏi cần sửa")
     location.reload()
   } else {
     set_item('edit_question_stt', 'local', edit_question_stt)

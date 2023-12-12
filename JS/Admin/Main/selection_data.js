@@ -1,6 +1,6 @@
 import { get_item, set_item } from "http://127.0.0.1:5500/JS/Logic/storage.js"
 
-const selection_data_approvals = (select) => {
+const selection_data_approvals = () => {
   const data = get_item('data_question', 'local') 
   const select_data = data.filter(element => element[0].status === 'approvals')
   if (select_data.length == 0) { 

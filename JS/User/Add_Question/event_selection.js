@@ -15,7 +15,7 @@ export const event_selection = () => {
       set_item('number_of_responses', 'session', number_of_responses);
       for (let i = 0; i < number_of_responses; i++) {
         const form_answer = create_element('div', '', 'form_answer'); 
-        const checkbox = create_element('input', `checkbox_${i}`);
+        const checkbox = create_element('input', `checkbox_${i}`, 'selected');
         checkbox.setAttribute("type", "checkbox");
         checkbox.setAttribute('name', 'checkbox');
         checkbox.setAttribute("value", `${i}`, 'input_true');
@@ -32,7 +32,7 @@ export const event_selection = () => {
 
       for (let i = 0; i < number_of_response; i++) {
         const form_answer = create_element('div', '', 'form_answer');
-        const radio = create_element('input', `radio_${i}`, 'input_true');
+        const radio = create_element('input', `radio_${i}`, 'input_true', 'selected');
         radio.setAttribute("type", "radio");
         radio.setAttribute('name', 'radio');
         radio.setAttribute('value', `${i}`);

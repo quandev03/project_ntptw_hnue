@@ -77,12 +77,12 @@ function handleLoadPage() {
       case 'multi optional':
         info_answer.map((element, index) => {
           
-          const form_answer = create_element('div', 'list_answer');
+          const form_answer = create_element('div', 'list_answer', 'list_answer');
           const checkbox = create_element('input', `checkbox_${index}`, '`the_input`');
           checkbox.setAttribute("type", "checkbox");
           checkbox.setAttribute('name', 'checkbox');
           checkbox.checked = element.isTrue;
-          const answer = create_element('input', `answer_${index}`);
+          const answer = create_element('input', `answer_${index}`, "answer_text");
           form_answer.appendChild(checkbox);
           answer.value = element.answer;
           form_answer.appendChild(answer);
@@ -93,12 +93,12 @@ function handleLoadPage() {
       
       case 'only optional':
         info_answer.map((element, index) => {
-          const form_answer = create_element('div', 'list_answer');
+          const form_answer = create_element('div', 'list_answer', 'list_answer');
           const radio = create_element('input', `radio_${index}`, `the_input`);
           radio.setAttribute("type", "radio");
           radio.setAttribute('name', 'radio');
           radio.checked = element.isTrue;
-          const answer = create_element('input', `answer_${index}`);
+          const answer = create_element('input', `answer_${index}`, "answer_text");
           form_answer.appendChild(radio);
           answer.value = element.answer;
           form_answer.appendChild(answer);
@@ -114,9 +114,8 @@ function handleLoadPage() {
         answers.appendChild(form_answer);
     }
 
-
     // ! button 
-    const button = create_element('button', 'button_submit', '', 'Submit');
+    const button = create_element('button', 'button_submit', '', 'Cập nhật');
     // ! frame
     const frame_editor = create_element("div", 'frame_editor');
 
@@ -127,16 +126,9 @@ function handleLoadPage() {
     frame_editor.appendChild(button);
 
     // ! render website in
-    bodyPage.appendChild(frame_editor);
-    
+    bodyPage.appendChild(frame_editor);    
   }  
 }
-
-
-
-//! onchange the kind of question
-
-
 
 //! logout
 function logout() {

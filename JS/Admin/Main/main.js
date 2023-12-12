@@ -5,7 +5,7 @@ import { create_icon } from "http://127.0.0.1:5500/JS/Logic/create-icon.js";
 import { event_change_page } from "http://127.0.0.1:5500/JS/Logic/event-change-page.js";
 import { get_date } from "http://127.0.0.1:5500/JS/Logic/get-date.js";
 import { get_element_id } from "http://127.0.0.1:5500/JS/Logic/get_element_id.js";
-import { get_item, set_item } from "http://127.0.0.1:5500/JS/Logic/storage.js";
+import { get_item} from "http://127.0.0.1:5500/JS/Logic/storage.js";
 import { event_approval } from "http://127.0.0.1:5500/JS/Admin/Main/event_approval.js";
 import { event_disapproval } from "http://127.0.0.1:5500/JS/Admin/Main/event_disapproval.js";
 import { selection_data_all, selection_data_approvals, selection_data_await, selection_data_disapprovals } from "./selection_data.js";

@@ -1,45 +1,38 @@
 // TODO: create function handling event
 
-import { create_element } from "http://127.0.0.1:5500/JS/Logic/create-element.js"
-import { create_id } from "http://127.0.0.1:5500/JS/Logic/create-id.js"
-import { event_change_page } from "http://127.0.0.1:5500/JS/Logic/event-change-page.js"
-import { get_element_id } from "http://127.0.0.1:5500/JS/Logic/get_element_id.js"
-import { get_item, set_item } from "http://127.0.0.1:5500/JS/Logic/storage.js"
-import { create_icon} from "http://127.0.0.1:5500/JS/Logic/create-icon.js"
-import { handle_signup } from "http://127.0.0.1:5500/JS/User/Sign_Up/handle-submit.js"
+import { create_element } from "http://127.0.0.1:5500/JS/Logic/create-element.js";
+import { get_element_id } from "http://127.0.0.1:5500/JS/Logic/get_element_id.js";
+import { create_icon } from "http://127.0.0.1:5500/JS/Logic/create-icon.js";
+import { handle_signup } from "http://127.0.0.1:5500/JS/User/Sign_Up/handle-submit.js";
 
 function handle_load_page() {
-  const bodyPage = get_element_id("main_page")
+  const bodyPage = get_element_id("main_page");
 
   //! create form
-  const form = create_element('div', 'form_sign_up')
+  const form = create_element('div', 'form_sign_up');
 
   // !  code for page loading
+  const title = create_element("h1", 'title_signup', '', "Đăng kí");
+  form.appendChild(title);
 
-  const title = create_element("h1", 'title_signup', '', "Đăng kí")
-  form.appendChild(title)
-  
-
-  // ? code for enter input information username
   const username_input = create_element("input", 'username_input')
   username_input.setAttribute("placeholder", "Tên đăng nhập")
 
-  // ? code for enter input information full name
   const fullName_input = create_element("input", 'fullName_input')
   fullName_input.setAttribute("placeholder", "Nhập họ tên")
-  // ? code for enter input information address
+
   const address_input = create_element("input", "address_input")
   address_input.setAttribute("placeholder", "Nhập địa chỉ")
-  // ? code for enter input information age
+
   const age_input = create_element("input", 'age_input')
   age_input.setAttribute("placeholder", "Nhập tuổi")
   age_input.setAttribute("type", "number")
   age_input.setAttribute("min", '0')
-  // ? code for enter input information password
+
   const password_input = create_element("input", 'password_input')
   password_input.setAttribute("placeholder", "Nhập mật khẩu")
   password_input.setAttribute("type", 'password')
-  // ? code for enter input information password confirm
+
   const password_confirm_input = create_element("input", "password_confirm_input")
   password_confirm_input.setAttribute("placeholder", "Nhập lại mật khẩu")
   password_confirm_input.setAttribute("type", 'password')
@@ -82,33 +75,11 @@ function handle_load_page() {
   bodyPage.appendChild(form)
 }
 
-// ! function check already exists of account
-function check_already_accounted(accounts, username) {
-  let check_already = false
-  accounts.map(account => {
-    if (username === undefined) {
-      username = ''
-    }
-    if (account.username == username) {
-      check_already = true
-    }
-    
-  })
-  if (check_already) {
-    return true
-  }
-  else {
-    return false
-  }
-}
-
-
-
 // TODO: add listeners event handlers function
 document.addEventListener('load', handle_load_page())
 document.getElementById('button_signup').addEventListener('click', handle_signup)
-document.addEventListener("keydown", (event) => { 
+document.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     handle_signup();
   }
-})
+});

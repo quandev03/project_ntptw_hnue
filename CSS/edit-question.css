@@ -51,7 +51,7 @@ button {
 #kind_of_question {
   display: flex;
   flex-direction: column;
-  width: 310px;
+  width: 300px;
 }
 
 #from_question {
@@ -67,8 +67,23 @@ button {
   margin: 0px;
 }
 
-body {
-  background-image: url(qlhnue.surge.sh/Image/bg_1.jpg);
-  background-size: 100%;
-  background-repeat: no-repeat;
+.list_answer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.the_input {
+  width: 30px;
+}
+
+.answer_text {
+  width: 90%;
+}
+#answer {
+  width: 100%;
+}
+#question_input {
+  width: 90%;
+  padding: 0px;
+  padding: 3px 5%; 
 }
