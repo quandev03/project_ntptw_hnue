@@ -36,7 +36,6 @@ function handleLoadPage() {
     nav_tag_2.appendChild(fullName);
     console.log(history_exam.length);
     for (let index = history_exam.length - 1; index >= 0; index--) {
-      console.log('a');
       const item = create_element('div', '', 'item_history')
       const point = create_element('p', '', 'point', history_exam[index].point.toFixed(1));
       if (history_exam[index].point.toFixed(1) >= 6) point.style.backgroundColor = "rgba(53, 255, 63, 1)"

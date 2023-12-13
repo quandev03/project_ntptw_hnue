@@ -16,15 +16,15 @@ export default function get_random_exam() {
   if (data_question_selected.length >= 5) {
     let data_question_exam = new Array();
     for (let i = 0; i < 5; i++) {
-      const question = data_question_selected[getRandomNumber(data_question_selected.length)]
-      console.log(question);
-      if(question) data_question_exam.push(question)
-      data_question_selected = data_question_selected.filter(question => question != data_question_exam)
-    
+      const question_this = data_question_selected[getRandomNumber(data_question_selected.length)]
+      console.log(question_this);
+      if(question_this) data_question_exam.push(question_this)
+      data_question_selected = data_question_selected.filter(question => question != question_this)
+      
     }
-    data_question_exam.filter(question => question != undefined)
-    console.log(data_question_exam);
-    return data_question_exam;
+    data_question_selected.filter(question => question != undefined)
+    console.log(data_question_selected);
+    return data_question_selected;
   }
   else {
     data_question_selected.filter(question => question != undefined)

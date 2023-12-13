@@ -17,7 +17,7 @@ export default function handle_submit() {
     const correct_answer = info_this_question[0][1].filter(answer => answer.isTrue == true)
     const quantity_correct_answer = correct_answer.length
     for (let i = 0; i < this_answer.length; i++) { 
-      const isCorrect = info_this_question[0][1].filter(answer => answer.answer == this_answer[i])
+      const isCorrect = info_this_question[0][1].filter(answer => answer.answer.toLowerCase() == this_answer[i].toLowerCase())
       if (isCorrect[0]) { 
         if (isCorrect[0].isTrue) quantity_correct++;
       }
