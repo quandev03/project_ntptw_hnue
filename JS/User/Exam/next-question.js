@@ -56,10 +56,10 @@ export default function next_question() {
     const answers = get_element_id('list_answer')
     set_item('this_question', 'session', this_question)
     
-  
-    if (get_item('this_exam', 'session')[get_item('this_question', 'session')][0].image) {
+
+    if (this_exam[this_question][0].image) {
       const img = get_element_id('img_question');
-      img.src = this_question.image
+      img.src = this_exam[this_question][0].image
       img.style.display = 'block'
     }
     else get_element_id('img_question').style.display = 'none';

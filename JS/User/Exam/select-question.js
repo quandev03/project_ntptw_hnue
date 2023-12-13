@@ -20,7 +20,6 @@ export default function get_random_exam() {
       console.log(question_this);
       if(question_this) data_question_exam.push(question_this)
       data_question_selected = data_question_selected.filter(question => question != question_this)
-      
     }
     data_question_selected.filter(question => question != undefined)
     console.log(data_question_selected);
@@ -30,5 +29,4 @@ export default function get_random_exam() {
     data_question_selected.filter(question => question != undefined)
     return data_question_selected;
   }
-  
 }
