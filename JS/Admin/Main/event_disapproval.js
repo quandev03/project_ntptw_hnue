@@ -1,5 +1,5 @@
-import { get_item, set_item } from "http://127.0.0.1:5500/JS/Logic/storage.js";
-import { selection_data_all } from "http://127.0.0.1:5500/JS/Admin/Main/selection_data.js";
+import { get_item, set_item } from "./../../../JS/Logic/storage.js";
+import { selection_data_all } from "./../../../JS/Admin/Main/selection_data.js";
 
 export const event_disapproval = () =>{
   let approvals_question_stt;

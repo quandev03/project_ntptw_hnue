@@ -1,10 +1,10 @@
 // TODO: function handle listeners event
 
-import { create_element } from "http://127.0.0.1:5500/JS/Logic/create-element.js";
-import { event_change_page } from "http://127.0.0.1:5500/JS/Logic/event-change-page.js";
-import { get_element_id } from "http://127.0.0.1:5500/JS/Logic/get_element_id.js";
-import { get_item } from "http://127.0.0.1:5500/JS/Logic/storage.js"
-import { handle_submit } from "http://127.0.0.1:5500/JS/User/Edit_Question/event_submit.js";
+import { create_element } from "./../../../JS/Logic/create-element.js";
+import { event_change_page } from "./../../../JS/Logic/event-change-page.js";
+import { get_element_id } from "./../../../JS/Logic/get_element_id.js";
+import { get_item } from "./../../../JS/Logic/storage.js"
+import { handle_submit } from "./../../../JS/User/Edit_Question/event_submit.js";
 
 // ! onload: function handle
 function handleLoadPage() {
@@ -13,7 +13,7 @@ function handleLoadPage() {
   let dataUser = get_item('account', 'session');
   const nav_tag_2 = get_element_id('nav_tag_2');
   if (!dataUser) { //? kiểm tra trạng thái đăng nhập
-    event_change_page('http://127.0.0.1:5500/HTML/Login_HTML/login_user.html');
+    event_change_page('./../../../HTML/Login_HTML/login_user.html');
   } else {
     // ! information account
     // ? hiện thị tên tải khoản
@@ -133,7 +133,7 @@ function handleLoadPage() {
 //! logout
 function logout() {
   sessionStorage.removeItem('account');
-  event_change_page('http://127.0.0.1:5500')
+  event_change_page('./../../../index.html');
 }
 // TODO: add listeners event handlers
 document.addEventListener('load', handleLoadPage());

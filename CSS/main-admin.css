@@ -1,12 +1,12 @@
 .question {
   box-shadow: 0px 0px 10px rgb(202, 202, 202);
   background-color: rgba(248, 248, 248, 0.704);
-  padding: 10px 130px 10px 130px;
+  padding: 10px 50px 10px 50px;
   border-radius: 10px;
   margin-top: 30px;
   transition: transform 0.5s;
   transition-delay: 0.5s;
-  width: 20%;
+  width: 40%;
 
 }
 
@@ -159,4 +159,11 @@ p {
 
 img {
   width: 100%;
+}
+.text_question {
+  width: 100%;
+  height: auto;
+  color: rgb(65, 160, 192) !important;
+  font-weight: 300;
+  text-align: start;
 }

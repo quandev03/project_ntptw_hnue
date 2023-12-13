@@ -1,14 +1,14 @@
 // TODO: function handle listeners event
 
-import { create_element } from "http://127.0.0.1:5500/JS/Logic/create-element.js";
-import { create_icon } from "http://127.0.0.1:5500/JS/Logic/create-icon.js";
-import { event_change_page } from "http://127.0.0.1:5500/JS/Logic/event-change-page.js";
-import { get_date } from "http://127.0.0.1:5500/JS/Logic/get-date.js";
-import { get_element_id } from "http://127.0.0.1:5500/JS/Logic/get_element_id.js";
-import { get_item} from "http://127.0.0.1:5500/JS/Logic/storage.js";
-import { event_approval } from "http://127.0.0.1:5500/JS/Admin/Main/event_approval.js";
-import { event_disapproval } from "http://127.0.0.1:5500/JS/Admin/Main/event_disapproval.js";
-import { selection_data_all, selection_data_approvals, selection_data_await, selection_data_disapprovals } from "./selection_data.js";
+import { create_element } from "./../../../../JS/Logic/create-element.js";
+import { create_icon } from "./../../../../JS/Logic/create-icon.js";
+import { event_change_page } from "./../../../../JS/Logic/event-change-page.js";
+import { get_date } from "./../../../../JS/Logic/get-date.js";
+import { get_element_id } from "./../../../JS/Logic/get_element_id.js";
+import { get_item} from "./../../../../JS/Logic/storage.js";
+import { event_approval } from "./../../../../JS/Admin/Main/event_approval.js";
+import { event_disapproval } from "./../../../../JS/Admin/Main/event_disapproval.js";
+import { selection_data_all, selection_data_approvals, selection_data_await, selection_data_disapprovals } from "./../../../../JS/Admin/Main/selection_data.js"
 let status_sm = false;
 const event_show_more = () => {
   status_sm = !status_sm;
@@ -40,14 +40,16 @@ function handleLoadPage() {
     if (!data) {
       data = new Array();
     }
-    data.map( // hàm lấy ra từng dư liệu của nhỏ
+    data.map( 
       (element) => {
         let questionInfo = element[0];
         console.log(questionInfo.status);
 
-        let question = create_element('div', '', 'question');
+        const question = create_element('div', '', 'question');
 
-        let content = create_element('p', '', 'content', `Câu hỏi: ${questionInfo.content}`);
+        const id_user = create_element('pre', 'user', 'text_question', `ID User: ${questionInfo.id_user}`);
+
+        const content = create_element('p', '', 'content', `Câu hỏi: ${questionInfo.content}`);
 
         let image;
 
@@ -56,11 +58,11 @@ function handleLoadPage() {
           image.src = questionInfo.image;
         }  
 
-        let stt = create_element('pre', '', '', `ID: ${questionInfo.stt}`);
+        const stt = create_element('pre', '', 'text_question', `ID: ${questionInfo.stt}`);
 
-        let timeSent = create_element('pre', '', '', `Thời gian gửi: ${get_date(questionInfo.time_sent_answer)}`);
+        const timeSent = create_element('pre', '', 'text_question', `Thời gian gửi: ${get_date(questionInfo.time_sent_answer)}`);
 
-        let status = create_element('pre', '', 'status', `Trạng thái:`);
+        const status = create_element('pre', '', 'status text_question', `Trạng thái:`);
         
         let icon;
         if (questionInfo.status == 'approvals') icon = create_icon('material-icons', 'check', 20, 'green');
@@ -68,9 +70,9 @@ function handleLoadPage() {
         else icon = create_icon('material-icons', 'cancel', 20, 'red');
         status.appendChild(icon);
 
-        let answers = create_element('table', '', 'answer');
+        const answers = create_element('table', '', 'answer');
 
-        let answersInfo = element[1];
+        const answersInfo = element[1];
 
         switch (questionInfo.kind_of_question) {
 
@@ -99,6 +101,7 @@ function handleLoadPage() {
 
         //! render element to form questions
         question.appendChild(stt);
+        question.appendChild(id_user);
         question.appendChild(content);
         if (questionInfo.image) question.appendChild(image)
         question.appendChild(timeSent);
@@ -111,13 +114,13 @@ function handleLoadPage() {
     )
 
     //! create button approvals and disapprovals
-    let button_disapprovals = create_element('button', 'disapprovals-button')
+    const button_disapprovals = create_element('button', 'disapprovals-button')
     button_disapprovals.innerHTML = '<i class="material-icons" style="font-size:36px;">cancel</i>'
 
-    let button_approvals = create_element('button', 'approvals-button', '', "APPROVALS")
+    const button_approvals = create_element('button', 'approvals-button', '', "APPROVALS")
     button_approvals.innerHTML = '<i class="material-icons" style="font-size:36px">done</i>'
 
-    let show_more = create_element('button', 'show_more', '', "APPROVALS")
+    const show_more = create_element('button', 'show_more', '', "APPROVALS")
     show_more.innerHTML = `<i class="material-icons" style="font-size:35px">arrow_drop_down_circle</i>`
 
     // ! create select data
@@ -151,7 +154,7 @@ function handleLoadPage() {
     body_page.appendChild(button_approvals)
 
     body_page.appendChild(show_more)
-  } else event_change_page('http://127.0.0.1:5500/HTML/Login_HTML/login_admin.html')
+  } else event_change_page('./../../../../HTML/Login_HTML/login_admin.html')
 }
 
 // ! logout

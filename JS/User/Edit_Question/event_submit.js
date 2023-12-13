@@ -1,6 +1,6 @@
-import { event_change_page } from "http://127.0.0.1:5500/JS/Logic/event-change-page.js";
-import { get_element_id } from "http://127.0.0.1:5500/JS/Logic/get_element_id.js";
-import { get_item, set_item } from "http://127.0.0.1:5500/JS/Logic/storage.js";
+import { event_change_page } from "./../../../JS/Logic/event-change-page.js";
+import { get_element_id } from "./../../../JS/Logic/get_element_id.js";
+import { get_item, set_item } from "./../../../JS/Logic/storage.js";
 
 export const handle_submit = () => {
   // ! fetch data
@@ -65,5 +65,5 @@ export const handle_submit = () => {
   ]
   data_question[edit_question_stt] = data_upload;
   set_item('data_question', 'local', data_question);
-  event_change_page('http://127.0.0.1:5500/HTML/Question_HTML/question_user.html');
+  event_change_page('./../../../HTML/Question_HTML/question_user.html');
 }

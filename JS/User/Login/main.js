@@ -93,7 +93,7 @@ function handle_login() {
         id: data_user.id
       };
       set_item('account', 'session', info_user);
-      event_change_page('http://127.0.0.1:5500/index.html');
+      event_change_page('./../../index.html');
     }
     else {
       alert("Mật khẩu không chính xác, vui lòng nhập lại mật khẩu!");
@@ -132,7 +132,7 @@ document.getElementById('icon_eye').addEventListener('click', () => {
 
 document.getElementById('button_change_admin')
   .addEventListener('click', () => {
-    event_change_page('http://127.0.0.1:5500/HTML/admin_main.html')
+    event_change_page('./../../HTML/Login_HTML/login_admin.html');
   }
   );
 document.addEventListener("keydown", (event) => {

@@ -1,6 +1,6 @@
-import { create_element } from "http://127.0.0.1:5500/JS/Logic/create-element.js"
-import { event_change_page } from "http://127.0.0.1:5500/JS/Logic/event-change-page.js"
-import { get_item, set_item } from "http://127.0.0.1:5500/JS/Logic/storage.js"
+import { create_element } from "./../../../JS/Logic/create-element.js"
+import { event_change_page } from "./../../../JS/Logic/event-change-page.js"
+import { get_item, set_item } from "./../../../JS/Logic/storage.js"
 
 export const edit_question = () => {
 
@@ -21,7 +21,7 @@ export const edit_question = () => {
     location.reload()
   } else {
     set_item('edit_question_stt', 'local', edit_question_stt)
-    event_change_page('http://127.0.0.1:5500/HTML/Question_HTML/edit_question.html')
+    event_change_page('./../../../HTML/Question_HTML/edit_question.html')
   }
   
 }

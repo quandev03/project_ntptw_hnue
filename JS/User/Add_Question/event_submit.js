@@ -1,7 +1,7 @@
-import { create_id } from "http://127.0.0.1:5500/JS/Logic/create-id.js";
-import { event_change_page } from "http://127.0.0.1:5500/JS/Logic/event-change-page.js";
-import { get_element_id } from "http://127.0.0.1:5500/JS/Logic/get_element_id.js";
-import { get_item, set_item } from "http://127.0.0.1:5500/JS/Logic/storage.js";
+import { create_id } from "./../../../JS/Logic/create-id.js";
+import { event_change_page } from "./../../../JS/Logic/event-change-page.js";
+import { get_element_id } from "./../../../JS/Logic/get_element_id.js";
+import { get_item, set_item } from "./../../../JS/Logic/storage.js";
 import { get_image } from "../../Logic/get-image.js";
 
 export const handle_submit = () => {
@@ -83,5 +83,5 @@ export const handle_submit = () => {
   ) {
     set_item('data_question', 'local', data_question);
   }
-  event_change_page('http://127.0.0.1:5500/HTML/Question_HTML/question_user.html');
+  event_change_page('./../../../HTML/Question_HTML/question_user.html');
 }

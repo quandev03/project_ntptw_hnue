@@ -1,11 +1,11 @@
-import { get_item, set_item } from "http://127.0.0.1:5500/JS/Logic/storage.js"
+import { get_item, set_item } from "./../../../JS/Logic/storage.js"
 
 const selection_data_approvals = () => {
   const data = get_item('data_question', 'local') 
   const select_data = data.filter(element => element[0].status === 'approvals')
   if (select_data.length == 0) { 
     sessionStorage.removeItem('data_selection');
-    set_item('data_selection', 'session', [])
+    set_item('data_selection', 'session', new Array())
   }
   else set_item('data_selection', 'session', select_data);
   location.reload();
@@ -16,7 +16,7 @@ const selection_data_disapprovals = () => {
   const data_select = data.filter(element => element[0].status === 'disapprovals')
   if (data_select.length == 0) { 
     sessionStorage.removeItem('data_selection');
-    set_item('data_selection', 'session', [])
+    set_item('data_selection', 'session', new Array())
   }
   else set_item('data_selection', 'session', data_select);
   location.reload();
@@ -27,7 +27,7 @@ const selection_data_await = () => {
   console.log(selection_data);
   if (selection_data.length == 0) { 
     sessionStorage.removeItem('data_selection');
-    set_item('data_selection', 'session', [])
+    set_item('data_selection', 'session', new Array())
   }
   else set_item('data_selection', 'session', selection_data);
   location.reload();

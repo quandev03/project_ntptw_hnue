@@ -1,9 +1,9 @@
-import { event_change_page } from "http://127.0.0.1:5500/JS/Logic/event-change-page.js"
+import { event_change_page } from "./../../JS/Logic/event-change-page.js"
 import { get_element_id } from "../Logic/get_element_id.js"
 
 
 const change_main = () => {
-  event_change_page('http://127.0.0.1:5500')
+  event_change_page('./../../index.html')
 }
 
 get_element_id('back_main').addEventListener('click', change_main)

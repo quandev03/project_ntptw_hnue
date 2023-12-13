@@ -1,9 +1,9 @@
 // TODO: function handle listeners event
 
-import { create_element } from "http://127.0.0.1:5500/JS/Logic/create-element.js"
-import { event_change_page } from "http://127.0.0.1:5500/JS/Logic/event-change-page.js"
-import { event_selection } from "http://127.0.0.1:5500/JS/User/Add_Question/event_selection.js"
-import { handle_submit } from "http://127.0.0.1:5500/JS/User/Add_Question/event_submit.js"
+import { create_element } from "./../../../JS/Logic/create-element.js"
+import { event_change_page } from "./../../../JS/Logic/event-change-page.js"
+import { event_selection } from "./../../../JS/User/Add_Question/event_selection.js"
+import { handle_submit } from "./../../../JS/User/Add_Question/event_submit.js"
 import { get_image } from "../../Logic/get-image.js"
 import { get_element_id } from "../../Logic/get_element_id.js"
 
@@ -13,7 +13,7 @@ function handleLoadPage() {
   let dataUser = JSON.parse(sessionStorage.getItem("account"));
   const nav_tag_2 = get_element_id("nav_tag_2");
   if (dataUser == null) {
-    event_change_page("http://127.0.0.1:5500/HTML/Login_HTML/login_user.html");
+    event_change_page("./../../../HTML/Login_HTML/login_user.html");
   } else {
 
     // ! information account
@@ -81,7 +81,7 @@ function handleLoadPage() {
 // ! logout
 function logout() {
   sessionStorage.removeItem('account');
-  event_change_page('http://127.0.0.1:5500/');
+  event_change_page('./../../../index.html');
 }
 
 // TODO: add event listeners  handlers

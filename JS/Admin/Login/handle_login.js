@@ -1,7 +1,7 @@
-import { event_change_page } from "../../Logic/event-change-page.js"
-import { get_element_id } from "../../Logic/get_element_id.js"
-import { get_item, set_item } from "../../Logic/storage.js"
-import { selection_data_all } from "../Main/selection_data.js"
+import { event_change_page } from "./../../../JS/Logic/event-change-page.js"
+import { get_element_id } from "./../../../JS/Logic/get_element_id.js"
+import { get_item, set_item } from "./../../../JS/Logic/storage.js"
+import { selection_data_all } from "./../../../JS/Admin/Main/selection_data.js"
 
 export const handle_login = () => {
   // ! get data from local storage
@@ -20,7 +20,7 @@ export const handle_login = () => {
       }
     )
     selection_data_all()
-    event_change_page('http://127.0.0.1:5500/HTML/admin_main.html')
+    event_change_page('./../../../HTML/admin_main.html')
   }else { 
     set_item(
       'admin_login',
