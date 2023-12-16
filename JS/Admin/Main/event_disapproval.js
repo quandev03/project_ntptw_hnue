@@ -10,7 +10,8 @@ export const event_disapproval = () =>{
       approvals_question_stt = index
     }
   })
-  let data_question = data[approvals_question_stt]
+  const this_question = data.filter(element=> element[0].stt == stt_question)
+  let data_question = this_question[0]
   data_question[0].status = 'disapprovals'
   data[approvals_question_stt] = data_question
   set_item('data_question', 'local', data) 
