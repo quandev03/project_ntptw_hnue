@@ -138,6 +138,6 @@ function logout() {
 // TODO: add listeners event handlers
 document.addEventListener('load', handleLoadPage());
 document.getElementById('button_submit').addEventListener('click', handle_submit);
-document.getElementById('logout').addEventListener('click', logout);
+document.getElementById('logout').addEventListener('dblclick', logout);
 // TODO: save code
 

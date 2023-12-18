@@ -64,7 +64,7 @@ function change_topic() {
 }
 // TODO: add event listeners
 document.addEventListener("load", handleLoadPage());
-document.getElementById('logout').addEventListener('click', logout);
+document.getElementById('logout').addEventListener('dblclick', logout);
 document.getElementById('question_topic').addEventListener('click', change_topic);
 document.getElementById('start').addEventListener('click', handle_start_exam)
 document.getElementById('button_next_question').addEventListener('click', next_question)

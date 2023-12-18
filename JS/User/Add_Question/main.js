@@ -88,5 +88,5 @@ function logout() {
 document.addEventListener('load', handleLoadPage());
 get_element_id('kind_of_question').addEventListener('change', event_selection);
 get_element_id('button_submit').addEventListener('click', handle_submit);
-get_element_id('logout').addEventListener('click', logout);
+get_element_id('logout').addEventListener("dblclick", logout);
 get_element_id('get_image').addEventListener('change', get_image);

@@ -56,7 +56,7 @@ function change_test() {
 }
 // TODO: add event listeners
 document.addEventListener("load", handleLoadPage());
-document.getElementById('logout').addEventListener('click', logout);
+document.getElementById('logout').addEventListener('dblclick', logout);
 document.getElementById('question_topic').addEventListener('click', change_topic);
 document.getElementById('flash_test').addEventListener('click', change_test);
 //flash_test

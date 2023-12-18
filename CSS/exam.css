@@ -254,3 +254,12 @@ i {
 #img_question:hover {
   transform: scale(5);
 }
+
+.body_page {
+  display: flex;
+  top: 0;
+   left: 0;
+}
+.tab_bar {
+  z-index: 2;
+}

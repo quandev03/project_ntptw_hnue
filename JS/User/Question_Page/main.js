@@ -156,7 +156,7 @@ document.addEventListener("load", handleLoadPage());
 document.getElementById('edit-button').addEventListener("click", edit_question);
 document.getElementById('delete-button').addEventListener("click", delete_question);
 document.getElementById('add-question-button').addEventListener('click', event_add_question);
-document.getElementById('logout').addEventListener('click', logout);
+document.getElementById('logout').addEventListener('dblclick', logout);
 document.getElementById('hidden').addEventListener('click', event_show_mode);
 document.addEventListener("scroll", function () {
   const body_page = document.getElementById('main_page');

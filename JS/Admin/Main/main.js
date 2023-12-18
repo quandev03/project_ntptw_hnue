@@ -168,7 +168,7 @@ function logout() {
 document.addEventListener("load", handleLoadPage())
 get_element_id('disapprovals-button').addEventListener('click', event_disapproval)
 get_element_id('approvals-button').addEventListener('click', event_approval)
-get_element_id('title').addEventListener('click', logout)
+get_element_id('title').addEventListener("dblclick", logout)
 get_element_id('show_more').addEventListener('click', event_show_more)
 get_element_id('set_data_approvals').addEventListener('click', selection_data_approvals)
 get_element_id('set_data_disapprovals').addEventListener('click', selection_data_disapprovals)
